@@ -79,6 +79,28 @@ export default {
 .segment {
   margin-top: 70px;
   margin-bottom: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.segment button {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight:normal;
+  padding: 12.5px 33.5px 12.5px 33.5px;
+  border: none;
+  border-radius : 50px;
+}
+
+.selected {
+  color: white;
+  background-color: #FF4E31;
+}
+
+.common {
+  color: #666666;
+  background-color: #F7F6F5;
 }
 
 .detail {
