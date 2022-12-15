@@ -17,22 +17,22 @@
 
 <script>
 export default {
-    name: 'NavigationBar',
-		methods: {
-			moveToMain() {
-				this.$router.push({name: "home"})
-			},
-			moveToProgramPage() {
-				this.$router.push({name: "program"})
-			},
-			moveToAboutPage() {
-				this.$router.push({name: "about"})
-			}
-		}
+  name: 'NavigationBar',
+  methods: {
+    moveToMain() {
+      this.$router.push({name: "home"})
+    },
+    moveToProgramPage() {
+      this.$router.push({name: "program"})
+    },
+    moveToAboutPage() {
+      this.$router.push({name: "about"})
+    }
+  }
 }
 </script>
 
-<style>
+<style scoped>
 p {
 	margin-top: 10px;
 	margin-bottom: 10px;

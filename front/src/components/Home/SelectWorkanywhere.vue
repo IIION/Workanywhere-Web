@@ -72,7 +72,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .total-container {
   margin-top: 131px;
   margin-bottom: 131px;
@@ -126,6 +126,7 @@ export default {
 .image-container {
   width: 50%;
   height: 95%;
+  background: #F7F6F5;
   margin: 0px 74px 0px 74px;
   border-radius: 20px;
   box-shadow: 0px 5px 8px 3px rgba(0, 0, 0, 0.17);
