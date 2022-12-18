@@ -2,8 +2,8 @@
   <div>
     <div class="navbar">
 			<div class="left">
-				<p class="about" @click="moveToAboutPage">ABOUT</p>
-				<p class="program" @click="moveToProgramPage">프로그램</p>
+				<p id="1" :class="[selection === '1' ? 'selected' : 'common']" @click="moveToAboutPage">ABOUT</p>
+				<p id="2" :class="[selection === '2' ? 'selected' : 'common']" @click="moveToProgramPage">프로그램</p>
 			</div>
 			<img src="@/assets/logo.png" class="logoIcon" @click="moveToMain">
 			<div class="right">
@@ -18,14 +18,25 @@
 <script>
 export default {
   name: 'NavigationBar',
+  data: function() {
+    return {
+      selection: '0'
+    }
+  },
   methods: {
-    moveToMain() {
+    moveToMain(event) {
+      const targetId = event.currentTarget.id
+      this.selection = targetId
       this.$router.push({name: "home"})
     },
-    moveToProgramPage() {
+    moveToProgramPage(event) {
+      const targetId = event.currentTarget.id
+      this.selection = targetId
       this.$router.push({name: "program"})
     },
-    moveToAboutPage() {
+    moveToAboutPage(event) {
+      const targetId = event.currentTarget.id
+      this.selection = targetId
       this.$router.push({name: "about"})
     }
   }
@@ -73,6 +84,14 @@ p {
 	font-size: 13px;
 	margin-left: 15px;
 	margin-right: 15px;
+}
+
+.selected {
+  font-weight: 700;
+}
+
+.common {
+  font-weight: 400;
 }
 
 </style>

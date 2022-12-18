@@ -79,6 +79,8 @@ export default {
 }
 
 .new-benefit {
+  margin: 0;
+  line-height: 58px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 3rem;

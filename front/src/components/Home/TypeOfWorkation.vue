@@ -42,7 +42,7 @@ export default {
 .title {
   font-family: "Montserrat";
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 500;
   color: #FF4E31;
 }
 
