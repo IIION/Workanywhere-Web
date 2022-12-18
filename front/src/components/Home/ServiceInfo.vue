@@ -128,11 +128,11 @@ export default {
   margin-bottom: 70px;
   display: flex;
   justify-content: center;
+  background-color: #F7F6F5;
+  border-radius : 50px;
 }
 
 .segment button {
-  margin-left: 10px;
-  margin-right: 10px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: normal;
   padding: 12.5px 33.5px 12.5px 33.5px;
