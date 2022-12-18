@@ -1,17 +1,15 @@
 <template>
-  <div>
-    <div class="navbar">
-			<div class="left">
-				<p id="1" :class="[selection === '1' ? 'selected' : 'common']" @click="moveToAboutPage">ABOUT</p>
-				<p id="2" :class="[selection === '2' ? 'selected' : 'common']" @click="moveToProgramPage">프로그램</p>
-			</div>
-			<img src="@/assets/logo.png" class="logoIcon" @click="moveToMain">
-			<div class="right">
-				<p class="login">로그인</p>
-				<p class="signin">회원가입</p>
-				<img src="@/assets/search.png" class="searchIcon">
-			</div>
-		</div>
+  <div class="navbar">
+    <div class="left">
+      <p id="1" :class="[selection === '1' ? 'selected' : 'common']" @click="moveToAboutPage">ABOUT</p>
+      <p id="2" :class="[selection === '2' ? 'selected' : 'common']" @click="moveToProgramPage">프로그램</p>
+    </div>
+    <img src="@/assets/logo.png" class="logoIcon" @click="moveToMain">
+    <div class="right">
+      <p class="login">로그인</p>
+      <p class="signin">회원가입</p>
+      <img src="@/assets/search.png" class="searchIcon">
+    </div>
   </div>
 </template>
 
@@ -50,19 +48,21 @@ p {
 }
 .navbar {
   background-color: rgb(255, 255, 255);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 72px;
+	position: fixed;
+  top: 0;
+  height: 70px;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .left {
 	display: flex;
-	margin-left: 20%;
 	align-items: center;
 }
 .right {
 	display: flex;
-	margin-right: 20%;
 	align-items: center;
 }
 .logoIcon {
