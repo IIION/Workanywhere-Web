@@ -27,6 +27,7 @@ export default {
   overflow: hidden;
 }
 img {
+  display : block;
   height: 30vh;
   object-fit:cover;
 }
