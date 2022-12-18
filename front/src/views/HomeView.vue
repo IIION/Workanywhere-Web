@@ -4,6 +4,7 @@
     <SelectWorkanywhereVue/>
     <TypeOfWorkationVue/>
     <ServiceInfoVue/>
+    <KeysVue/>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import BannerVue from '@/components/Home/Banner.vue';
 import SelectWorkanywhereVue from '@/components/Home/SelectWorkanywhere.vue';
 import TypeOfWorkationVue from '@/components/Home/TypeOfWorkation.vue';
 import ServiceInfoVue from '@/components/Home/ServiceInfo.vue';
+import KeysVue from '@/components/Home/Keys.vue'
 
 export default {
   name: 'HomeView',
@@ -19,7 +21,8 @@ export default {
     BannerVue,
     SelectWorkanywhereVue,
     TypeOfWorkationVue,
-    ServiceInfoVue
+    ServiceInfoVue,
+    KeysVue
   }
 }
 </script>
