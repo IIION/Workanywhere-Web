@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Navbar/>
-    <router-view/>
+    <router-view style="margin-top:70px;"/>
   </div>
 </template>
 
@@ -36,4 +36,9 @@ nav a {
 nav a.router-link-exact-active {
   color: #42b983;
 }
+
+p {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
 </style>

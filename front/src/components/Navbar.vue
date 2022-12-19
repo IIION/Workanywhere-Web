@@ -1,57 +1,68 @@
 <template>
-  <div>
-    <div class="navbar">
-			<div class="left">
-				<p class="about" @click="moveToAboutPage">ABOUT</p>
-				<p class="program" @click="moveToProgramPage">프로그램</p>
-			</div>
-			<img src="@/assets/logo.png" class="logoIcon" @click="moveToMain">
-			<div class="right">
-				<p class="login">로그인</p>
-				<p class="signin">회원가입</p>
-				<img src="@/assets/search.png" class="searchIcon">
-			</div>
-		</div>
+  <div class="navbar">
+    <div class="left">
+      <p id="1" :class="[selection === '1' ? 'selected' : 'common']" @click="moveToAboutPage">ABOUT</p>
+      <p id="2" :class="[selection === '2' ? 'selected' : 'common']" @click="moveToProgramPage">프로그램</p>
+    </div>
+    <img src="@/assets/logo.png" class="logoIcon" @click="moveToMain">
+    <div class="right">
+      <p class="login">로그인</p>
+      <p class="signin">회원가입</p>
+      <img src="@/assets/search.png" class="searchIcon">
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'NavigationBar',
-		methods: {
-			moveToMain() {
-				this.$router.push({name: "home"})
-			},
-			moveToProgramPage() {
-				this.$router.push({name: "program"})
-			},
-			moveToAboutPage() {
-				this.$router.push({name: "about"})
-			}
-		}
+  name: 'NavigationBar',
+  data: function() {
+    return {
+      selection: '0'
+    }
+  },
+  methods: {
+    moveToMain(event) {
+      const targetId = event.currentTarget.id
+      this.selection = targetId
+      this.$router.push({name: "home"})
+    },
+    moveToProgramPage(event) {
+      const targetId = event.currentTarget.id
+      this.selection = targetId
+      this.$router.push({name: "program"})
+    },
+    moveToAboutPage(event) {
+      const targetId = event.currentTarget.id
+      this.selection = targetId
+      this.$router.push({name: "about"})
+    }
+  }
 }
 </script>
 
-<style>
+<style scoped>
 p {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 .navbar {
   background-color: rgb(255, 255, 255);
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	height: 72px;
+	position: fixed;
+  top: 0;
+  height: 70px;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .left {
 	display: flex;
-	margin-left: 20%;
 	align-items: center;
 }
 .right {
 	display: flex;
-	margin-right: 20%;
 	align-items: center;
 }
 .logoIcon {
@@ -73,6 +84,14 @@ p {
 	font-size: 13px;
 	margin-left: 15px;
 	margin-right: 15px;
+}
+
+.selected {
+  font-weight: 700;
+}
+
+.common {
+  font-weight: 400;
 }
 
 </style>

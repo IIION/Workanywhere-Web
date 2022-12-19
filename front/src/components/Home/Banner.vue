@@ -21,7 +21,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .banner-container {
   position: relative;
 }
@@ -55,7 +55,7 @@ export default {
   font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2rem;
   color: white;
 }
 .button {
