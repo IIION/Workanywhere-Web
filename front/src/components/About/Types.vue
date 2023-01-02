@@ -2,8 +2,9 @@
   <div class="type-container">
     <p class="type">TYPE OF WORKATION</p>
 
+    <!-- 반응형일때는 -->
     <div class="type1">
-      <img src="@/assets/Home/mindfull.png" />
+      <img src="@/assets/Home/mindfull.png" class="card-image"/>
       <div class="texts">
         <p class="header">TYPE #1</p>
         <p class="card-subtitle">리더들을 위한</p>
@@ -27,16 +28,17 @@
         <p class="card-subtitle">2-Weeks & 4-Weeks</p>
         <p class="card-title">애니웨어 리트릿</p>
         <p class="card-description">
-          설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명
+          복잡한 도심을 떠나 일을 하고 싶은 리모트 워커들을 위한 원할때 쉬고, 원할때 일하는 자유로운 워케이션 프로그램
         </p>
         <p class="card-subdescription">
-          설명설명설명설명설명설명설명설명설명설명설명
-          설명설명설명설명설명설명설명설명
-          설명설명설명설명설명설명설명설명설명설명ㅍ
+          낯선 곳에서 오전에는 집중적으로 업무를, 오후에는 서핑을 하는 것은 어때요? 
+          찬란한 영감과 획기적인 아이디어는 쉬거나 놀 때 갑자기 나온다고 해요. 
+          꽉 막힌 과제가 있다면, 팀 단위의 워케이션은 분명 기막힌 경험을 가져다 줄거예요. 
+          자유로운 분위기 속에서 생기는 끈끈한 팀빌딩은 덤으로 가져가세요.
         </p>
         <button>둘러보기</button>
       </div>
-      <img src="@/assets/Home/retlit.png" />
+      <img src="@/assets/Home/retlit.png" class="card-image"/>
     </div>
     
 
@@ -54,26 +56,44 @@ export default {
   background-color: #fffef6;
   padding: 79px 0px 0px 0px;
 }
+
 .type {
   font-family: "Montserrat";
   font-weight: 800;
   font-size: 3rem;
   color: #ff4e31;
-  margin: 0;
+  margin: 0px 0px 77px 0px;
 }
 
 .type1 {
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.type1 > .texts {
+  margin-left: 30px;
 }
 
 .type2 {
   display: flex;
+  align-items: center;
   justify-content: center;
+}
+
+.type2 > .texts {
+  margin-right: 30px;
+}
+
+.card-image {
+  border-radius: 20px;
+  width: 30%;
 }
 
 .texts {
   text-align: left;
+  width: 30%;
 }
 .header {
   font-family: "Montserrat";
@@ -85,11 +105,13 @@ export default {
 .card-subtitle {
   font-weight: 400;
   font-size: 2.5rem;
+  margin: 0;
 }
 
 .card-title {
   font-weight: 700;
   font-size: 4rem;
+  margin: 0;
 }
 
 .card-description {
@@ -104,8 +126,7 @@ export default {
 }
 
 button {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-top: 30px;
   color: #FF4E31;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;

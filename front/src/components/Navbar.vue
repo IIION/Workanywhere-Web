@@ -32,7 +32,6 @@
 export default {
   name: 'NavigationBar',
   data: function() {
-    
     return {
       selection: '0',
       showMenu: false
