@@ -40,8 +40,6 @@
       </div>
       <img src="@/assets/Home/retlit.png" class="card-image"/>
     </div>
-    
-
   </div>
 </template>
 
@@ -54,7 +52,7 @@ export default {
 <style scoped>
 .type-container {
   background-color: #fffef6;
-  padding: 79px 0px 0px 0px;
+  padding: 79px 0px 79px 0px;
 }
 
 .type {
