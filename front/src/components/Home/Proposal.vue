@@ -9,7 +9,6 @@
     <div class="image-container">
       <img src="@/assets/Home/documentImage.png">
     </div>
-    
   </div>
 </template>
 

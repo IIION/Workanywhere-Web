@@ -41,4 +41,9 @@ p {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
+@media all and (max-width: 750px) {
+  html { font-size: 50%; }
+}
+
+
 </style>
