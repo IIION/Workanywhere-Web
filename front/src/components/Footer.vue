@@ -19,7 +19,8 @@
         Copyright ⓒ 2022 WORKANYWHERE, All rights reserved.
       </p>
     </div>
-    <div class="footer-center">
+    <div class="footer-contents">
+      <div class="footer-center">
       <p style="font-weight: 700">워크애니웨어</p>
       <p>회사 소개</p>
       <p>도입 문의</p>
@@ -31,6 +32,8 @@
       <p>링크드인</p>
       <p>카카오톡</p>
     </div>
+    </div>
+    
   </div>
 </template>
 
@@ -45,7 +48,7 @@ export default {
   padding: 50px 0px 50px 0px;
   background-color: #f7f6f5;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 img {
@@ -54,13 +57,16 @@ img {
 
 .footer-left {
   text-align: left;
-  margin-right: 300px;
 }
 
 .co-info > p {
   margin-top: 2px;
   margin-bottom: 0;
   font-weight: 400;
+}
+
+.footer-contents {
+  display:flex;
 }
 
 .footer-center {
@@ -75,4 +81,58 @@ p {
   color: #666666;
   margin-top: 2px;
 }
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-left {
+    min-width: 300px;
+  }
+  .footer-contents {
+    flex-direction: column;
+  }
+
+  .footer-center {
+    margin-top: 30px;
+    text-align: left;
+    min-width: 300px;
+  }
+
+  .footer-right {
+    margin-top: 30px;
+    text-align: left;
+    min-width: 300px;
+  }
+
+  .footer-center > p:nth-child(2) {
+    display: inline;
+    margin-right: 10px;
+  }
+  .footer-center > p:nth-child(3) {
+    display: inline;
+  }
+  .footer-right > p:nth-child(2) {
+    display: inline;
+    margin-right: 10px;
+  }
+  .footer-right > p:nth-child(3) {
+    display: inline;
+    margin-right: 10px;
+  }
+  .footer-right > p:nth-child(4) {
+    display: inline;
+    margin-right: 10px;
+  }
+  .footer-right > p:nth-child(5) {
+    display: inline;
+  }
+  
+
+}
+
+
+
 </style>
