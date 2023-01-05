@@ -29,6 +29,9 @@ export default {
     ProgramsVue,
     WorkationsVue,
     FooterVue
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   }
 }
 </script>

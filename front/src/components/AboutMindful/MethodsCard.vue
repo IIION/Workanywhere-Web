@@ -5,7 +5,6 @@
     <p class="card-description1">{{ cardInfo.description1 }}</p>
     <p class="card-description2">{{ cardInfo.description2 }}</p>
     </div>
-    
   </div>
 </template>
 
@@ -22,7 +21,6 @@ export default {
 .container {
   background-color: #F7F6F5;
   border-radius: 10px;
-  border-radius: 20px;
 }
 .inner-container {
   padding: 30px 20px 30px 20px;

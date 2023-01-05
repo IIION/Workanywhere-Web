@@ -7,7 +7,6 @@
       :cardInfo="cardInfo[0]"
     />
     </div>
-    
   </div>
 </template>
 
