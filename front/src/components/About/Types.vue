@@ -18,7 +18,7 @@
           프로그램을 통해 일과 삶에 대한 영감과 훌륭한 인사이트를 얻을 수 있는
           기회를 만나보세요.
         </p>
-        <button>둘러보기</button>
+        <button @click="moveToMindful">둘러보기</button>
       </div>
     </div>
 
@@ -46,6 +46,11 @@
 <script>
 export default {
   name: "AboutTypesVue",
+  methods: {
+    moveToMindful(){
+      this.$router.push({name: "aboutmindful"})
+    }
+  }
 };
 </script>
 
@@ -72,6 +77,10 @@ export default {
 
 .type1 > .texts {
   margin-left: 30px;
+}
+
+.type1 button {
+  cursor: pointer;
 }
 
 .type2 {

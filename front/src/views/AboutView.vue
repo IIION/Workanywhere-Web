@@ -29,6 +29,9 @@ export default {
     ReviewVue,
     RequestVue,
     FooterVue
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   }
 }
 </script>

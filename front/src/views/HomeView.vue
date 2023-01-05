@@ -35,6 +35,9 @@ export default {
     PartnersVue,
     ProposalVue,
     FooterVue
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   }
 }
 </script>

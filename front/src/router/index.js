@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import AboutView from '@/views/AboutView'
 import HomeView from '@/views/HomeView'
 import ProgramView from '@/views/ProgramView'
+import AboutMindfulView from '@/views/AboutMindfulView'
 
 Vue.use(VueRouter)
 
@@ -21,6 +22,11 @@ const routes = [
     path: '/about',
     name: 'about',
     component: AboutView
+  },
+  {
+    path: '/about/mindful',
+    name: 'aboutmindful',
+    component: AboutMindfulView
   }
 ]
 

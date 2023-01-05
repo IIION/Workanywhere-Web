@@ -10,7 +10,7 @@
         :cardInfo=cardInfo[1]
       />
     </div>
-    <button>둘러보기</button>
+    <button @click="moveToAbout">둘러보기</button>
   </div>
 </template>
 
@@ -29,6 +29,11 @@ export default {
       { imgURL: require("@/assets/Home/retlit.png"), semititle: '2-Weeks & 4-Weeks', title: '애니웨어 리트릿', description: '서로에게 영감을 주는 리더들이 모여 여행지에서 새로운 라이프스타일을 즐기고 일도 하면서 서로간의 의미있는 연결을 통해 재충전하는 프로그램'}
       ]
     } 
+  },
+  methods: {
+    moveToAbout() {
+      this.$router.push({name: "about"})
+    }
   }
 }
 </script>
@@ -73,6 +78,7 @@ button {
   border: 1.5px solid #FF4E31;
   border-radius : 50px;
   background-color: rgba( 255, 255, 255, 0);
+  cursor: pointer;
 }
 
 </style>
