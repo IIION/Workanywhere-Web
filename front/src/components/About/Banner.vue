@@ -7,9 +7,7 @@
         <p class="title">노트북만 있다면 어디든 사무실이 되는 시대</p>
         <p class="semititle">Work Anywhere</p>
       </div>
-      
     </div>
-    
   </div>
 </template>
 
