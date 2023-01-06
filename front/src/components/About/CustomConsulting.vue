@@ -112,6 +112,10 @@ button {
   border: 1.5px solid #FF4E31;
   border-radius : 50px;
   background-color: rgba( 255, 255, 255, 0);
+  cursor: pointer;
 }
-
+button:hover {
+  background-color: #FF4E31;
+  color: #FFFEF6;
+}
 </style>

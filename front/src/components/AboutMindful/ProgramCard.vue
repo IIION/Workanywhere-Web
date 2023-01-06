@@ -26,13 +26,13 @@ export default {
 .backgroundimage {
   width: 100%;
   height: 35vh;
-  filter: brightness(80%);
+  filter: brightness(60%);
   object-fit: cover;
   border-radius: 20px;
 }
 .texts {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;

@@ -36,7 +36,7 @@
           꽉 막힌 과제가 있다면, 팀 단위의 워케이션은 분명 기막힌 경험을 가져다 줄거예요. 
           자유로운 분위기 속에서 생기는 끈끈한 팀빌딩은 덤으로 가져가세요.
         </p>
-        <button>둘러보기</button>
+        <button @click="moveToRetreat">둘러보기</button>
       </div>
       <img src="@/assets/Home/retlit.png" class="card-image"/>
     </div>
@@ -49,6 +49,9 @@ export default {
   methods: {
     moveToMindful(){
       this.$router.push({name: "aboutmindful"})
+    },
+    moveToRetreat(){
+      this.$router.push({name: "aboutretreat"})
     }
   }
 };
@@ -78,11 +81,6 @@ export default {
 .type1 > .texts {
   margin-left: 30px;
 }
-
-.type1 button {
-  cursor: pointer;
-}
-
 .type2 {
   display: flex;
   align-items: center;
@@ -141,6 +139,11 @@ button {
   border: 1.5px solid #FF4E31;
   border-radius : 50px;
   background-color: rgba( 255, 255, 255, 0);
+  cursor: pointer;
+}
+button:hover {
+  background-color: #FF4E31;
+  color: #FFFEF6;
 }
 
 </style>
