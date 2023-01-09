@@ -29,5 +29,7 @@ export default {
   font-size: 1.3rem;
   margin: 20px 0px 20px 0px;
   line-height: 20px;
+  overflow: auto;
+  white-space: pre-wrap; 
 }
 </style>

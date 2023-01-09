@@ -72,9 +72,9 @@ export default {
   top: 0;
   height: 70px;
   width: 100%;
-  z-index: 100;
+  z-index: 150;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 

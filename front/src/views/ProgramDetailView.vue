@@ -2,15 +2,18 @@
   <div>
     <BannerVue/>
     <div class="contents">
-      <div>
-        <SegmentVue class="segment-container"/>
+      <div style="display:flex">
+        <div style="width: 50%">
+          <SegmentVue class="segment-container"/>
+          <IntroductionVue class="introduction"/>
+        </div>
         <!-- 신청하기 컴포넌트가 들어갈 자리. 일단 빈 공간으로 -->
-        <IntroductionVue class="introduction"/>
-        <div class="request-container"></div>
+        <p class="request-container">공간 확인용 테스트</p>
       </div>
       
+      
       <PointsVue/>
-
+      <LodgingVue/>
     </div>
     <FooterVue/>
   </div>
@@ -21,6 +24,7 @@ import BannerVue from '@/components/ProgramDetail/Banner.vue';
 import SegmentVue from '@/components/ProgramDetail/Segments.vue'
 import IntroductionVue from '@/components/ProgramDetail/Introduction.vue';
 import PointsVue from '@/components/ProgramDetail/Points.vue';
+import LodgingVue from '@/components/ProgramDetail/Lodging.vue';
 import FooterVue from '@/components/Footer.vue';
 
 export default {
@@ -30,6 +34,7 @@ export default {
     SegmentVue,
     IntroductionVue,
     PointsVue,
+    LodgingVue,
     FooterVue
   }
 }
@@ -41,13 +46,14 @@ export default {
   margin-right: 15%;
 }
 .segment-container{
-  width: 50%;
   margin-bottom: 50px;
 }
 .request-container {
   width: 50%;
+  background-color: red;
+  margin-left: 10%;
 }
 .introduction {
-  width: 50%;
+  width: 100%;
 }
 </style>
