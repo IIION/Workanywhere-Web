@@ -51,7 +51,7 @@ export default {
   font-weight: 400;
   color: #FFFBE3;
   margin-top: 61px;
-  margin-bottom: 0;
+  margin-bottom: 8px;
 }
 
 .semititle {
