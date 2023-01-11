@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="img-container">
-      <img class="banner-img" src="@/assets/About/aboutBannerImage.png">
+      <img :src=detail.imgURL class="banner-img">
       <div class="banner-description">
-        <p class="type">ABOUT</p>
-        <p class="title">노트북만 있다면 어디든 사무실이 되는 시대</p>
-        <p class="semititle">Work Anywhere</p>
+        <p class="type">{{ detail.type }}</p>
+        <p class="title">{{ detail.title }}</p>
+        <p class="semititle">{{ detail.semititle }}</p>
       </div>
     </div>
   </div>
@@ -13,7 +13,10 @@
 
 <script>
 export default {
-  name: "AboutBanner"
+  name: "AboutBanner",
+  props: {
+    detail: Object
+  }
 }
 </script>
 

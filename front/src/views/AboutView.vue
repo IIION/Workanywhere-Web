@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Banner/>
+    <Banner :detail="bannerdetail"/>
     <AboutPurposeVue/>
     <TypesVue/>
     <CustomConsultingVue/>
@@ -29,6 +29,16 @@ export default {
     ReviewVue,
     RequestVue,
     FooterVue
+  },
+  data: function () {
+    return {
+      bannerdetail: {
+        imgURL: require("@/assets/About/aboutBannerImage.png"),
+        type: "ABOUT",
+        title: "노트북만 있다면 어디든 사무실이 되는 시대",
+        semititle: "Work Anywhere"
+      }
+    }
   },
   mounted() {
     window.scrollTo(0, 0)
