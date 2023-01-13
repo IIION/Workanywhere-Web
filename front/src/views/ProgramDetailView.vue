@@ -14,6 +14,7 @@
       
       <PointsVue/>
       <LodgingVue/>
+      <OfficeVue/>
     </div>
     <FooterVue/>
   </div>
@@ -25,6 +26,7 @@ import SegmentVue from '@/components/ProgramDetail/Segments.vue'
 import IntroductionVue from '@/components/ProgramDetail/Introduction.vue';
 import PointsVue from '@/components/ProgramDetail/Points.vue';
 import LodgingVue from '@/components/ProgramDetail/Lodging.vue';
+import OfficeVue from '@/components/ProgramDetail/Office.vue';
 import FooterVue from '@/components/Footer.vue';
 
 export default {
@@ -35,6 +37,7 @@ export default {
     IntroductionVue,
     PointsVue,
     LodgingVue,
+    OfficeVue,
     FooterVue
   }
 }

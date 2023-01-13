@@ -26,6 +26,7 @@ export default {
   font-size: 1.5rem;
 }
 .description2 {
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 1.3rem;
   margin: 20px 0px 20px 0px;
   line-height: 20px;
