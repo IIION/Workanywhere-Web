@@ -5,7 +5,7 @@ import HomeView from '@/views/HomeView'
 import ProgramView from '@/views/ProgramView'
 import AboutMindfulView from '@/views/AboutMindfulView'
 import AboutRetreatView from '@/views/AboutRetreatView'
-import ProgramDetailView from '@/views/ProgramDetailView'
+import ProgramDetailSokchoView from '@/views/ProgramDetailSokchoView'
 
 Vue.use(VueRouter)
 
@@ -36,9 +36,9 @@ const routes = [
     component: AboutRetreatView
   },
   {
-    path: '/program/mindful',
+    path: '/program/sokcho',
     name: 'programdetail',
-    component: ProgramDetailView
+    component: ProgramDetailSokchoView
   }
 ]
 

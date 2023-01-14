@@ -34,7 +34,7 @@ export default {
           time: "9:00 - 18:00",
           details: [
             {
-              imgURL: require("@/assets/ProgramDetailIcons/wifi.png"),
+              imgURL: require("@/assets/ProgramDetailIcons/wifi2.png"),
               title: "초고속 WIFI"
             },
             {
@@ -71,7 +71,7 @@ export default {
           time: "9:00 - 18:00",
           details: [
             {
-              imgURL: require("@/assets/ProgramDetailIcons/wifi.png"),
+              imgURL: require("@/assets/ProgramDetailIcons/wifi2.png"),
               title: "초고속 WIFI"
             },
             {
@@ -100,7 +100,7 @@ export default {
           time: "24시간",
           details: [
             {
-              imgURL: require("@/assets/ProgramDetailIcons/wifi.png"),
+              imgURL: require("@/assets/ProgramDetailIcons/wifi2.png"),
               title: "초고속 WIFI"
             },
             {

@@ -15,22 +15,24 @@
       <PointsVue/>
       <LodgingVue/>
       <OfficeVue/>
+      <Programs/>
     </div>
     <FooterVue/>
   </div>
 </template>
 
 <script>
-import BannerVue from '@/components/ProgramDetail/Banner.vue';
-import SegmentVue from '@/components/ProgramDetail/Segments.vue'
-import IntroductionVue from '@/components/ProgramDetail/Introduction.vue';
-import PointsVue from '@/components/ProgramDetail/Points.vue';
-import LodgingVue from '@/components/ProgramDetail/Lodging.vue';
-import OfficeVue from '@/components/ProgramDetail/Office.vue';
+import BannerVue from '@/components/ProgramSokcho/Banner.vue';
+import SegmentVue from '@/components/ProgramSokcho/Segments.vue'
+import IntroductionVue from '@/components/ProgramSokcho/Introduction.vue';
+import PointsVue from '@/components/ProgramSokcho/Points.vue';
+import LodgingVue from '@/components/ProgramSokcho/Lodging.vue';
+import OfficeVue from '@/components/ProgramSokcho/Office.vue';
+import Programs from '@/components/ProgramSokcho/Programs.vue';
 import FooterVue from '@/components/Footer.vue';
 
 export default {
-  name: "ProgramDetailView",
+  name: "ProgramSokchoView",
   components: {
     BannerVue,
     SegmentVue,
@@ -38,6 +40,7 @@ export default {
     PointsVue,
     LodgingVue,
     OfficeVue,
+    Programs,
     FooterVue
   }
 }
