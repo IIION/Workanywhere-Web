@@ -6,7 +6,7 @@
     <Program3 class="program-card"/>
     <Program4 class="program-card"/>
     <Program5 class="program-card"/>
-    <p>지역 및 부대시설에 따라 프로그램은 변경될 수 있습니다</p>
+    <p class="sub-info">지역 및 부대시설에 따라 프로그램은 변경될 수 있습니다</p>
   </div>
 </template>
 
@@ -38,9 +38,10 @@ export default {
   font-weight: 700;
   font-size: 2rem;
 }
-
 .program-card {
   margin: 10px 0px 0px 0px;
 }
-
+.sub-info {
+  margin: 30px 0px 0px 0px
+}
 </style>
