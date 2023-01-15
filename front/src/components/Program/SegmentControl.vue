@@ -35,7 +35,7 @@ export default {
 
 <style scoped>
 .segment {
-  margin-top: 70px;
+  margin-top: 85px;
   margin-bottom: 70px;
   display: flex;
   justify-content: center;

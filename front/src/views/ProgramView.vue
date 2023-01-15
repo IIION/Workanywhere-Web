@@ -33,17 +33,21 @@ export default {
       cells: [
         {
           id: 1,
-          title: '리더들을 위한 마인드풀 워케이션',
-          date: '2022-01-01',
+          imgURL: require("@/assets/Home/mindfull.png"),
           region: '속초',
-          tags: ['tag1', 'tag2']
+          period: '2박 3일',
+          title: '리더들을 위한 마인드풀 워케이션',
+          date: '2022.12.14 - 12.16',
+          tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
         },
         {
           id: 2,
-          title: '천천히 영월',
-          date: '2023-01-01',
+          imgURL: require("@/assets/Home/mindfull.png"),
           region: '영월',
-          tags: ['tag1', 'tag2']
+          period: '2주',
+          title: '천천히 영월',
+          date: '2022.11.25 - 12.31',
+          tags: ['임직원', '패러글라이딩', '별빛야경', '산속뷰']
         }
       ]
     }
