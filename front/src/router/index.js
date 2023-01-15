@@ -6,6 +6,8 @@ import ProgramView from '@/views/ProgramView'
 import AboutMindfulView from '@/views/AboutMindfulView'
 import AboutRetreatView from '@/views/AboutRetreatView'
 import AddView from '@/views/AddView'
+import ProgramDetailSokchoView from '@/views/ProgramDetailSokchoView'
+import ProgramDetailYeongwolView from '@/views/ProgramDetailYeongwolView'
 
 Vue.use(VueRouter)
 
@@ -39,6 +41,16 @@ const routes = [
     path: '/add',
     name: 'add',
     component: AddView
+  },
+  {
+    path: '/program/sokcho',
+    name: 'programdetailsokcho',
+    component: ProgramDetailSokchoView
+  },
+  {
+    path: '/program/yeongwol',
+    name: 'programdetailyeongwol',
+    component: ProgramDetailYeongwolView
   }
 ]
 
