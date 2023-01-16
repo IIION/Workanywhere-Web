@@ -14,6 +14,7 @@
         <program-collection :selection="selection" :sortOption="sortOption" :cells="cells"></program-collection>
       </div>
     </div>
+    <FooterVue/>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import Banner from '@/components/About/Banner.vue';
 import SegmentControl from '../components/Program/SegmentControl.vue';
 import SortingDropDown from '../components/Program/SortingDropDown.vue';
 import ProgramCollection from '../components/Program/ProgramCollection.vue';
+import FooterVue from '@/components/Footer.vue';
 
 export default {
   name: "ProgramView",
@@ -29,7 +31,8 @@ export default {
     Banner,
     SegmentControl,
     SortingDropDown,
-    ProgramCollection
+    ProgramCollection,
+    FooterVue
   },
   data: function () {
     return {
@@ -122,6 +125,7 @@ export default {
 .total-container {
   display: grid;
   margin: 0 auto;
+  padding-bottom: 167px;
 }
 .container {
   display: flex;
