@@ -45,10 +45,10 @@ export default {
 
 <style scoped>
 .footer-container {
-  padding: 50px 0px 50px 0px;
+  padding: 50px 15% 50px 15%;
   background-color: #f7f6f5;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 img {
