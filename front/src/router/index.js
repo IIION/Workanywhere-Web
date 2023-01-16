@@ -8,7 +8,6 @@ import AboutRetreatView from '@/views/AboutRetreatView'
 import AddView from '@/views/AddView'
 import ProgramDetailSokchoView from '@/views/ProgramDetailSokchoView'
 import ProgramDetailYeongwolView from '@/views/ProgramDetailYeongwolView'
-import SokchoProposalView from '@/views/SokchoProposalView'
 
 Vue.use(VueRouter)
 
@@ -57,6 +56,12 @@ const routes = [
     path: '/program/sokcho',
     name: 'sokchoproposal',
     component: () => import('../views/SokchoProposalView.vue'),
+    props: true
+  },
+  {
+    path: '/program/yeongwol',
+    name: 'yeongwolproposal',
+    component: () => import('../views/YeongwolProposalView.vue'),
     props: true
   }
 ]
