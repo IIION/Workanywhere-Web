@@ -23,10 +23,8 @@ export default {
 <style scoped>
 .container {
   border-radius: 20px;
-  margin: 0px 28px 0px 28px;
   display: flex;
   flex-direction: column;
-  background-color: white;
   box-shadow: 2px 2px 10px -5px rgba(0, 0, 0, 0.2);
   overflow: hidden;
 }
@@ -35,7 +33,6 @@ img {
   height: 30vh;
   object-fit:cover;
 }
-
 .title {
   font-weight: 20px;
   font-size: 3rem;
