@@ -26,8 +26,7 @@ export default {
     methods: {
         updateSelection(segment) {
             this.selection = segment
-            this.$emit('selection', this.selection)
-            console.log(segment)
+            this.$emit('selection-region', this.selection)
         }
     }
 }

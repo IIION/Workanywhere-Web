@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="dropdown">
-            <div class="dropdown-title" @click="toggleMenu">{{ selectedTitle }}
+            <div class="dropdown-title" @click="toggleMenu">{{ selectedTitle }} <span class="arrow-down"></span>
                 <i class="fas fa-chevron-down"></i>
             </div>
             <ul v-if="showMenu" class="dropdown-list">
@@ -25,7 +25,7 @@ export default {
             this.showMenu = !this.showMenu
         },
         selectOption(option) {
-            this.$emit('select', option)
+            this.$emit('selection-sort-option', option)
             this.showMenu = false
             this.selectedTitle = option
             if (option === 'recommend') {
@@ -40,27 +40,42 @@ export default {
 
 <style scoped>
 .dropdown {
-    width: 100px;
+    width: 105px;
     position: relative;
 }
 .dropdown-title {
-    padding: 10px;
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
+    /* float: left; */
+    padding: 15px 10px 0px 10px;
     cursor: pointer;
+    color: #666666;
+}
+.arrow-down:after {
+content: "";
+width: 0;
+height: 0;
+border-left: 8px solid transparent;
+border-right: 8px solid transparent;
+border-top: 10px solid #D9D9D9;
+display: inline-block;
 }
 .dropdown-list {
+    font-size: 16px;
+    font-family: 'Noto Sans KR', sans-serif;
     position: absolute;
     top: 100%;
-    left: 0;
     width: 100%;
     background: white;
     list-style: none;
     padding: 0;
-    margin: 0;
-    border: 1px solid gray;
+    border: 1px solid #D9D9D9;
     z-index: 1;
+    align-items: inherit;
 }
 .dropdown-list li {
-    padding: 10px;
+    float: left;
+    padding: 10px 10px 10px 19px;
     cursor: pointer;
 }
 </style>

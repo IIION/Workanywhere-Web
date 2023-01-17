@@ -4,10 +4,10 @@
     <div class="total-container" :style="{ width: computedWidth}">
       <div class="container">
         <div class="segment-control">
-          <segment-control @selection="onSegmentSelected"></segment-control>
+          <segment-control @selection-region="updateRegion"></segment-control>
         </div>
         <div class="sorting-drop-down">
-          <sorting-drop-down @select="updateSortOption"></sorting-drop-down>
+          <sorting-drop-down @selection-sort-option="updateSortOption"></sorting-drop-down>
         </div>
       </div>
       <div class="program-collection">
@@ -52,6 +52,7 @@ export default {
           region: '속초',
           period: '2박 3일',
           title: '리더들을 위한 마인드풀 워케이션',
+          score: 10.0,
           date: '2022.12.14 - 12.16',
           tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
         },
@@ -61,6 +62,7 @@ export default {
           region: '영월',
           period: '2주',
           title: '천천히 영월',
+          score: 5.0,
           date: '2022.11.25 - 12.31',
           tags: ['임직원', '패러글라이딩', '별빛야경', '산속뷰']
         },
@@ -70,7 +72,8 @@ export default {
           region: '속초',
           period: '2박 3일',
           title: '리더들을 위한 마인드풀 워케이션',
-          date: '2022.12.14 - 12.16',
+          score: 8.0,
+          date: '2022.12.10 - 12.16',
           tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
         },
         {
@@ -79,7 +82,8 @@ export default {
           region: '속초',
           period: '2박 3일',
           title: '리더들을 위한 마인드풀 워케이션',
-          date: '2022.12.14 - 12.16',
+          score: 1.0,
+          date: '2023.10.14 - 12.16',
           tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
         },
         {
@@ -88,7 +92,8 @@ export default {
           region: '속초',
           period: '2박 3일',
           title: '리더들을 위한 마인드풀 워케이션',
-          date: '2022.12.14 - 12.16',
+          score: 0.0,
+          date: '2021.12.14 - 12.16',
           tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
         }
       ]
@@ -100,12 +105,13 @@ export default {
     }
   },
   methods: {
-    onSegmentSelected(segment) {
+    updateRegion(segment) {
       console.log(segment)
       this.selection = segment;
     },
     updateSortOption(option) {
-      this.sortOption = option
+      console.log(option)
+      this.sortOption = option;
     },
     handleResize() {
         this.isSmallWindow = window.innerWidth < window.screen.width * 1/2 + 56
