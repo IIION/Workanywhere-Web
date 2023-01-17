@@ -3,6 +3,7 @@
         <div class="banner" >
             <h1 class="infoTitle">서비스 소개서를 받기 위해<br/>간단한 정보를 작성해주세요</h1>
             <img class="logoImg" src="@/assets/serviceLogo.png"/>
+            <div class="closeButton"></div>
         </div>
     </div>
 </template>
@@ -33,4 +34,17 @@
 .logoImg {
     margin-right: -50%;
 }
+
+.closeButton {
+    position: absolute;
+    right: 20px;
+    top: 1px;
+}
+
+.closeButton:after {
+    content: "\00d7";
+    font-size: 30pt;
+    color: #FFFBE3;
+}
+
 </style>
