@@ -5,8 +5,12 @@
                 <i class="fas fa-chevron-down"></i>
             </div>
             <ul v-if="showMenu" class="dropdown-list">
-                <li @click="selectOption('recommend')">추천순</li>
-                <li @click="selectOption('startdate')">출발일순</li>
+                <li :class="{ 'active': selectedTitle === '추천순' }" 
+                    @click="selectOption('recommend')">추천순
+                </li>
+                <li :class="{ 'active': selectedTitle === '출발일순' }" 
+                    @click="selectOption('startdate')">출발일순
+                </li>
             </ul>
         </div>
     </div>
@@ -71,11 +75,13 @@ display: inline-block;
     padding: 0;
     border: 1px solid #D9D9D9;
     z-index: 1;
-    align-items: inherit;
 }
 .dropdown-list li {
     float: left;
     padding: 10px 10px 10px 19px;
     cursor: pointer;
+}
+.active {
+    color: #FF4E31;
 }
 </style>

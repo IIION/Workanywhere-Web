@@ -35,12 +35,12 @@ export default {
     },
     computed: { // 지금 sortOption도 selection처럼 위에서 Binding해줘야 computed된다~!
         filteredCells() {
-            console.log(this.sortOption)
             let filtered = this.cells;
             if (this.selection !== 'ALL') {
                 filtered = this.cells.filter(cell => cell.region === this.selection);
             }
             if (this.sortOption === 'startdate') {
+                // issue - safari 환경에서는 이 sorting이 먹히질않음. 
                 filtered.sort((a, b) => new Date(a.date.split(' - ')[0]) - new Date(b.date.split(' - ')[0]));
             } else if (this.sortOption === 'recommend') {
                 filtered.sort((a, b) => b.score - a.score);
