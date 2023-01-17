@@ -2,6 +2,7 @@
     <div>
         <div class="banner" >
             <h1 class="infoTitle">서비스 소개서를 받기 위해<br/>간단한 정보를 작성해주세요</h1>
+            <img class="logoImg" src="@/assets/serviceLogo.png"/>
         </div>
     </div>
 </template>
@@ -27,5 +28,9 @@
     top: 50%;
     margin-top: -50px;
     margin-left: 92px;
+}
+
+.logoImg {
+    margin-right: -50%;
 }
 </style>
