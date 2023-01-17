@@ -2,7 +2,7 @@
   <div>
     <!-- 신청 완료 배너 width 100%-->
     <div class="banner">
-      <p>신청이 완료되었습니다.</p> 
+      <p>신청이 완료되었습니다</p> 
       <img src="@/assets/logo2.png" class="logo">
     </div>
 
@@ -30,23 +30,26 @@
         <div class="info">
           <div>
             <p class="first-cell">신청 프로그램</p>
-            <p>리더들을 위한 마인드풀 워케이션</p>
+            <p>{{ programName }}</p>
           </div>
           <div>
             <p>지역</p>
-            <p>속초</p>
+            <p>{{ region }}</p>
           </div>
           <div>
             <p>신청 옵션</p>
-            <p>12월 14일~16일(2박 3일)</p>
+            <p>{{ option }}</p>
           </div>
           <div>
             <p>인원</p>
-            <p>성인 1</p>
+            <div>
+              <p class="people">성인 {{ adult }}</p>
+              <p v-if="child" class="people">, 어린이 {{ child }}</p>
+            </div>
           </div>
           <div>
             <p class="last-cell">금액</p>
-            <p>990,000원</p>
+            <p>{{ price * adult | currency }}원</p>
           </div>
         </div>
       </div>
@@ -58,23 +61,23 @@
         <div class="info">
           <div>
             <p class="first-cell">이름</p>
-            <p>홍길동</p>
+            <p>{{ name }}</p>
           </div>
           <div>
             <p>회사/소속명</p>
-            <p>워크애니웨어</p>
+            <p>{{ company }}</p>
           </div>
           <div>
             <p>이메일</p>
-            <p>abc@workanywhere.kr</p>
+            <p>{{ email }}</p>
           </div>
           <div>
             <p>휴대폰번호</p>
-            <p>01012345678</p>
+            <p>{{ phoneNumber }}</p>
           </div>
           <div>
             <p class="last-cell">성별</p>
-            <p>여성</p>
+            <p>{{ sex }}</p>
           </div>
         </div>
       </div>
@@ -91,6 +94,61 @@ export default {
   name: "ProposalDoneView",
   components: {
     FooterVue
+  },
+  props: {
+    programName: {
+      type: String,
+      default: ""
+    },
+    region: {
+      type:String,
+      default: ""
+    },
+    option: {
+      type: String,
+      default: ""
+    },
+    price: {
+      type: Number,
+      default: 0
+    },
+    adult: {
+      type: Number,
+      default: 0,
+    },
+    child: {
+      type: Number,
+      default: 0,
+    },
+    name: {
+      type: String,
+      default: ""
+    },
+    company: {
+      type: String,
+      default: ""
+    },
+    email: {
+      type: String,
+      default: ""
+    },
+    phoneNumber: {
+      type: String,
+      default: ""
+    },
+    sex: {
+      type: String,
+      default: ""
+    },
+  },
+  filters: {
+    currency: function (value) {
+      var num = new Number(value);
+      return num.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
+  },
+  created(){
+    console.log(this.adult)
   }
 }
 </script>
@@ -147,6 +205,10 @@ export default {
   font-size: 1.3rem;
   min-height: 50px;
   color: #666666;
+}
+.people {
+  font-size: 1.3rem;
+  display: inline;
 }
 .proposal-history {
   margin: 10px 0px 30px 0px;

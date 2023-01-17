@@ -50,8 +50,8 @@
       </div>
 
       <div class="sex">
-        <button id="male" :class="[sex === 'male' ? 'selected' : 'common']" @click="selectSex">남성</button>
-        <button id="female" :class="[sex === 'female' ? 'selected' : 'common']" @click="selectSex">여성</button>
+        <button id="male" :class="[sex === '남성' ? 'selected' : 'common']" @click="selectSex">남성</button>
+        <button id="femal" :class="[sex === '여성' ? 'selected' : 'common']" @click="selectSex">여성</button>
       </div>
 
       <!-- 약관 -->
@@ -64,7 +64,7 @@
         <div class="clause-container">
           <div class="clause-items">
             <input type="checkbox" name="서비스약관" id="select1">
-            <label for="select1" :class="[checked1 === true ? 'checked' : 'non-checked']" @click="select1()"></label>
+            <label for="select1" :class="[checked1 === true ? 'checked' : 'non-checked']" @click="select1"></label>
             <p>서비스 이용 약관에 동의합니다(필수)</p>
           </div>
           <a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e" target="_blank">약관보기</a>
@@ -72,7 +72,7 @@
         <div class="clause-container">
           <div class="clause-items">
             <input type="checkbox" name="이벤트" id="select2">
-            <label for="select2" :class="[checked2 === true ? 'checked' : 'non-checked']" @click="select2()"></label>
+            <label for="select2" :class="[checked2 === true ? 'checked' : 'non-checked']" @click="select2"></label>
             <p>개인정보처리방침에 동의합니다(필수)</p>
           </div>
           <a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e" target="_blank">약관보기</a>
@@ -80,7 +80,7 @@
         <div class="clause-container">
           <div class="clause-items">
             <input type="checkbox" name="전체동의" id="select3">
-            <label for="select3" :class="[checked3 === true ? 'checked' : 'non-checked']" @click="select3()"></label>
+            <label for="select3" :class="[checked3 === true ? 'checked' : 'non-checked']" @click="select3"></label>
             <p>이벤트 할인 혜택 알림 수신에 동의합니다(선택)</p>
           </div>
           <a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e" target="_blank">약관보기</a>
@@ -88,7 +88,7 @@
       </div>
 
       <!-- 신청하기 버튼, 위 필수 항목이 체워지지 않으면 비활성화 -->
-      <button :class="[name && company && email && phoneNumber && sex && checked1 && checked2 ? 'apply' : 'noapply']">신청하기</button>
+      <button :class="[name && company && email && phoneNumber && sex && checked1 && checked2 ? 'apply' : 'noapply']" @click="moveToProposalDone">신청하기</button>
     </div>
   </div>
 </template>
@@ -129,8 +129,11 @@ export default {
   methods: {
     selectSex(){
       const targetId = event.currentTarget.id
-      this.sex = targetId
-      console.log(this.sex)
+      if (targetId == "male") {
+        this.sex = "남성"
+      } else {
+        this.sex = "여성"
+      }
     },
     allSelect(){
       this.checkedAll = !this.checkedAll
@@ -147,6 +150,11 @@ export default {
     select3() {
       this.checked3 = !this.checked3
     },
+    moveToProposalDone() {
+      if (this.name && this.company && this.email && this.phoneNumber && this.sex && this.checked1 && this.checked2) {
+        this.$router.push({name: "proposaldone", params: { programName:"리더들을 위한 마인드풀 워케이션", region:"속초",option: "12월 14일~16일(2박 3일)", price:990000,adult: this.adult, child: this.child, name:this.name, company: this.company, email: this.email, phoneNumber:this.phoneNumber, sex:this.sex}})
+      }
+    }
   }
 };
 </script>
