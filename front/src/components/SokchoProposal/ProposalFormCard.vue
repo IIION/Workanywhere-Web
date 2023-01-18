@@ -13,7 +13,7 @@
       <!-- 가격 -->
       <div class="price">
         <p>가격</p>
-        <p>{{ 990000 * adult | currency }}원</p>
+        <p>{{ price * adult | currency }}원</p>
       </div>
     </div>
 
@@ -97,13 +97,33 @@
 export default {
   name: "ProposalFormCardVue",
   props: {
-    detailPeriod: String,
-    adult: Number,
-    child: Number,
+    programName: {
+      type: String,
+      default: "리더들을 위한 마인드풀 워케이션"
+    },
+    detailPeriod: {
+      type: String,
+      default: ""
+    },
+    price: {
+      type: Number,
+      default: 990000
+    },
+    region: {
+      type: String,
+      default: "속초"
+    },
+    adult: {
+      type: Number,
+      default: 0
+    },
+    child: {
+      type: Number,
+      default: 0
+    },
   },
   data: function() {
     return {
-      price: "",
       name: "",
       company: "",
       email: "",
@@ -152,7 +172,7 @@ export default {
     },
     moveToProposalDone() {
       if (this.name && this.company && this.email && this.phoneNumber && this.sex && this.checked1 && this.checked2) {
-        this.$router.push({name: "proposaldone", params: { programName:"리더들을 위한 마인드풀 워케이션", region:"속초",option: "12월 14일~16일(2박 3일)", price:990000,adult: this.adult, child: this.child, name:this.name, company: this.company, email: this.email, phoneNumber:this.phoneNumber, sex:this.sex}})
+        this.$router.push({name: "proposaldone", params: { programName: this.programName, region:this.region, option: this.detailPeriod, price:this.price, adult: this.adult, child: this.child, name:this.name, company: this.company, email: this.email, phoneNumber:this.phoneNumber, sex:this.sex}})
       }
     }
   }
