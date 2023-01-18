@@ -8,58 +8,75 @@
 
         <div class="inputInfomation">
             <div>
-            <div class="category-container">
-                <p class="category">회사명</p>
-                <p class="starmark">*</p>
+                <div class="category-container">
+                    <p class="category">회사명</p>
+                    <p class="starmark">*</p>
+                </div>
+                <input type="text" class="inputBox" placeholder="회사명을 입력해주세요"/>
             </div>
-            <input type="text" class="inputBox" placeholder="회사명을 입력해주세요"/>
-        </div>
-
-        <div>
-            <div class="category-container">
-                <p class="category">이름</p>
-                <p class="starmark">*</p>
+            
+            <div>
+                <div class="category-container">
+                    <p class="category">이름</p>
+                    <p class="starmark">*</p>
+                </div>
+                <input type="text" class="inputBox" placeholder="이름을 입력해주세요"/>
             </div>
-            <input type="text" class="inputBox" placeholder="이름을 입력해주세요"/>
-        </div>
-
-        <div>
-            <div class="category-container">
-                <p class="category">직책</p>
-                <p class="starmark">*</p>
+            
+            <div>
+                <div class="category-container">
+                    <p class="category">직책</p>
+                    <p class="starmark">*</p>
+                </div>
+                <input type="text" class="inputBox" placeholder="직책을 입력해주세요"/>
             </div>
-            <input type="text" class="inputBox" placeholder="직책을 입력해주세요"/>
-        </div>
         
-        <div>
-            <div class="category-container">
-                <p class="category">이메일</p>
-                <p class="starmark">*</p>
+            <div>
+                <div class="category-container">
+                    <p class="category">이메일</p>
+                    <p class="starmark">*</p>
+                </div>
+                <input type="text" class="inputBox" placeholder="workanywhere@workanywhere.kr"/>
             </div>
-            <input type="text" class="inputBox" placeholder="workanywhere@workanywhere.kr"/>
-        </div>
+        
+            <div>
+                <div class="category-container">
+                    <p class="category">연락처</p>
+                    <p class="starmark">*</p>
+                </div>
+                <input 
+                type="text" 
+                class="inputBox" 
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+                maxlength='11'
+                placeholder="-를 제외하고 입력해주세요 "/>
+            </div>
+        
+            <div>
+                <div class="category-container">
+                    <p class="category">워크애니웨어를 어떻게 알게되셨나요?</p>
+                    <p class="starmark">*</p>
+                </div>
 
-        <div>
-            <div class="category-container">
-                <p class="category">연락처</p>
-                <p class="starmark">*</p>
+                <select class="inputBox select"> 
+                    <option disabled selected>워크애니웨어를 알게되신 곳을 선택해주세요</option>
+                    <option value="지인의 추천">지인의 추천</option>
+                    <option value="직군 커뮤니티를 통해 인지">직군 커뮤니티를 통해 인지</option>
+                    <option value="외부 광고">외부 광고</option>
+                    <option value="SNS(인스타그램)">SNS(인스타그램)</option>
+                    <option value="기타">기타</option>
+                </select>
             </div>
-            <input 
-            type="text" 
-            class="inputBox" 
-            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
-            maxlength='11'
-            placeholder="-를 제외하고 입력해주세요 "/>
-        </div>
-
-        <div>
-            <div class="category-container">
-                <p class="category">워크애니웨어를 어떻게 알게되셨나요?</p>
-                <p class="starmark">*</p>
+            <div>
+                <input type="radio"/>
+                <label><a href="https://www.naver.com">개인 정보 수집 및 이용</a><strong>에 동의</strong>합니다 (필수)</label><br/><br/>
+                <input type="radio"/>
+                <label ><a href="https://www.naver.com">워크애니웨어의 워케이션 소식 및 마케팅</a>에 대한 정보수신을 동의합니다. (선택)</label>
             </div>
-            <input type="text" class="inputBox" placeholder="워크애니웨어를 알게되신 곳을 선택해주세요"/>
         </div>
-    </div>
+        <div class="submitButton">
+            <p class="buttonText">소개서 받기</p>
+        </div>
     </div>
 </template>
 
@@ -132,4 +149,21 @@
     padding-left: 170px;
     padding-right: 170px;
 }
+
+.submitButton {
+    display:inline-block;
+    background-color: #ff4e31;
+    border-radius: 50px;
+    margin-bottom: 53px;
+    margin-top: -10%;
+    width: 170px;
+}
+
+.buttonText {
+    font-weight: 500;
+    font-size: 1.5rem;
+    color: white;
+    padding: 0px 20px 0px 20px;
+}
+
 </style>
