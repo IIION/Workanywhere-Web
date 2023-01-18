@@ -5,6 +5,61 @@
             <img class="logoImg" src="@/assets/serviceLogo.png"/>
             <div class="closeButton"></div>
         </div>
+
+        <div class="inputInfomation">
+            <div>
+            <div class="category-container">
+                <p class="category">회사명</p>
+                <p class="starmark">*</p>
+            </div>
+            <input type="text" class="inputBox" placeholder="회사명을 입력해주세요"/>
+        </div>
+
+        <div>
+            <div class="category-container">
+                <p class="category">이름</p>
+                <p class="starmark">*</p>
+            </div>
+            <input type="text" class="inputBox" placeholder="이름을 입력해주세요"/>
+        </div>
+
+        <div>
+            <div class="category-container">
+                <p class="category">직책</p>
+                <p class="starmark">*</p>
+            </div>
+            <input type="text" class="inputBox" placeholder="직책을 입력해주세요"/>
+        </div>
+        
+        <div>
+            <div class="category-container">
+                <p class="category">이메일</p>
+                <p class="starmark">*</p>
+            </div>
+            <input type="text" class="inputBox" placeholder="workanywhere@workanywhere.kr"/>
+        </div>
+
+        <div>
+            <div class="category-container">
+                <p class="category">연락처</p>
+                <p class="starmark">*</p>
+            </div>
+            <input 
+            type="text" 
+            class="inputBox" 
+            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" 
+            maxlength='11'
+            placeholder="-를 제외하고 입력해주세요 "/>
+        </div>
+
+        <div>
+            <div class="category-container">
+                <p class="category">워크애니웨어를 어떻게 알게되셨나요?</p>
+                <p class="starmark">*</p>
+            </div>
+            <input type="text" class="inputBox" placeholder="워크애니웨어를 알게되신 곳을 선택해주세요"/>
+        </div>
+    </div>
     </div>
 </template>
 
@@ -47,4 +102,34 @@
     color: #FFFBE3;
 }
 
+.category-container > p {
+  display: inline;
+}
+.category {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.starmark {
+  color: #FB1515;
+  vertical-align: top;
+}
+
+.inputBox {
+      width: 100%;
+      height: 25px;
+      border: 1px solid #CACACA; 
+      border-radius: 5px;
+      padding-left: 10px;
+}
+
+.inputInfomation {
+    display: grid;
+    text-align: left;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 100px;
+    grid-row-gap: 20px;
+    padding: 70px;
+    padding-left: 170px;
+    padding-right: 170px;
+}
 </style>
