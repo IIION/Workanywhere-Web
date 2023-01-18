@@ -63,6 +63,12 @@ const routes = [
     name: 'yeongwolproposal',
     component: () => import('../views/YeongwolProposalView.vue'),
     props: true
+  },
+  {
+    path: '/program/proposaldone',
+    name: 'proposaldone',
+    component: () => import('../views/ProposalDoneView.vue'),
+    props: true
   }
 ]
 
