@@ -1,17 +1,20 @@
 <template>
   <div>
     <Banner :detail="bannerdetail"/>
-    <div class="total-container" :style="{ width: computedWidth}">
-      <div class="container">
-        <div class="segment-control">
-          <segment-control @selection-region="updateRegion"></segment-control>
+    <div class="total-container">
+      <SideBar class="side-bar" :style="{ width: computedSideBarWidth }"/>
+      <div class="collection-container" :style="{ width: computedCollectionWidth}">
+        <div class="container">
+          <div class="segment-control">
+            <segment-control @selection-region="updateRegion"></segment-control>
+          </div>
+          <div class="sorting-drop-down">
+            <sorting-drop-down @selection-sort-option="updateSortOption"></sorting-drop-down>
+          </div>
         </div>
-        <div class="sorting-drop-down">
-          <sorting-drop-down @selection-sort-option="updateSortOption"></sorting-drop-down>
+        <div class="program-collection">
+          <program-collection :selection="selection" :sortOption="sortOption" :cells="cells"></program-collection>
         </div>
-      </div>
-      <div class="program-collection">
-        <program-collection :selection="selection" :sortOption="sortOption" :cells="cells"></program-collection>
       </div>
     </div>
     <FooterVue/>
@@ -23,6 +26,7 @@ import Banner from '@/components/About/Banner.vue';
 import SegmentControl from '../components/Program/SegmentControl.vue';
 import SortingDropDown from '../components/Program/SortingDropDown.vue';
 import ProgramCollection from '../components/Program/ProgramCollection.vue';
+import SideBar from '../components/Program/SideBar.vue';
 import FooterVue from '@/components/Footer.vue';
 
 export default {
@@ -32,6 +36,7 @@ export default {
     SegmentControl,
     SortingDropDown,
     ProgramCollection,
+    SideBar,
     FooterVue
   },
   data: function () {
@@ -100,8 +105,11 @@ export default {
     }
   },
   computed: {
-    computedWidth() {
+    computedCollectionWidth() {
       return this.isSmallWindow ? `${window.screen.width * 1/4}px` : `${window.screen.width * 1/2 + 56}px`
+    },
+    computedSideBarWidth() {
+      return `${window.screen.width * 0.13}px`
     }
   },
   methods: {
@@ -129,8 +137,17 @@ export default {
 
 <style scoped>
 .total-container {
+  display: inline-flex;
+  justify-content: space-between;
+  flex-basis: 0;
+}
+.side-bar {
+  margin-top: 90px;
+  margin-right: 56px;
+}
+.collection-container {
   display: grid;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   padding-bottom: 167px;
 }
 .container {

@@ -1,9 +1,7 @@
 <template>
     <div>
         <div class="dropdown">
-            <div class="dropdown-title" @click="toggleMenu">{{ selectedTitle }} <span class="arrow-down"></span>
-                <i class="fas fa-chevron-down"></i>
-            </div>
+            <div class="dropdown-title" @click="toggleMenu">{{ selectedTitle }} <span class="arrow-down"></span></div>
             <ul v-if="showMenu" class="dropdown-list">
                 <li :class="{ 'active': selectedTitle === '추천순' }" 
                     @click="selectOption('recommend')">추천순

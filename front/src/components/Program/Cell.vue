@@ -30,7 +30,7 @@ export default {
 }
 img {
   display : block;
-  height: 30vh;
+  height: 65%;
   object-fit:cover;
 }
 .title {
