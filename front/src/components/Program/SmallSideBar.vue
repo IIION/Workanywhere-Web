@@ -1,36 +1,35 @@
 <template>
     <div>
-      <p>FINDD</p>
-      <div class="line"></div>
-      <div class="dropdown">
-        <div class="dropdown-menu" v-on:click="toggleMonths">
-        <div class="dropdown-button">
-          <div class="title">떠나는 달</div>
-          <span class="arrow-down"></span>
-        </div>
-            <ul v-if="showMonths" class="dropdown-list">
-                <li v-for="month in months" :key="month" @click="selectMonth(month)">
-                <input type="checkbox" :checked="month === selectedMonth"/>
-                <label>{{ month }}</label>
-                </li>
-                <div class="underline"></div>
-            </ul>
-        </div>
+        <div class="line"></div>
+        <div class="segment">
+            <div class="dropdown-menu" v-on:click="toggleMonths">
+                <div class="dropdown-button">
+                <div class="title">떠나는 달</div>
+                <span class="arrow-down"></span>
+                </div>
+                <ul v-if="showMonths" class="dropdown-list">
+                    <li v-for="month in months" :key="month" @click="selectMonth(month)">
+                    <input type="checkbox" :checked="month === selectedMonth"/>
+                    <label>{{ month }}</label>
+                    </li>
+                    <div class="underline"></div>
+                </ul>
+            </div>
 
-        <div class="dropdown-menu" v-on:click="toggleDuration">
-            <div class="dropdown-button">
+            <div class="dropdown-menu" v-on:click="toggleDuration">
+                <div class="dropdown-button">
                 <div class="title">기간</div>
                 <span class="arrow-down"></span>
+                </div>
+                <ul v-if="showPeriods" class="dropdown-list">
+                    <li v-for="period in periods" :key="period" @click="selectPeriod(period)">
+                    <input type="checkbox" :checked="period === selectedPeriod"/>
+                    <span>{{ period }}</span>
+                    </li>
+                    <div class="underline"></div>
+                </ul>
             </div>
-            <ul v-if="showPeriods" class="dropdown-list">
-                <li v-for="period in periods" :key="period" @click="selectPeriod(period)">
-                <input type="checkbox" :checked="period === selectedPeriod"/>
-                <span>{{ period }}</span>
-                </li>
-                <div class="underline"></div>
-            </ul>
         </div>
-      </div>
     </div>
 </template>
 
@@ -104,43 +103,39 @@ export default {
 }
 </script>
 
+
 <style scoped>
-p {
-  font-size: 23px;
-  font-weight: bold;
-  text-align: left;
-  margin: 0 auto;
-  color: black;
-  padding-left: 13px;
-}
 .line {
   width: 100%;
-  height: 2px;
-  background-color: black;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  height: 1px;
+  background-color: #B1B1B1;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
-.dropdown {
-    padding-left: 13px;
-    padding-right: 13px;
+.segment {
+    display: flex;
+    float: left;
+    justify-content: center;
     cursor: pointer;
 }
-.dropdown-menu {
-    display: flex;
-    flex-direction: column;
-}
 .dropdown-button {
-    display: inline-flex;
+    display: flex;
+    height: 43.0px;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0.0px 15.0px 0.0px 15.0px;
+    border: 1px solid #D9D9D9;
+    border-radius : 50px;
     align-items: center;
-    justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    color: #666666;
+    background-color: white;
 }
 .title {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: normal;
     font-family: 'Noto Sans KR', sans-serif;
-    color: black;
+    padding-right: 10px;
+    color: #666666;
 }
 .arrow-down:after {
     display: inline-block;
@@ -149,7 +144,7 @@ p {
     top: 3px;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
-    border-top: 10px solid #D9D9D9;
+    border-top: 10px solid #666666;
 }
 .dropdown-list {
     font-size: 15px;
@@ -159,11 +154,13 @@ p {
     color: black;
     background: white;
     list-style: none;
+    z-index: 2;
 }
 .dropdown-list li {
     padding-bottom: 12px;
     cursor: pointer;
     text-align: left;
+    z-index: 2;
 }
 .underline {
   width: 100%;

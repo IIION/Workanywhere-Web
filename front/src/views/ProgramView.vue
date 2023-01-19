@@ -2,7 +2,7 @@
   <div>
     <Banner :detail="bannerdetail"/>
     <div class="total-container">
-      <side-bar class="side-bar" @selectedMonth="updateMonth" @period_range="updatePeriod" :style="{ width: computedSideBarWidth }"/>
+      <side-bar ref="sideBar" :class="[isTooSmallWindow ? 'side-bar-hidden' : 'side-bar']" @selectedMonth="updateMonth" @selectedPeriod="sendPeriod" @period_range="updatePeriod" :style="{ width: computedSideBarWidth }"/>
       <div class="collection-container" :style="{ width: computedCollectionWidth}">
         <div class="container">
           <div class="segment-control">
@@ -12,6 +12,7 @@
             <sorting-drop-down @selection-sort-option="updateSortOption"></sorting-drop-down>
           </div>
         </div>
+        <small-side-bar ref="smallSideBar" :class="[isTooSmallWindow ? 'small-side-bar' : 'side-bar-hidden']" @selectedMonth="updateMonth" @selectedPeriod="sendPeriod" @period_range="updatePeriod"/>
         <div class="program-collection">
           <program-collection :selection="selection" :sortOption="sortOption" :selectedMonth="selectedMonth" :period_range="period_range" :cells="cells"></program-collection>
         </div>
@@ -27,6 +28,7 @@ import SegmentControl from '../components/Program/SegmentControl.vue';
 import SortingDropDown from '../components/Program/SortingDropDown.vue';
 import ProgramCollection from '../components/Program/ProgramCollection.vue';
 import SideBar from '../components/Program/SideBar.vue';
+import SmallSideBar from '../components/Program/SmallSideBar.vue';
 import FooterVue from '@/components/Footer.vue';
 
 export default {
@@ -37,10 +39,12 @@ export default {
     SortingDropDown,
     ProgramCollection,
     SideBar,
+    SmallSideBar,
     FooterVue
   },
   data: function () {
     return {
+      isTooSmallWindow: false,
       isSmallWindow: false,
       bannerdetail: {
         imgURL: require("@/assets/Program/programBannerImage.png"),
@@ -51,6 +55,7 @@ export default {
       selection: 'ALL',
       sortOption: 'recommend',
       selectedMonth: '',
+      selectedPeriod: '',
       period_range: [0, 100],
       cells: [
         {
@@ -100,13 +105,23 @@ export default {
     updateMonth(month) {
       console.log(month)
       this.selectedMonth = month;
+      this.$refs.sideBar.selectedMonth = month
+      this.$refs.smallSideBar.selectedMonth = month
     },
     updatePeriod(period) {
       console.log(period)
       this.period_range = period;
+      this.$refs.sideBar.period_range = period;
+      this.$refs.smallSideBar.period_range = period;
+    },
+    sendPeriod(period) {
+      this.selectedPeriod = period;
+      this.$refs.sideBar.selectedPeriod = period;
+      this.$refs.smallSideBar.selectedPeriod = period;
     },
     handleResize() {
-        this.isSmallWindow = window.innerWidth < window.screen.width * 1/2 + 56
+      this.isTooSmallWindow = window.innerWidth < window.screen.width * 0.4
+      this.isSmallWindow = window.innerWidth < window.screen.width * 0.65 + 56
     }
   },
   mounted() {
@@ -124,10 +139,14 @@ export default {
   display: inline-flex;
   justify-content: space-between;
   flex-basis: 0;
+  position: inherit;
 }
 .side-bar {
   margin-top: 90px;
   margin-right: 56px;
+}
+.side-bar-hidden {
+  display: none;
 }
 .collection-container {
   display: grid;
@@ -137,5 +156,8 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.program-collection {
+  padding-top: 40px;
 }
 </style>

@@ -43,6 +43,7 @@ export default {
 <style scoped>
 .dropdown {
     width: 105px;
+    margin-top: 68px;
     position: relative;
 }
 .dropdown-title {
@@ -66,7 +67,7 @@ export default {
     font-size: 16px;
     font-family: 'Noto Sans KR', sans-serif;
     position: absolute;
-    top: 100%;
+    /* top: 100%; */
     width: 100%;
     background: white;
     list-style: none;

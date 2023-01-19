@@ -81,7 +81,7 @@ export default {
     },
     methods: {
         handleResize() {
-            this.isSmallWindow = window.innerWidth < window.screen.width * 1/2 + 56
+            this.isSmallWindow = window.innerWidth < window.screen.width * 0.65 + 56
         },
         checkMonth(selectedMonth, cellDate) {
             let dates = cellDate.split(' - ')
