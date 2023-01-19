@@ -181,6 +181,6 @@
 }
 
 .radio-button:checked {
-  /* background-color: #FF4E31; */
+  background-color: #FF4E31;
 }
 </style>
