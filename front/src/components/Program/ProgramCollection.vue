@@ -57,8 +57,7 @@ export default {
             filtered = filtered.filter(cell => this.checkPeriod(cell.period_days, this.period_range))
             // 4. sorting
             if (this.sortOption === 'startdate') {
-                // issue - safari 환경에서는 이 sorting이 먹히질않음. 
-                filtered.sort((a, b) => new Date(a.date.split(' - ')[0]) - new Date(b.date.split(' - ')[0]));
+                filtered.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
             } else if (this.sortOption === 'recommend') {
                 filtered.sort((a, b) => b.score - a.score);
             }

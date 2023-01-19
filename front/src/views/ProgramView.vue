@@ -61,6 +61,7 @@ export default {
           period_days: 3,
           title: '리더들을 위한 마인드풀 워케이션',
           score: 10.0,
+          startDate: '2022-12-14T00:00:00',
           date: '2022.12.14 - 12.16',
           tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
         },
@@ -72,6 +73,7 @@ export default {
           period_days: 14,
           title: '천천히 영월',
           score: 5.0,
+          startDate: '2022-11-25T00:00:00',
           date: '2022.11.25 - 12.31',
           tags: ['임직원', '패러글라이딩', '별빛야경', '산속뷰']
         }
