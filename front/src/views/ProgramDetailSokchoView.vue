@@ -2,13 +2,17 @@
   <div>
     <BannerVue/>
     <div class="contents">
-      <div style="display:flex">
-        <div style="width: 50%">
+      <div style="display:flex; justify-content: space-between;">
+        <div style="width: 43%">
           <SegmentVue class="segment-container"/>
           <IntroductionVue class="introduction"/>
         </div>
+        <div style="width: 43%">
+          <ConfirmVue/>
+        </div>
         <!-- 신청하기 컴포넌트가 들어갈 자리. 일단 빈 공간으로 -->
-        <p class="request-container">공간 확인용 테스트</p>
+        
+
       </div>
       
       
@@ -23,7 +27,8 @@
 
 <script>
 import BannerVue from '@/components/ProgramSokcho/Banner.vue';
-import SegmentVue from '@/components/ProgramSokcho/Segments.vue'
+import SegmentVue from '@/components/ProgramSokcho/Segments.vue';
+import ConfirmVue from '@/components/ProposalCard/ConfirmCard.vue';
 import IntroductionVue from '@/components/ProgramSokcho/Introduction.vue';
 import PointsVue from '@/components/ProgramSokcho/Points.vue';
 import LodgingVue from '@/components/ProgramSokcho/Lodging.vue';
@@ -36,6 +41,7 @@ export default {
   components: {
     BannerVue,
     SegmentVue,
+    ConfirmVue,
     IntroductionVue,
     PointsVue,
     LodgingVue,
