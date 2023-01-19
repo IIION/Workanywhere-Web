@@ -23,16 +23,19 @@ export default {
 <style scoped>
 .img-container {
   position: relative;
+  min-height: 200px;
 }
 
 .banner-img {
   display: block;
+  min-height: 200px;
   width: 100%;
   filter: brightness(74%);
 }
 
 .banner-description {
   position: absolute;
+  width: 40rem;
   top: 50%;
 	left: 50%;
 	transform: translate( -50%, -50% );
