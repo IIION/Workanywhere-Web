@@ -51,9 +51,11 @@ export default {
   methods: {
     toggleMonths() {
       this.showMonths = !this.showMonths;
+      this.showPeriods = false;
     },
     toggleDuration() {
       this.showPeriods = !this.showPeriods;
+      this.showMonths = false;
     },
     selectMonth(month) {
         if (this.selectedMonth === month) {

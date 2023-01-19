@@ -41,18 +41,21 @@ export default {
             default: () => []
         }
     },
-    computed: { // 지금 sortOption도 selection처럼 위에서 Binding해줘야 computed된다~!
+    computed: {
         filteredCells() {
-            console.log(this.selectedMonth)
-            console.log(this.period_range[0])
-            console.log(this.period_range[1])
+            // 1. 지역 filtering
             let filtered = this.cells;
             if (this.selection !== 'ALL') {
                 filtered = this.cells.filter(cell => cell.region === this.selection);
             }
-
+            // 2. 떠나는 달 filtering
+            if (this.selectedMonth !== '') {
+                let selectedMonth = this.selectedMonth.split('월')[0]
+                filtered = filtered.filter(cell => this.checkMonth(selectedMonth, cell.date))
+            }
+            // 3. 기간 filtering
             filtered = filtered.filter(cell => this.checkPeriod(cell.period_days, this.period_range))
-
+            // 4. sorting
             if (this.sortOption === 'startdate') {
                 // issue - safari 환경에서는 이 sorting이 먹히질않음. 
                 filtered.sort((a, b) => new Date(a.date.split(' - ')[0]) - new Date(b.date.split(' - ')[0]));
@@ -80,6 +83,12 @@ export default {
     methods: {
         handleResize() {
             this.isSmallWindow = window.innerWidth < window.screen.width * 1/2 + 56
+        },
+        checkMonth(selectedMonth, cellDate) {
+            let dates = cellDate.split(' - ')
+            let months = [dates[0].split('.')[1], dates[1].split('.')[0]]
+            console.log(months)
+            return months.includes(selectedMonth)
         },
         checkPeriod(period_days, range) {
             return period_days >= range[0] && period_days <= range[1]
