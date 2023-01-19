@@ -68,10 +68,10 @@
                 </select>
             </div>
             <div>
-                <input type="radio"/>
-                <label><a href="https://www.naver.com">개인 정보 수집 및 이용</a><strong>에 동의</strong>합니다 (필수)</label><br/><br/>
-                <input type="radio"/>
-                <label ><a href="https://www.naver.com">워크애니웨어의 워케이션 소식 및 마케팅</a>에 대한 정보수신을 동의합니다. (선택)</label>
+                <input type="checkbox" class="radio-button"/>
+                <label><a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e">개인 정보 수집 및 이용</a><strong>에 동의</strong>합니다 (필수)</label><br/><br/>
+                <input type="checkbox" class="radio-button"/>
+                <label><a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e">워크애니웨어의 워케이션 소식 및 마케팅</a>에 대한 정보수신을 동의합니다. (선택)</label>
             </div>
         </div>
         <div class="submitButton">
@@ -166,4 +166,21 @@
     padding: 0px 20px 0px 20px;
 }
 
+.radio-button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  border: 1px solid #FF4E31;
+  margin-right: 10px;
+  margin-bottom: -5px;
+  position: relative;
+  box-shadow: 0 0 0 1px #FF4E31;
+}
+
+.radio-button:checked {
+  /* background-color: #FF4E31; */
+}
 </style>
