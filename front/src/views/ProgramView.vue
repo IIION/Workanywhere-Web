@@ -2,7 +2,7 @@
   <div>
     <Banner :detail="bannerdetail"/>
     <div class="total-container">
-      <SideBar class="side-bar" :style="{ width: computedSideBarWidth }"/>
+      <side-bar class="side-bar" @selectedMonth="updateMonth" @period_range="updatePeriod" :style="{ width: computedSideBarWidth }"/>
       <div class="collection-container" :style="{ width: computedCollectionWidth}">
         <div class="container">
           <div class="segment-control">
@@ -13,7 +13,7 @@
           </div>
         </div>
         <div class="program-collection">
-          <program-collection :selection="selection" :sortOption="sortOption" :cells="cells"></program-collection>
+          <program-collection :selection="selection" :sortOption="sortOption" :selectedMonth="selectedMonth" :period_range="period_range" :cells="cells"></program-collection>
         </div>
       </div>
     </div>
@@ -50,12 +50,15 @@ export default {
       },
       selection: 'ALL',
       sortOption: 'recommend',
+      selectedMonth: '',
+      period_range: [0, 100],
       cells: [
         {
           id: 1,
           imgURL: require("@/assets/Home/mindfull.png"),
           region: '속초',
           period: '2박 3일',
+          period_days: 3,
           title: '리더들을 위한 마인드풀 워케이션',
           score: 10.0,
           date: '2022.12.14 - 12.16',
@@ -66,40 +69,11 @@ export default {
           imgURL: require("@/assets/Home/mindfull.png"),
           region: '영월',
           period: '2주',
+          period_days: 14,
           title: '천천히 영월',
           score: 5.0,
           date: '2022.11.25 - 12.31',
           tags: ['임직원', '패러글라이딩', '별빛야경', '산속뷰']
-        },
-        {
-          id: 3,
-          imgURL: require("@/assets/Home/mindfull.png"),
-          region: '속초',
-          period: '2박 3일',
-          title: '리더들을 위한 마인드풀 워케이션',
-          score: 8.0,
-          date: '2022.12.10 - 12.16',
-          tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
-        },
-        {
-          id: 4,
-          imgURL: require("@/assets/Home/mindfull.png"),
-          region: '속초',
-          period: '2박 3일',
-          title: '리더들을 위한 마인드풀 워케이션',
-          score: 1.0,
-          date: '2023.10.14 - 12.16',
-          tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
-        },
-        {
-          id: 5,
-          imgURL: require("@/assets/Home/mindfull.png"),
-          region: '속초',
-          period: '2박 3일',
-          title: '리더들을 위한 마인드풀 워케이션',
-          score: 0.0,
-          date: '2021.12.14 - 12.16',
-          tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
         }
       ]
     }
@@ -120,6 +94,14 @@ export default {
     updateSortOption(option) {
       console.log(option)
       this.sortOption = option;
+    },
+    updateMonth(month) {
+      console.log(month)
+      this.selectedMonth = month;
+    },
+    updatePeriod(period) {
+      console.log(period)
+      this.period_range = period;
     },
     handleResize() {
         this.isSmallWindow = window.innerWidth < window.screen.width * 1/2 + 56
@@ -147,7 +129,6 @@ export default {
 }
 .collection-container {
   display: grid;
-  /* margin: 0 auto; */
   padding-bottom: 167px;
 }
 .container {

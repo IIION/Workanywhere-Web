@@ -28,6 +28,14 @@ export default {
             type: String,
             default: null
         },
+        selectedMonth: {
+            type: String,
+            default: null
+        },
+        period_range: {
+            type: Array,
+            default: null
+        },
         cells: {
             type: Array,
             default: () => []
@@ -35,10 +43,16 @@ export default {
     },
     computed: { // 지금 sortOption도 selection처럼 위에서 Binding해줘야 computed된다~!
         filteredCells() {
+            console.log(this.selectedMonth)
+            console.log(this.period_range[0])
+            console.log(this.period_range[1])
             let filtered = this.cells;
             if (this.selection !== 'ALL') {
                 filtered = this.cells.filter(cell => cell.region === this.selection);
             }
+
+            filtered = filtered.filter(cell => this.checkPeriod(cell.period_days, this.period_range))
+
             if (this.sortOption === 'startdate') {
                 // issue - safari 환경에서는 이 sorting이 먹히질않음. 
                 filtered.sort((a, b) => new Date(a.date.split(' - ')[0]) - new Date(b.date.split(' - ')[0]));
@@ -66,6 +80,9 @@ export default {
     methods: {
         handleResize() {
             this.isSmallWindow = window.innerWidth < window.screen.width * 1/2 + 56
+        },
+        checkPeriod(period_days, range) {
+            return period_days >= range[0] && period_days <= range[1]
         }
     }
 }
@@ -73,6 +90,7 @@ export default {
 
 <style scoped>
 .collection-view {
+    min-height: 350px;
     display: grid;
     grid-gap: 56px;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));

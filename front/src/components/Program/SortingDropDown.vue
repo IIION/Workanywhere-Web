@@ -54,13 +54,13 @@ export default {
     color: #666666;
 }
 .arrow-down:after {
-content: "";
-width: 0;
-height: 0;
-border-left: 8px solid transparent;
-border-right: 8px solid transparent;
-border-top: 10px solid #D9D9D9;
-display: inline-block;
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid #D9D9D9;
+    display: inline-block;
 }
 .dropdown-list {
     font-size: 16px;

@@ -44,6 +44,7 @@ export default {
       
       showPeriods: false,
       selectedPeriod: '',
+      period_range: [0, 100],
       periods: ['2-3일', '1주 이하', '2주', '3주', '1개월', '2개월']
     }
   },
@@ -69,7 +70,31 @@ export default {
         } else {
             this.selectedPeriod = period
         }
-        this.$emit('selectedPeriod', this.selectedPeriod)
+
+        switch (this.selectedPeriod) {
+          case '':
+            this.period_range = [0, 100]
+            break;
+          case '2-3일':
+            this.period_range = [2, 3]
+            break;
+          case '1주 이하':
+            this.period_range = [1, 7]
+            break;
+          case '2주':
+            this.period_range = [8, 14]
+            break;
+          case '3주':
+            this.period_range = [15, 21]
+            break;
+          case '1개월':
+            this.period_range = [22, 31]
+            break;
+          case '2개월':
+            this.period_range = [32, 62]
+            break;
+        }
+        this.$emit('period_range', this.period_range)
         this.showPeriods = !this.showPeriods
     }
   }
