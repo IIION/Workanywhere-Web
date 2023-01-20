@@ -23,6 +23,7 @@
             :adult="adult"
             :child="child"
             :detailPeriod="detailPeriod"
+            :price="standardPrice"
           />
         </div>
       </div>
@@ -61,6 +62,10 @@ export default {
       type: String,
       default: "11월 25일~12.31(2주)",
     },
+    standardPrice: {
+      type: Number,
+      default: 400000,
+    }
   },
   components: {
     ProgramCard,
@@ -79,7 +84,9 @@ export default {
       ],
     };
   },
-  created() {},
+  mounted() {
+    window.scrollTo(0, 0)
+  }
 };
 </script>
   

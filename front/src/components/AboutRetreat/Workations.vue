@@ -2,10 +2,13 @@
     <div class="container">
       <p class="title">지금 바로 떠날 수 있는 워케이션</p>
       <div class="cards">
-        <WorkationCardVue
+        <div @click="moveToYeongwolProgram">
+          <WorkationCardVue
         class="card"
         :cardInfo="cardInfo[0]"
-      />
+        />
+        </div>
+        
       </div>
     </div>
   </template>
@@ -26,6 +29,11 @@
           detailDate: "2022.11.25 - 12.31",
           points: ["임직원", "패러글라이딩", "별빛야경", "산속뷰"]
         }]
+      }
+    },
+    methods: {
+      moveToYeongwolProgram() {
+        this.$router.push({name: "programdetailyeongwol"})
       }
     }
   }
@@ -52,5 +60,6 @@
   }
   .card {
     width: 300px;
+    cursor: pointer;
   }
   </style>
