@@ -77,7 +77,7 @@
       >
         신청하기
       </button>
-      <button class="share-button">공유</button>
+      <button class="share-button" @click="showShareCard">공유</button>
     </div>
   </div>
 </template>
@@ -169,6 +169,9 @@ export default {
         });
       }
     },
+    showShareCard() {
+      this.$emit('showShareCard', true)
+    }
   },
 };
 </script>

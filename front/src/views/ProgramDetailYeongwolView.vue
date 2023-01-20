@@ -10,7 +10,7 @@
         </div>
         <!-- 신청하기 컴포넌트가 들어갈 자리. 일단 빈 공간으로 -->
         <div style="width: 43%">
-          <ConfirmCard />
+          <ConfirmCard v-on:showShareCard="showShareCard"/>
         </div>
       </div>
       <!-- 여기 쭉쭉 -->
@@ -20,6 +20,9 @@
       <Programs />
     </div>
     <FooterVue />
+    <div class="modal-background" v-if="showShare">
+      <Share class="shareCard" v-on:showShareCard="showShareCard"/>
+    </div>
   </div>
 </template>
   
@@ -27,6 +30,7 @@
 import BannerVue from "@/components/ProgramYeongwol/Banner.vue";
 import SegmentVue from "@/components/ProgramYeongwol/Segments.vue";
 import ConfirmCard from "@/components/ProgramYeongwol/ConfirmCard.vue";
+import Share from "@/components/ProgramYeongwol/Share.vue";
 import Introduction from "@/components/ProgramYeongwol/Introduction.vue";
 import PointsVue from "@/components/ProgramYeongwol/Points.vue";
 import Lodging from "@/components/ProgramYeongwol/Lodging.vue";
@@ -40,12 +44,28 @@ export default {
     BannerVue,
     SegmentVue,
     ConfirmCard,
+    Share,
     Introduction,
     PointsVue,
     Lodging,
     Office,
     Programs,
     FooterVue,
+  },
+  data: function() {
+    return {
+      showShare: false
+    }
+  },
+  methods: {
+    showShareCard(bool) {
+      this.showShare = bool
+      if (this.showShare == true) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "unset";
+      }
+    }
   },
   mounted() {
     window.scrollTo(0, 0);
@@ -68,5 +88,22 @@ export default {
 }
 .introduction {
   width: 100%;
+}
+.modal-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+.shareCard {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1001;
+  transform: translate(-50%, -50%);
+  box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
 }
 </style>
