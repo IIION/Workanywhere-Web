@@ -12,7 +12,6 @@
                     <input type="checkbox" :checked="month === selectedMonth"/>
                     <label>{{ month }}</label>
                     </li>
-                    <div class="underline"></div>
                 </ul>
             </div>
 
@@ -26,7 +25,6 @@
                     <input type="checkbox" :checked="period === selectedPeriod"/>
                     <span>{{ period }}</span>
                     </li>
-                    <div class="underline"></div>
                 </ul>
             </div>
         </div>
@@ -63,7 +61,6 @@ export default {
             this.selectedMonth = month
         }
         this.$emit('selectedMonth', this.selectedMonth)
-        this.showMonths = !this.showMonths
     },
     selectPeriod(period) {
         if (this.selectedPeriod === period) {
@@ -97,7 +94,6 @@ export default {
         }
         this.$emit('period_range', this.period_range)
         this.$emit('selectedPeriod', this.selectedPeriod)
-        this.showPeriods = !this.showPeriods
     }
   }
 }
@@ -147,25 +143,24 @@ export default {
     border-top: 10px solid #666666;
 }
 .dropdown-list {
+    position: absolute;
+    width: 120px;
     font-size: 15px;
     font-weight: normal;
     font-family: 'Noto Sans KR', sans-serif;
-    padding-left: 0;
+    padding: 15px 26px 10px 0px;
+    padding-left: 26px;
+    padding-bottom: 10px;
     color: black;
     background: white;
     list-style: none;
-    z-index: 2;
+    border-radius: 20px;
+    box-shadow: 2px 2px 10px -5px rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 .dropdown-list li {
     padding-bottom: 12px;
     cursor: pointer;
     text-align: left;
-    z-index: 2;
-}
-.underline {
-  width: 100%;
-  height: 1px;
-  background-color: #D9D9D9;
-  margin-top: 10px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
     <div>
-      <p>FINDD</p>
+      <p>FIND</p>
       <div class="line"></div>
       <div class="dropdown">
         <div class="dropdown-menu" v-on:click="toggleMonths">
