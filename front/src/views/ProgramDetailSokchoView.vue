@@ -28,7 +28,7 @@
 <script>
 import BannerVue from '@/components/ProgramSokcho/Banner.vue';
 import SegmentVue from '@/components/ProgramSokcho/Segments.vue';
-import ConfirmVue from '@/components/ProposalCard/ConfirmCard.vue';
+import ConfirmVue from '@/components/ProgramSokcho/ConfirmCard.vue';
 import IntroductionVue from '@/components/ProgramSokcho/Introduction.vue';
 import PointsVue from '@/components/ProgramSokcho/Points.vue';
 import LodgingVue from '@/components/ProgramSokcho/Lodging.vue';
@@ -48,6 +48,9 @@ export default {
     OfficeVue,
     Programs,
     FooterVue
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   }
 }
 </script>

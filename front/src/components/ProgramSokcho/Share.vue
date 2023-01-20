@@ -24,7 +24,7 @@
 
 <script>
 export default {
-  name: "ShareVue"
+  name: "ProgramSokchoShareVue"
 }
 </script>
 
