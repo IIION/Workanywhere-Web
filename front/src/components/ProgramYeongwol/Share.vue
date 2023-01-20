@@ -2,19 +2,19 @@
     <div id="border">
       <div>
     <!--    close    -->
-        <button id="xButton">
-          <img src="./src/assets/ShareAsset/xMark.png">
+        <button id="xButton" @click="showShareCard">
+          <img src="@/assets/ShareAsset/xMark.png">
         </button>
       </div>
-    
+      
       <div id="textArea">
         <p class="shareText">주변 동료와 가족분들에게</p>
         <p class="shareText">공유해보세요</p>
       </div>
     
       <div style="margin-top: 36px">
-        <button id="linkCopyButton">
-          <img src="./src/assets/ShareAsset/linkCopy.png" style="margin-right: 5px">
+        <button id="linkCopyButton" @click="copyURL">
+          <img src="@/assets/ShareAsset/linkCopy.png" style="margin-right: 5px">
           <p id="linkCopyText">링크복사</p>
         </button>
       </div>
@@ -24,16 +24,30 @@
     
     <script>
     export default {
-      name: "ProgramYeongwolShareVue"
+      name: "ProgramYeongwolShareVue",
+      methods: {
+        showShareCard() {
+          this.$emit('showShareCard', false)
+        },
+        async copyURL() {
+          try {
+            const url = window.location.href;
+            await navigator.clipboard.writeText(url);
+            this.$emit('showShareCard', false)
+          } catch (err) {
+            console.error('복사 에러: ', err);
+          }
+        }
+      }
     }
     </script>
     
     <style scoped>
     
     #border {
-      width: 367px;
-      height: 263px;
-    
+      width: 30vw;
+      height: 30vh;
+      border: 1px solid #D9D9D9;
       background-color: white;
       border-radius: 20px;
     
@@ -41,6 +55,7 @@
     
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
     }
     
     #textArea {
@@ -54,7 +69,8 @@
     #xButton {
       float: right;
       border-width: 0px;
-      background-color: rgba(255, 255, 255, 0)
+      background-color: rgba(255, 255, 255, 0);
+      cursor: pointer;
     }
     
     .shareText {
@@ -62,6 +78,7 @@
       font-weight: bold;
       color: black;
       text-align: center;
+      margin:0;
     }
     
     #linkCopyButton {
@@ -69,12 +86,13 @@
       height: 47px;
       border-width: 0px;
       border-radius: 10px;
-      background-color: #D9D9D9;
+      background-color: #F7F6F5;
     
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
     }
     
     #linkCopyText {
