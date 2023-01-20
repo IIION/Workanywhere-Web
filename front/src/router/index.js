@@ -6,6 +6,9 @@ import ProgramView from '@/views/ProgramView'
 import AboutMindfulView from '@/views/AboutMindfulView'
 import AboutRetreatView from '@/views/AboutRetreatView'
 import ServiceApply from '@/views/ServiceApplyView'
+import AddView from '@/views/AddView'
+import ProgramDetailSokchoView from '@/views/ProgramDetailSokchoView'
+import ProgramDetailYeongwolView from '@/views/ProgramDetailYeongwolView'
 
 Vue.use(VueRouter)
 
@@ -39,6 +42,39 @@ const routes = [
     path: '/serviceApply',
     name: 'serviceApply',
     component: ServiceApply
+  },
+  { // 시트 및 이메일 발송 테스트용 페이지 입니다.
+    path: '/add',
+    name: 'add',
+    component: AddView
+  },
+  {
+    path: '/program/sokcho',
+    name: 'programdetailsokcho',
+    component: ProgramDetailSokchoView
+  },
+  {
+    path: '/program/yeongwol',
+    name: 'programdetailyeongwol',
+    component: ProgramDetailYeongwolView
+  },
+  {
+    path: '/program/sokcho',
+    name: 'sokchoproposal',
+    component: () => import('../views/SokchoProposalView.vue'),
+    props: true
+  },
+  {
+    path: '/program/yeongwol',
+    name: 'yeongwolproposal',
+    component: () => import('../views/YeongwolProposalView.vue'),
+    props: true
+  },
+  {
+    path: '/program/proposaldone',
+    name: 'proposaldone',
+    component: () => import('../views/ProposalDoneView.vue'),
+    props: true
   }
 ]
 

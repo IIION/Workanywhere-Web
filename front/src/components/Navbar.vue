@@ -72,9 +72,9 @@ export default {
   top: 0;
   height: 70px;
   width: 100%;
-  z-index: 100;
+  z-index: 150;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -101,8 +101,11 @@ export default {
 
 .nav-links li p {
   font-size: 13px;
-  margin: 0px 15px 0px 15px;
+  margin: 0;
   cursor: pointer;
+}
+.nav-links li p:nth-child(1) {
+  margin-right: 20px;
 }
 
 .selected {
