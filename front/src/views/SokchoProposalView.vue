@@ -23,6 +23,8 @@
           :adult="adult"
           :child="child"
           :detailPeriod="detailPeriod"
+          :programName="programName"
+          :region="region"
         />
       </div>
     </div>
@@ -42,6 +44,14 @@ import ProposalFormCard from '@/components/SokchoProposal/ProposalFormCard.vue';
 export default {
   name: "SokchoProposalView",
   props: {
+    programName: {
+      type: String,
+      default: "리더들을 위한 마인드풀 워케이션",
+    },
+    region: {
+      type: String,
+      default: "속초",
+    },
     adult: {
       type: Number,
       default: 1,
