@@ -8,7 +8,7 @@
       <div class="inner-contents">
         <div class="type">
           <p>마인드풀 워케이션</p>
-          <p>애니웨어 리트릿</p>
+          <p @click="moveToRetreat">애니웨어 리트릿</p>
         </div>
         <div class="banner-description">
           <p class="title">Mindful Workation</p>
@@ -22,6 +22,11 @@
 <script>
 export default {
   name: "AboutMindfulBannerVue",
+  methods: {
+    moveToRetreat() {
+      this.$router.push({name: "aboutretreat"})
+    }
+  }
 };
 </script>
 
@@ -33,6 +38,7 @@ export default {
 .banner-img {
   display: block;
   width: 100%;
+  height: 50vh;
   filter: brightness(74%);
 }
 
@@ -53,10 +59,15 @@ export default {
   color: #fffbe3;
   text-decoration-line: underline;
   text-underline-offset: 10px;
+  cursor: pointer;
 }
 
 .type > p:nth-child(2) {
   color: #AFAFAF;
+  cursor: pointer;
+}
+.type > p:nth-child(2):hover {
+  color: #fffbe3;
 }
 .banner-description {
   margin-top: 100px;

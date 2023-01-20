@@ -2,8 +2,9 @@
   <div class="container">
     <div class="inner-container">
       <p class="card-num">{{ cardInfo.num }}</p>
-    <p class="card-description1">{{ cardInfo.description1 }}</p>
-    <p class="card-description2">{{ cardInfo.description2 }}</p>
+      <p class="card-description1">{{ cardInfo.description1 }}</p>
+      <p class="card-description2">{{ cardInfo.description2 }}</p>
+      <p class="card-description3">{{ cardInfo.description3 }}</p>
     </div>
   </div>
 </template>
@@ -23,7 +24,7 @@ export default {
   border-radius: 10px;
 }
 .inner-container {
-  padding: 30px 20px 30px 20px;
+  padding: 30px 20px 0px 20px;
 }
 
 .card-num {
@@ -36,11 +37,17 @@ export default {
 .card-description1 {
   font-size: 2.5rem;
   font-weight: 700;
+  /* 글자수에 따라 크기가 달라지는것을 방지. 다른 방법은? */
+  min-height: 120px;
 }
 
 .card-description2 {
   font-size: 1.5rem;
   line-height: 26.06px;
   color: #3D3D3D;
+}
+
+.card-description3 {
+  margin-top: 50px;
 }
 </style>

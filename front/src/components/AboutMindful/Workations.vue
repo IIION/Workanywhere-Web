@@ -2,33 +2,39 @@
   <div class="container">
     <p class="title">지금 바로 떠날 수 있는 워케이션</p>
     <div class="cards">
-      <WorkationCardVue
-      class="card"
-      :cardInfo="cardInfo[0]"
-    />
+      <div @click="moveToSokchoProgram">
+        <WorkationCardVue class="card" :cardInfo="cardInfo[0]" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import WorkationCardVue from './WorkationCard.vue';
+import WorkationCardVue from "./WorkationCard.vue";
 export default {
-  name:"WorkationProgramsVue",
+  name: "WorkationProgramsVue",
   components: {
-    WorkationCardVue
+    WorkationCardVue,
   },
-  data: function() {
+  data: function () {
     return {
-      cardInfo: [{
-        imgURL: require("@/assets/AboutMindful/mindfulProgram.jpg"),
-        locationAndDate: "속초 | 2박 3일",
-        title: "리더들을 위한 마인드풀 워케이션",
-        detailDate: "2022.12.14 - 12.16",
-        points: ["C-레벨", "자기탐색", "바다뷰", "네트워킹"]
-      }]
-    }
-  }
-}
+      cardInfo: [
+        {
+          imgURL: require("@/assets/AboutMindful/mindfulProgram.jpg"),
+          locationAndDate: "속초 | 2박 3일",
+          title: "리더들을 위한 마인드풀 워케이션",
+          detailDate: "2022.12.14 - 12.16",
+          points: ["C-레벨", "자기탐색", "바다뷰", "네트워킹"],
+        },
+      ],
+    };
+  },
+  methods: {
+    moveToSokchoProgram() {
+      this.$router.push({ name: "programdetailsokcho" });
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -52,5 +58,6 @@ export default {
 }
 .card {
   width: 300px;
+  cursor: pointer;
 }
 </style>
