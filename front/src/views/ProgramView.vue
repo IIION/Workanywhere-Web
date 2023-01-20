@@ -60,7 +60,7 @@ export default {
       cells: [
         {
           id: 1,
-          imgURL: require("@/assets/Home/mindfull.png"),
+          imgURL: require("@/assets/AboutMindful/mindfulProgram.jpg"),
           region: '속초',
           period: '2박 3일',
           period_days: 3,
@@ -72,7 +72,7 @@ export default {
         },
         {
           id: 2,
-          imgURL: require("@/assets/Home/mindfull.png"),
+          imgURL: require("@/assets/AboutRetreat/retreatProgram.jpg"),
           region: '영월',
           period: '2주',
           period_days: 14,
