@@ -28,8 +28,8 @@
       <div class="proposal-history">
         <p class="title">신청 내역</p>
         <div class="info">
-          <div>
-            <p class="first-cell">신청 프로그램</p>
+          <div class="first-cell">
+            <p>신청 프로그램</p>
             <p>{{ programName }}</p>
           </div>
           <div>
@@ -47,8 +47,8 @@
               <p v-if="child" class="people">, 어린이 {{ child }}</p>
             </div>
           </div>
-          <div>
-            <p class="last-cell">금액</p>
+          <div class="last-cell">
+            <p>금액</p>
             <p>{{ price * adult | currency }}원</p>
           </div>
         </div>
@@ -191,10 +191,10 @@ export default {
   padding: 30px;
   width: 22%;
 }
-.first-cell {
+.first-cell p {
   text-align: left;
 }
-.last-cell {
+.last-cell p {
   text-align: right;
 }
 .card > p:nth-child(1) {

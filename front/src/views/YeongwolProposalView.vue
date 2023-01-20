@@ -24,6 +24,8 @@
             :child="child"
             :detailPeriod="detailPeriod"
             :price="standardPrice"
+            :programName="programName"
+            :region="region"
           />
         </div>
       </div>
@@ -42,6 +44,14 @@ import ProposalFormCard from "@/components/SokchoProposal/ProposalFormCard.vue";
 export default {
   name: "YeongwolProposalView",
   props: {
+    programName: {
+      type: String,
+      default: "천천히 영월",
+    },
+    region: {
+      type: String,
+      default: "영월",
+    },
     adult: {
       type: Number,
       default: 1,
