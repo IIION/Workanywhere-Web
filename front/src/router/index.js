@@ -8,6 +8,8 @@ import AboutRetreatView from '@/views/AboutRetreatView'
 import AddView from '@/views/AddView'
 import ProgramDetailSokchoView from '@/views/ProgramDetailSokchoView'
 import ProgramDetailYeongwolView from '@/views/ProgramDetailYeongwolView'
+//test
+import ConsultingSheetView from '@/views/ConsultingSheetView.vue'
 
 Vue.use(VueRouter)
 
@@ -41,6 +43,11 @@ const routes = [
     path: '/add',
     name: 'add',
     component: AddView
+  },
+  { // 컨설팅 테스트용 페이지 입니다.
+    path: '/consulting',
+    name: 'consulting',
+    component: ConsultingSheetView
   },
   {
     path: '/program/sokcho',
