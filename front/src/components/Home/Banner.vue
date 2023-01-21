@@ -6,9 +6,7 @@
         <p class="banner-descript-title">노트북만 있다면 어디든 사무실이 되는 시대</p>
         <p class="banner-descript-subtitle">일과 휴식 그리고 오롯이 나에게 집중할 수 있는</p>
         <p class="banner-descript-subtitle">워케이션을 만들어 드립니다.</p>
-        <div class="button">
-          <p class="button-text">무료 상담하기</p>
-        </div>
+        <button class="consulting-button" @click="showConsulting">무료 상담하기</button>
       </div>
     </div>
   </div>
@@ -17,7 +15,12 @@
 <script>
 // 미디어쿼리 쓰는게 가장 일반적이다.
 export default {
-  name: 'BannerVue'
+  name: 'BannerVue',
+  methods: {
+    showConsulting() {
+      this.$emit('showConsulting', true)
+    }
+  }
 }
 </script>
 
@@ -44,7 +47,6 @@ export default {
 	transform: translate( -50%, -50% );
 }
 .banner-descript-title {
-  font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
   font-size: 5rem;
   margin-top: 0px;
@@ -52,28 +54,26 @@ export default {
   color: white;
 }
 .banner-descript-subtitle {
-  font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
   font-weight: 400;
   font-size: 2rem;
   color: white;
 }
-.button {
-  width: 234px;
-  height: 68px;
+.consulting-button {
+  font-family: 'Noto Sans KR', sans-serif;
+  padding: 20px 25px 20px 25px;
   background-color: rgba( 255, 255, 255, 0);
   border: 1px solid rgb(255, 255, 255);
+  font-weight: 700;
+  color: white;
   border-radius: 50px;
-  display: table;
-  margin-top: 57px;
+  margin-top: 50px;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.button-text {
-  display: table-cell;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 700;
-  font-size: 2rem;
-  color: white;
-  vertical-align: middle;
+.consulting-button:hover {
+  background-color: white;
+  color: black;
 }
 </style>
