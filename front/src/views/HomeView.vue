@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BannerVue/>
+    <BannerVue v-on:showConsulting="showConsulting"/>
     <SelectWorkanywhereVue/>
     <TypeOfWorkationVue/>
     <ServiceInfoVue/>
@@ -11,6 +11,9 @@
     <FooterVue/>
     <div v-if="showServiceApplyModal == true" class="modal-background">
       <ServiceApplyModal class="service-apply-modal" v-on:showServiceApply="showServiceApply"/>
+    </div>
+    <div v-if="showConsultingModal == true" class="modal-background">
+      <ConsultingModal class="consulting-modal" v-on:showConsulting="showConsulting"/>
     </div>
   </div>
 </template>
@@ -25,6 +28,7 @@ import ReviewVue from '@/components/Home/Review.vue';
 import PartnersVue from '@/components/Home/Partners.vue';
 import ProposalVue from '@/components/Home/Proposal.vue';
 import ServiceApplyModal from '@/components/Home/ServiceApplyModal.vue';
+import ConsultingModal from '@/components/Home/ConsultingModal.vue';
 import FooterVue from '@/components/Footer.vue'
 
 export default {
@@ -39,17 +43,27 @@ export default {
     PartnersVue,
     ProposalVue,
     ServiceApplyModal,
+    ConsultingModal,
     FooterVue
   },
   data: function() {
     return {
-      showServiceApplyModal: false
+      showServiceApplyModal: false,
+      showConsultingModal: false
     }
   },
   methods: {
     showServiceApply(bool){
       this.showServiceApplyModal = bool
       if (this.showServiceApplyModal == true) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "unset";
+      }
+    },
+    showConsulting(bool) {
+      this.showConsultingModal = bool
+      if (this.showConsultingModal == true) {
         document.body.style.overflow = "hidden";
       } else {
         document.body.style.overflow = "unset";
@@ -75,14 +89,24 @@ export default {
 }
 .service-apply-modal {
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
   z-index: 1001;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
   background-color: white;
   box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
   border-radius: 20px;
   
+}
+.consulting-modal {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1001;
+  transform: translateX(-50%);
+  background-color: white;
+  box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+  border-radius: 20px;
 }
 
 </style>
