@@ -58,6 +58,7 @@ button {
   border: 1.5px solid #FFFBE3;
   border-radius : 50px;
   background-color: rgba( 255, 255, 255, 0);
+  cursor: pointer;
 }
 
 </style>
