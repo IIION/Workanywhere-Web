@@ -4,7 +4,7 @@
       <p>새로운 근무 문화를 경험해보고 싶다면</p>
       <p>워크애니웨어의</p>
       <p>서비스 소개서를 받아보세요</p>
-      <button>소개서 받기</button>
+      <button @click="showServiceApply">소개서 받기</button>
     </div>
     <div class="image-container">
       <img src="@/assets/Home/documentImage.png">
@@ -15,6 +15,11 @@
 <script>
 export default {
   name: "ProposalVue",
+  methods: {
+    showServiceApply() {
+      this.$emit('showServiceApply', true)
+    }
+  }
 };
 </script>
 
@@ -53,6 +58,7 @@ button {
   border: 1.5px solid #FFFBE3;
   border-radius : 50px;
   background-color: rgba( 255, 255, 255, 0);
+  cursor: pointer;
 }
 
 </style>
