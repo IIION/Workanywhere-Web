@@ -111,17 +111,15 @@
       </div>
     </div>
      <!-- 누르면 메일 발송 -->
-     <button class="submit-button" :class="[companyName && name && position && email && phoneNumber && selectedHow != '워크애니웨어를 알게되신 곳을 선택해주세요' && checked1 ? 'apply' : 'noapply']">소개서 받기</button>
+     <button class="submit-button" :class="[companyName && name && position && email && phoneNumber && selectedHow != '워크애니웨어를 알게되신 곳을 선택해주세요' && checked1 ? 'apply' : 'noapply']" @click="sendMail">소개서 받기</button>
     </div>
-
-
-
-   
-
   </div>
 </template>
 
 <script>
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const creds = require('@/client_secret.json');
+
 export default {
   name: 'ServiceApplyModal',
   data: function (){
@@ -162,6 +160,27 @@ export default {
     select2() {
       this.checked2 = !this.checked2
     },
+    async sendMail() {
+      if(this.companyName && this.name && this.position && this.email && this.phoneNumber && this.selectedHow != '워크애니웨어를 알게되신 곳을 선택해주세요' && this.checked1) {
+        this.closeServiceApply()
+
+        const newRow = {
+          Company: this.companyName,
+          Name: this.name,
+          Position: this.position,
+          Email: this.email,
+          Phone: this.phoneNumber,
+          How: this.selectedHow,
+          AgreeMarketing: this.checked2
+        }
+        
+        const doc = new GoogleSpreadsheet('1VLBpwFv_1_eB-MTnSQ-_EDFv9SDmuUl1NWgwa-dF8iU');
+        await doc.useServiceAccountAuth(creds);
+        await doc.loadInfo(); 
+        const sheet = doc.sheetsByIndex[2];
+        await sheet.addRow(newRow);
+      }
+    }
   },
   watch: {
     phoneNumber: function() {

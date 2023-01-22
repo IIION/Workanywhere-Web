@@ -210,12 +210,13 @@
           email &&
           phoneNumber &&
           selectedHow != '워크애니웨어를 알게되신 곳을 선택해주세요' &&
-          selectedCountWorker != '현재 회사의 근무 형태를 선택해주세요' && 
-          selectedFormOfwork != '기업 인원 수를 선택해주세요' &&
+          selectedFormOfwork != '현재 회사의 근무 형태를 선택해주세요' && 
+          selectedCountWorker != '기업 인원 수를 선택해주세요' &&
           checked1
             ? 'apply'
             : 'noapply',
         ]"
+        @click="sendMail"
       >
         소개서 받기
       </button>
@@ -223,7 +224,10 @@
   </div>
 </template>
   
-  <script>
+<script>
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const creds = require('@/client_secret.json');
+
 export default {
   name: "ConsultingModal",
   data: function () {
@@ -296,6 +300,37 @@ export default {
     select2() {
       this.checked2 = !this.checked2;
     },
+    async sendMail() {
+      if(this.companyName &&
+        this.name &&
+        this.position &&
+        this.email &&
+        this.phoneNumber &&
+        this.selectedHow != '워크애니웨어를 알게되신 곳을 선택해주세요' &&
+        this.selectedFormOfwork != '현재 회사의 근무 형태를 선택해주세요' && 
+        this.selectedCountWorker != '기업 인원 수를 선택해주세요' &&
+        this.checked1) {
+          this.closeConsulting()
+
+          const newRow = {
+            Company: this.companyName,
+            Name: this.name,
+            Position: this.position,
+            Email: this.email,
+            Phone: this.phoneNumber,
+            How: this.selectedHow,
+            FormOfWork: this.selectedFormOfwork,
+            CountWorkers: this.selectedCountWorker,
+            AgreeMarketing: this.checked2
+          }
+
+          const doc = new GoogleSpreadsheet('1VLBpwFv_1_eB-MTnSQ-_EDFv9SDmuUl1NWgwa-dF8iU');
+				  await doc.useServiceAccountAuth(creds);
+          await doc.loadInfo(); 
+          const sheet = doc.sheetsByIndex[1];
+          await sheet.addRow(newRow);
+        }
+    }
   },
   watch: {
     phoneNumber: function () {
