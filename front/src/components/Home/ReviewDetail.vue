@@ -1,8 +1,11 @@
 <template>
   <div class="review-container">
     <div class="inner-container">
-      <p class="title">{{review.title}}</p>
-      <p class="detail">{{review.detail}}</p>
+      <div>
+        <p class="title">{{review.title}}</p>
+        <p class="detail">{{review.detail}}</p>
+      </div>
+      
       <div class="userinfo">
         <p class="job">{{review.job}} </p>
         <p class="name">{{review.name}}</p>
@@ -24,11 +27,16 @@ export default {
 .review-container {
   background-color: white;
   border-radius: 20px;
+  
 }
 
 .inner-container{
   padding: 26px 30px 26px 30px;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
 }
 
 .point {
@@ -41,6 +49,7 @@ export default {
 .title {
   font-weight: 700;
   font-size: 1.5rem;
+  min-height: 50px;
 }
 
 .detail {
