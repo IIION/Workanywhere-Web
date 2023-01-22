@@ -94,6 +94,9 @@
 </template>
     
 <script>
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const creds = require('@/client_secret.json');
+
 export default {
   name: "ProposalFormCardVue",
   props: {
@@ -170,9 +173,28 @@ export default {
     select3() {
       this.checked3 = !this.checked3
     },
-    moveToProposalDone() {
+    async moveToProposalDone() {
       if (this.name && this.company && this.email && this.phoneNumber && this.sex && this.checked1 && this.checked2) {
         this.$router.push({name: "proposaldone", params: { programName: this.programName, region:this.region, option: this.detailPeriod, price:this.price, adult: this.adult, child: this.child, name:this.name, company: this.company, email: this.email, phoneNumber:this.phoneNumber, sex:this.sex}})
+
+        const newRow = {
+          Name: this.name,
+          Company: this.company,
+          Email: this.email,
+          Phone: this.phoneNumber,
+          Sex: this.sex,
+          Period: this.detailPeriod,
+          Price: this.price * this.adult,
+          Region: this.region,
+          Adult: this.adult,
+          Child: this.child,
+          AgreeMarketing: this.checked3
+        }
+        const doc = new GoogleSpreadsheet('1VLBpwFv_1_eB-MTnSQ-_EDFv9SDmuUl1NWgwa-dF8iU');
+				await doc.useServiceAccountAuth(creds);
+				await doc.loadInfo(); 
+				const sheet = doc.sheetsByIndex[0];
+				await sheet.addRow(newRow);
       }
     }
   }
