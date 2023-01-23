@@ -1,8 +1,11 @@
 <template>
   <div>
     <img :src="cardInfo.imgURL">
-    <p class="title">{{ cardInfo.title }}</p>
-    <p class="description">{{ cardInfo.description }}</p>
+    <div class="texts-container">
+      <p class="title">{{ cardInfo.title }}</p>
+      <p class="description">{{ cardInfo.description }}</p>
+    </div>
+    
   </div>
 </template>
 
@@ -16,6 +19,11 @@ export default {
 </script>
 
 <style scoped>
+img {
+  height: 30vh;
+  overflow: hidden;
+  object-fit: fill;
+}
 .title {
   font-weight: 700;
   font-size: 2rem;
@@ -24,5 +32,16 @@ export default {
 .description {
   font-size: 1.5rem;
 }
-
+@media screen and (max-width: 768px) {
+  .title {
+    white-space: pre-wrap;
+    text-align: center;
+  }
+  .description {
+    white-space: pre-wrap;
+  }
+  .texts-container {
+    margin: 0px 10% 0px 10%;
+  }
+}
 </style>

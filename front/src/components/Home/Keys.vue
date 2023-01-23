@@ -52,7 +52,7 @@ export default {
 <style scoped>
 p {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .cards {
@@ -65,4 +65,17 @@ p {
   padding: 50px 36px 20px 36px;
 }
 
+@media screen and (max-width: 768px) {
+  .cards {
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .card {
+    display: inline-block;
+    width: 100%;
+    padding: 50px 0px 50px 0px;
+  }
+} 
 </style>
