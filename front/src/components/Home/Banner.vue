@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="banner-container">
-      <p class="banner-descript-title">노트북만 있다면 어디든 사무실이 되는 시대</p>
-      <p class="banner-descript-subtitle">일과 휴식 그리고 오롯이 나에게 집중할 수 있는</p>
-      <p class="banner-descript-subtitle">워케이션을 만들어 드립니다.</p>
-      <button class="consulting-button" @click="showConsulting">무료 상담하기</button>
-    </div>
+  <div class="banner-container">
+    <p class="banner-descript-title">노트북만 있다면 어디든 사무실이 되는 시대</p>
+    <p class="banner-descript-subtitle">일과 휴식 그리고 오롯이 나에게 집중할 수 있는</p>
+    <p class="banner-descript-subtitle">워케이션을 만들어 드립니다.</p>
+    <button class="consulting-button" @click="showConsulting">무료 상담하기</button>
   </div>
 </template>
 
@@ -38,6 +36,7 @@ export default {
   margin-top: 0px;
   margin-bottom: 21px;
   color: #FFFBE3;
+  padding: 0px 20px 0px 20px;
 }
 .banner-descript-subtitle {
   margin: 0;
