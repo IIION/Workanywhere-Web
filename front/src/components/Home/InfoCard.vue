@@ -25,7 +25,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 100%;
 }
 
 p {
@@ -42,7 +42,6 @@ p {
 }
 
 img {
-  display : block;
   max-width:100%;
   height: auto;
   object-fit: fill;
@@ -55,19 +54,40 @@ img {
 
 .title {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .description1 {
   font-weight: 500;
   font-size: 1.5rem;
   color: #666666;
+  line-height: 1.8;
 }
 
 .description2 {
   font-weight: 500;
   font-size: 1.5rem;
   color: #666666;
+  line-height: 1.8;
 }
+@media screen and (max-width: 768px) {
+  .card-container{
+    flex-direction: column;
+  }
+  .image-container {
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 0;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+  .texts {
+    width: 90%;
+    text-align: center;
+  }
 
+}
 </style>
