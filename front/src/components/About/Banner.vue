@@ -1,13 +1,8 @@
 <template>
-  <div>
-    <div class="img-container">
-      <img :src=detail.imgURL class="banner-img">
-      <div class="banner-description">
-        <p class="type">{{ detail.type }}</p>
-        <p class="title">{{ detail.title }}</p>
-        <p class="semititle">{{ detail.semititle }}</p>
-      </div>
-    </div>
+  <div class="banner-container">
+    <p class="type">{{ detail.type }}</p>
+    <p class="title">{{ detail.title }}</p>
+    <p class="semititle">{{ detail.semititle }}</p>
   </div>
 </template>
 
@@ -21,36 +16,26 @@ export default {
 </script>
 
 <style scoped>
-.img-container {
-  position: relative;
-  min-height: 200px;
-}
-
-.banner-img {
-  display: block;
-  min-height: 200px;
+.banner-container {
   width: 100%;
-  filter: brightness(74%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)),
+    url("@/assets/Home/mainAboutBanner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
-
-.banner-description {
-  position: absolute;
-  width: 40rem;
-  top: 50%;
-	left: 50%;
-	transform: translate( -50%, -50% );
-}
-
 .type {
   font-family: "Montserrat";
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #FF4E31;
   margin: 0;
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 400;
   color: #FFFBE3;
   margin-top: 61px;
@@ -59,7 +44,7 @@ export default {
 
 .semititle {
   font-family: "Montserrat";
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #FFFBE3;
   margin: 0;
