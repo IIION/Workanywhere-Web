@@ -3,11 +3,11 @@
     <div class="banner">
       <div class="texts">
         <p class="infoTitle">워케이션 컨설팅</p>
-      <p class="infoTitle">문의하기</p>
+        <p class="infoTitle">문의하기</p>
       </div>
       
       <div class="logo-container">
-        <img class="logoImg" src="@/assets/serviceLogo.png" />
+        <img class="logoImg" src="@/assets/logo2.png" />
       </div>
       <div class="closeButton" @click="closeConsulting">𝗫</div>
     </div>
@@ -310,6 +310,7 @@ export default {
 .banner {
   background-color: #ff4e31;
   padding: 50px 10% 50px 10%;
+  border-radius: 20px 20px 0px 0px;
   position: relative;
   overflow: hidden;
 }
@@ -329,12 +330,15 @@ export default {
 .logo-container {
   position: absolute;
   height: 100%;
+  width: 200px;
   top: 0;
   right: 15%;
 }
 .logoImg {
-  object-fit: cover;
   height: 100%;
+  width: 100%;
+  object-position: center;
+  object-fit: cover;
 }
 
 .closeButton {
@@ -517,15 +521,27 @@ export default {
 @media screen and (max-width: 768px) {
   .banner {
     background-color: #ff4e31;
-    padding: 50px 5% 50px 5%;
+    padding: 50px 5% 150px 5%;
     overflow: hidden;
+    border-radius: 0;
+  }
+  .logo-container {
+    height: 40%;
+    width: unset;
+    top: unset;
+    bottom: 0px;
+    right: 5%;
+  }
+  .logoImg {
+    object-fit: contain;
+    height: 100%;
   }
   .closeButton {
     right: 20px;
     top: 15px;
   }
   .submit-area {
-    padding: 50px 5% 50px 5%;
+    padding: 20px 5% 50px 5%;
   }
   .two-input-container {
     flex-direction: column;
