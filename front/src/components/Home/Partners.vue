@@ -8,7 +8,7 @@
     <div class="logos">
       <img src="@/assets/Home/naverLogo.png">
       <img src="@/assets/Home/LineLogo.png">
-      <img src="@/assets/Home/BrunelLogo.png">
+      <img src="@/assets/Home/brunelLogo.png">
       <img src="@/assets/Home/DeBlurLogo.png">
       <img src="@/assets/Home/CalmenTechLogo.png">
       <img src="@/assets/Home/LucidLabLogo.png">
