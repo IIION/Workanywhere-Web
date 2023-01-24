@@ -26,14 +26,13 @@ export default {
 <style scoped>
 .container {
   background-color: #FF4e31;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
+  padding: 100px 15% 100px 15%;
+  overflow: hidden;
 }
 
 .texts {
   text-align: left;
-  padding-left: 30px;
 }
 
 .texts > p {
@@ -44,9 +43,14 @@ export default {
 }
 
 .image-container {
-  margin-left: 200px;
-  height: 300px;
-  overflow: hidden;
+  height: 100%;
+  position: absolute;
+  top: 20px;
+  right: 15%;
+}
+.image-container > img {
+  display: block;
+  height: 100%;
 }
 
 button {
@@ -61,4 +65,15 @@ button {
   cursor: pointer;
 }
 
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 10% 150px 10%;
+  }
+  .image-container {
+    height: 40%;
+    top: unset;
+    bottom: -20px;
+    right: 10%;
+  }
+}
 </style>

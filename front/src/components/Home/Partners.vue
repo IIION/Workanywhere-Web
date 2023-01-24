@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="partners-wrapper">
     <div class="title">
       <p>많은 기업과 조직들이</p>
       <p>워크애니웨어의 워케이션을</p>
@@ -7,10 +7,12 @@
     </div>
     <div class="logos">
       <img src="@/assets/Home/naverLogo.png">
-      <img src="@/assets/Home/naverLogo.png">
-      <img src="@/assets/Home/naverLogo.png">
-      <img src="@/assets/Home/naverLogo.png">
-      <img src="@/assets/Home/naverLogo.png">
+      <img src="@/assets/Home/LineLogo.png">
+      <img src="@/assets/Home/brunelLogo.png">
+      <img src="@/assets/Home/DeBlurLogo.png">
+      <img src="@/assets/Home/CalmenTechLogo.png">
+      <img src="@/assets/Home/LucidLabLogo.png">
+      <img src="@/assets/Home/YoyomoLogo.png">
     </div>
   </div>
 </template>
@@ -22,20 +24,34 @@ export default {
 </script>
 
 <style scoped>
+.partners-wrapper {
+  padding: 100px 0px 100px 0px;
+}
 .title {
-  padding: 97px 0px 77px 0px;
+  padding-bottom: 40px;
 }
 
 .title > p {
   font-weight: 700;
   margin:0;
-  font-size: 3rem;
+  font-size: 2.5rem;
+}
+.logos {
+  padding: 0px 15% 0px 15%;
 }
 
 .logos > img {
-  padding: 0px 13px 97px 13px;
+  padding: 0px 15px 15px 15px;
+  height: 70px;
 }
 
-
+@media screen and (max-width: 768px) {
+  .logos {
+    padding: 0;
+  }
+  .logos > img {
+    height: 35px;
+  }
+}
 
 </style>

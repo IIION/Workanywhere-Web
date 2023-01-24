@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="modal-container">
     <div class="banner">
-      <div class="banner-contents">
-        <p class="infoTitle">
-          워케이션 컨설팅 문의하기
-        </p>
-        <div class="logo-container">
-          <img class="logoImg" src="@/assets/serviceLogo.png" />
-        </div>
+      <div class="texts">
+        <p class="infoTitle">워케이션 컨설팅</p>
+        <p class="infoTitle">문의하기</p>
+      </div>
+      
+      <div class="logo-container">
+        <img class="logoImg" src="@/assets/logo2.png" />
       </div>
       <div class="closeButton" @click="closeConsulting">𝗫</div>
     </div>
@@ -340,40 +340,45 @@ export default {
 };
 </script>
   
-  <style>
+<style scoped>
+
 .banner {
   background-color: #ff4e31;
-  height: 250px;
-  width: 100%;
-  position: relative;
+  padding: 50px 10% 50px 10%;
   border-radius: 20px 20px 0px 0px;
-}
-.banner-contents {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 30px 0px 30px;
-}
-
-.infoTitle {
-  color: #fffbe3;
-  font-size: 2.5rem;
-  font-weight: 800;
-  text-align: left;
-  width: 50%;
-}
-.logo-container {
-  height: 100%;
+  position: relative;
   overflow: hidden;
 }
+.texts {
+  height: 100%;
+  display : flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.infoTitle {
+  color: #fffbe3;
+  font-size: 2rem;
+  font-weight: 800;
+  text-align: left;
+  margin: 0;
+}
+.logo-container {
+  position: absolute;
+  height: 100%;
+  width: 200px;
+  top: 0;
+  right: 15%;
+}
 .logoImg {
+  height: 100%;
+  width: 100%;
+  object-position: center;
   object-fit: cover;
 }
 
 .closeButton {
   position: absolute;
-  right: 15px;
+  right: 30px;
   top: 15px;
   z-index: 10001;
   color: white;
@@ -381,7 +386,7 @@ export default {
   cursor: pointer;
 }
 .submit-area {
-  padding: 50px;
+  padding: 50px 10% 50px 10%;
 }
 .two-input-container {
   display: flex;
@@ -478,6 +483,9 @@ export default {
 }
 
 /* 약관 동의 */
+.clause {
+  margin-top: 20px;
+}
 .clause input[type="checkbox"] {
   display: none;
 }
@@ -543,5 +551,46 @@ export default {
   border-style: none;
   color: #666666;
   margin-top: 30px;
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    background-color: #ff4e31;
+    padding: 50px 5% 150px 5%;
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .logo-container {
+    height: 40%;
+    width: unset;
+    top: unset;
+    bottom: 0px;
+    right: 5%;
+  }
+  .logoImg {
+    object-fit: contain;
+    height: 100%;
+  }
+  .closeButton {
+    right: 20px;
+    top: 15px;
+  }
+  .submit-area {
+    padding: 20px 5% 50px 5%;
+  }
+  .two-input-container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+  .input-container {
+    width: 100%;
+  }
+  .clause-texts > a {
+    font-size: 0.5rem;
+  }
+  .clause-texts > p {
+    font-size: 0.5rem;
+  }
 }
 </style>

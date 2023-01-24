@@ -1,14 +1,12 @@
 <template>
-  <div>
+  <div class="apply-container">
     <div class="banner">
-      <div class="banner-contents">
-        <p class="infoTitle">
-        서비스 소개서를 받기 위해 간단한 정보를 작성해주세요
-        </p>
+      <div class="texts">
+        <p class="infoTitle">서비스 소개서를 받기 위해 </p>
+        <p class="infoTitle">간단한 정보를 작성해주세요</p>
         <div class="logo-container">
-          <img class="logoImg" src="@/assets/serviceLogo.png"/>
+          <img class="logoImg" src="@/assets/logo2.png"/>
         </div>
-        
       </div>
       <div class="closeButton" @click="closeServiceApply">𝗫</div>
     </div>
@@ -190,47 +188,54 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .banner {
   background-color: #ff4e31;
-  height: 250px;
-  width: 100%;
-  position: relative;
+  padding: 50px 10% 50px 10%;
   border-radius: 20px 20px 0px 0px;
+  position: relative;
+  overflow: hidden;
 }
-.banner-contents {
+.texts {
   height: 100%;
-  display: flex;
+  display : flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 0px 30px 0px 30px;
 }
-
 .infoTitle {
   color: #fffbe3;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 800;
   text-align: left;
-  width: 50%;
+  margin: 0;
 }
 .logo-container {
+  position: absolute;
   height: 100%;
-  overflow:hidden;
+  width: 200px;
+  top: 0;
+  right: 15%;
+  
 }
 .logoImg {
+  height: 100%;
+  width: 100%;
+  object-position: center;
   object-fit: cover;
 }
 
 .closeButton {
   position: absolute;
-  right: 15px;
+  right: 30px;
   top: 15px;
   z-index: 10001;
   color: white;
   font-size: 2rem;
+  cursor: pointer;
 }
+
 .submit-area {
-  padding: 50px;
+  padding: 50px 10% 50px 10%;
 }
 .two-input-container {
   display: flex;
@@ -327,6 +332,9 @@ export default {
 }
 
 /* 약관 동의 */
+.clause {
+  margin-top: 20px;
+}
 .clause input[type="checkbox"] {
   display: none;
 }
@@ -393,5 +401,44 @@ export default {
   color: #666666;
   margin-top: 30px;
 }
-
+@media screen and (max-width: 768px) {
+  .banner {
+    background-color: #ff4e31;
+    padding: 50px 5% 150px 5%;
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .logo-container {
+    height: 40%;
+    width: unset;
+    top: unset;
+    bottom: 0px;
+    right: 5%;
+  }
+  .logoImg {
+    object-fit: contain;
+    height: 100%;
+  }
+  .closeButton {
+    right: 20px;
+    top: 15px;
+  }
+  .submit-area {
+    padding: 20px 5% 50px 5%;
+  }
+  .two-input-container {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+  .input-container {
+    width: 100%;
+  }
+  .clause-texts > a {
+    font-size: 0.5rem;
+  }
+  .clause-texts > p {
+    font-size: 0.5rem;
+  }
+}
 </style>

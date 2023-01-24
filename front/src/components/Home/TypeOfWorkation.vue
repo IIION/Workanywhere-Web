@@ -2,7 +2,7 @@
   <div class="total-container">
     <p class="title">TYPE OF WORKATION</p>
     <p class="subtitle">다양한 타입의 워케이션을 즐겨보세요</p>
-    <div class="container">
+    <div class="card-container">
       <CardVue class="card"
         :cardInfo=cardInfo[0]
       />
@@ -41,7 +41,7 @@ export default {
 <style scoped>
 .total-container {
   background-color: #F7F6F5;
-  padding: 97px;
+  padding: 97px 15% 97px 15%;
 }
 
 .title {
@@ -54,18 +54,19 @@ export default {
 .subtitle {
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 0;
 }
 
-.container {
+.card-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .card {
-  margin: 57px 25px 57px 25px;
-  width: 25%;
+  margin: 57px 0px 57px 0px;
+  width: 48%;
 }
 
 button {
@@ -79,6 +80,43 @@ button {
   border-radius : 50px;
   background-color: rgba( 255, 255, 255, 0);
   cursor: pointer;
+}
+
+button:hover {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: bold;
+  padding: 12.5px 33.5px 12.5px 33.5px;
+  border: 1.5px solid #FF4E31;
+  border-radius : 50px;
+  background-color: #FF4E31;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .total-container {
+    background-color: #F7F6F5;
+    padding: 97px 0px 97px 0px;
+  }
+  .card-container {
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .card {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 0;
+  }
+  .card:nth-child(1) {
+    margin-right: 16px;
+  }
+  button {
+    margin-top: 30px;
+  }
 }
 
 </style>

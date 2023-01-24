@@ -41,7 +41,7 @@
       <!-- 세번째 버튼 클릭 -->
       <div class="container" v-if="(selection == '2')">
         <div class="image-container">
-          <img class="decription-image" src="@/assets/Home/curation.png">
+          <img class="decription-image" src="@/assets/Home/solution.png">
         </div>
         
         <div class="texts">
@@ -74,21 +74,21 @@ export default {
 
 <style scoped>
 .total-container {
-  margin-top: 131px;
-  margin-bottom: 131px;
+  padding: 50px 0px 50px 0px;
+  margin: 0px 15% 0px 15%;
 }
 
 .new-benefit {
   margin: 0;
-  line-height: 58px;
+  line-height: 50px;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .segment {
-  margin-top: 70px;
-  margin-bottom: 70px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
 }
@@ -97,10 +97,11 @@ export default {
   margin-left: 10px;
   margin-right: 10px;
   font-family: 'Noto Sans KR', sans-serif;
-  font-weight: normal;
+  font-weight: 500;
   padding: 12.5px 33.5px 12.5px 33.5px;
   border: none;
   border-radius : 50px;
+  
 }
 
 .selected {
@@ -114,34 +115,38 @@ export default {
 }
 
 .detail {
+  width: 100%;
   display: flex;
   justify-content: center;
 }
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  width: 75%;
+  width: 100%;
 }
 
 .image-container {
-  width: 50%;
-  height: 95%;
+  width: 60%;
+  height: 60vh;
   background: #F7F6F5;
-  margin: 0px 74px 0px 74px;
+  margin: 0px;
   border-radius: 20px;
   box-shadow: 0px 5px 8px 3px rgba(0, 0, 0, 0.17);
   overflow: hidden;
+  
 }
 
 .decription-image {
   width: 100%;
-  object-fit: fill;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .texts {
-  width: 30%;
+  width: 35%;
 }
 
 .texts p {
@@ -150,22 +155,54 @@ export default {
 
 .title {
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #FF4E31;
   font-weight: 600;
 }
 
 .semititle {
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 3.2rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
 .description {
   font-family: 'Noto Sans KR', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #666666;
   font-weight: 400;
+}
+
+
+@media screen and (max-width: 768px) {
+  .total-container {
+    margin: 0;
+  }
+  .segment {
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 20px;
+  }
+  .segment button {
+    display: inline-block;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .image-container {
+    border-radius: 0;
+    width: 100%;
+  }
+  .texts {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .texts p {
+    text-align: center;
+    padding: 0px 50px 0px 50px;
+  }
 }
 
 </style>

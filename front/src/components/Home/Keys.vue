@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="keys-container">
     <p>워케이션은 모든 기업에게 필요합니다</p>
     <div class="cards">
       <KeyCardVue
@@ -50,9 +50,12 @@ export default {
 </script>
 
 <style scoped>
+.keys-container {
+  padding: 100px 0px 100px 0px;
+}
 p {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
 .cards {
@@ -65,4 +68,17 @@ p {
   padding: 50px 36px 20px 36px;
 }
 
+@media screen and (max-width: 768px) {
+  .cards {
+    display: block;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+  .card {
+    display: inline-block;
+    width: 100%;
+    padding: 50px 0px 50px 0px;
+  }
+} 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="info-container">
     <p class="subtitle">예약도, 관리도 편하게!</p>
     <p class="title">워크애니웨어 웹앱 서비스</p>
     <div class="container">
@@ -15,9 +15,6 @@
         <button id="1" :class="[selection === '1' ? 'selected' : 'common']" @click="changeSelect($event)">
           만족도 및 통계 데이터 관리
         </button>
-        <button id="2" :class="[selection === '2' ? 'selected' : 'common']" @click="changeSelect($event)">
-          보고서 자동화
-        </button>
       </div>
 
       <InfoCardVue :cardInfo="cardInfo[Number(selection)]" />
@@ -26,7 +23,7 @@
       <div class="role">
         <p class="role-text">임직원용</p>
       </div>
-      <InfoCardVue :cardInfo="cardInfo[3]" />
+      <InfoCardVue :cardInfo="cardInfo[2]" />
     </div>
   </div>
 </template>
@@ -43,7 +40,7 @@ export default {
     return {
       cardInfo: [
         {
-          imgURL: require("@/assets/Home/mindfull.png"),
+          imgURL: require("@/assets/Home/usagestatus.png"),
           title: "구성원들의 이용 현황을 한눈에",
           description1:
             "워케이션 중인 구성원들이 어떤 프로그램을 진행 중인지 실시간으로 간편하게 확인 할 수 있어요.",
@@ -51,7 +48,7 @@ export default {
             "현재 무엇을 하고 있는지 일일이 물어보고, 보고할 필요가 없어요.",
         },
         {
-          imgURL: require("@/assets/Home/mindfull.png"),
+          imgURL: require("@/assets/Home/datamanagement.png"),
           title: "직원들의 이용 통계 현황을 편하게 파악할 수 있어요",
           description1:
             "임직원들의 프로그램 이용률, 만족도, 부서별 이용횟수 등을 시각화된 리포트로 확인할 수 있어요.",
@@ -59,15 +56,7 @@ export default {
             "대시보드를 통해 직원들의 이용 현황, 만족도, 일정, 예산 등을 추적하여 필요한 인사이트를 얻으실 수 있어요.",
         },
         {
-          imgURL: require("@/assets/Home/mindfull.png"),
-          title: "보고서 간편화 시스템으로 보고서 작성 시간을 줄여줘요",
-          description1:
-            "워케이션 중인 구성원들이 어떤 프로그램을 진행 중인지 실시간으로 간편하게 확인 할 수 있어요.",
-          description2:
-            "현재 무엇을 하고 있는지 일일이 물어보고, 보고할 필요가 없어요.",
-        },
-        {
-          imgURL: require("@/assets/Home/retlit.png"),
+          imgURL: require("@/assets/Home/calendar.png"),
           title: "프로그램 예약과 일정 관리를 간편하게",
           description1:
             "임직원들을 원하는 프로그램 예약을 직접 예약하여 일정을 편하게 관리할 수 있어요.",
@@ -88,8 +77,10 @@ export default {
 </script>
 
 <style scoped>
+.info-container {
+  padding: 100px 15% 100px 15%;
+}
 .container {
-  padding: 0px 0px 107px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,31 +88,29 @@ export default {
 
 .subtitle {
   color: #666666;
-  font-family: "Noto Sans KR", sans-serif;
   font-weight: 700;
-  font-size: 3rem;
-  margin: 107px 0px 8px 0px;
+  font-size: 2.5rem;
+  margin: 0px 0px 8px 0px;
 }
 
 .title {
-  font-family: "Noto Sans KR", sans-serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 0;
 }
 
 .role {
   background-color: #ff4e31;
   border-radius: 50px;
-  margin-bottom: 53px;
-  margin-top: 53px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 .role-text {
-  font-family: "Noto Sans KR", sans-serif;
   font-weight: 500;
   font-size: 1.5rem;
   color: white;
-  padding: 0px 20px 0px 20px;
+  padding: 10px 15px 10px 15px;
+  margin: 0;
 }
 
 .segment {
@@ -148,5 +137,12 @@ export default {
   color: #666666;
   background-color: #F7F6F5;
 }
-
+@media screen and (max-width: 768px) {
+  .info-container {
+    padding: 100px 0px 100px 0px;
+  }
+  .segment button {
+    padding: 10px 20px 10px 20px;
+  }
+}
 </style>

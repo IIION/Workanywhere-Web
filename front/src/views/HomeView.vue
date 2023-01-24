@@ -88,6 +88,7 @@ export default {
   overflow-y: auto;
 }
 .service-apply-modal {
+  width: 60%;
   position: absolute;
   top: 0;
   left: 50%;
@@ -96,9 +97,9 @@ export default {
   background-color: white;
   box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
   border-radius: 20px;
-  
 }
 .consulting-modal {
+  width: 60%;
   position: absolute;
   top: 0;
   left: 50%;
@@ -108,5 +109,18 @@ export default {
   box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
   border-radius: 20px;
 }
-
+@media screen and (max-width: 768px) {
+  .service-apply-modal {
+    width: 100%;
+    border-radius: 0;
+    position: relative;
+    min-height: 100%;
+  }
+  .consulting-modal {
+    width: 100%;
+    border-radius: 0;
+    position: relative;
+    min-height: 100%;
+  }
+}
 </style>

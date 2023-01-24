@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-wrap">
     <img :src="cardInfo.imgURL">
     <div class="detail">
       <p class="semititle">{{ cardInfo.semititle }}</p>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.container-wrap {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -27,9 +27,9 @@ export default {
   overflow: hidden;
 }
 img {
-  display : block;
-  height: 30vh;
-  object-fit:cover;
+  height: 40vh;
+  width: 100%;
+  object-fit: cover;
 }
 .detail {
   min-height: 25vh;
@@ -42,16 +42,24 @@ p {
   text-align: left;
 }
 .semititle {
-  font-weight: 400;
-  font-size: 2rem;
+  font-size: 1.7rem;
 }
 .title {
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin-bottom: 19px;
 }
 .description {
-  font-weight: 400;
   font-size: 1.5rem;
+  width: 100%;
+  color: #666666;
+  white-space: pre-wrap;
+}
+
+@media screen and (max-width: 768px) {
+  .detail {
+  min-height: 0;
+  padding: 39px;
+  }
 }
 </style>
