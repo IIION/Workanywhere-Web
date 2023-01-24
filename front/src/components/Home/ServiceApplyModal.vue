@@ -171,7 +171,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .banner {
   background-color: #ff4e31;
   height: 250px;

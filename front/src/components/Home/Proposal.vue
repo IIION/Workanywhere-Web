@@ -64,6 +64,7 @@ button {
   background-color: rgba( 255, 255, 255, 0);
   cursor: pointer;
 }
+
 @media screen and (max-width: 768px) {
   .container {
     padding: 50px 10% 150px 10%;
