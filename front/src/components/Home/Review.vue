@@ -1,7 +1,12 @@
 <template>
   <div class="container">
     <p class="title">워크애니웨어 고객 후기</p>
-    <carousel :items="5" :autoplay="true" :nav="false" :dots="false">
+    <carousel :items="3" :autoplay="true" :nav="false" :dots="false" class="desktop-carousel">
+      <div v-for="review in reviews" :key="review.id" class="review-cell">
+        <ReviewDetailVue :review="review"/>
+      </div>
+    </carousel>
+    <carousel :items="1" :autoplay="true" :nav="false" :dots="false" class="mobile-carousel">
       <div v-for="review in reviews" :key="review.id" class="review-cell">
         <ReviewDetailVue :review="review"/>
       </div>
@@ -22,6 +27,7 @@ export default {
   },
   data: function () {
     return {
+      wideMode: true,
       reviews: [
         {
           id: 0,
@@ -66,18 +72,26 @@ export default {
       ],
     };
   },
+  created() {
+    if (window.innerWidth > 768) {
+        this.wideMode = true
+      } else {
+        this.wideMode = false
+      }
+  }
 };
 </script>
 
 <style scoped>
 .container {
+  padding: 100px 0px 100px 0px;
   background-color: #f7f6f5;
 }
 
 .title {
   font-weight: 700;
-  font-size: 3rem;
-  padding: 103px 0px 70px 0px;
+  font-size: 2.5rem;
+  padding-bottom: 70px;
   margin: 0;
 }
 
@@ -87,11 +101,25 @@ export default {
 }
 
 .go-review {
-  padding: 50px 0px 103px 0px;
+  padding: 50px 0px 0px 0px;
   font-weight: 500;
   color: #FF4E31;
   font-size: 1.5rem;
   margin:0;
 }
+.desktop-carousel {
+    display: block;
+  }
+.mobile-carousel {
+  display: none;
+}
 
+@media screen and (max-width: 768px) {
+  .mobile-carousel {
+    display: block;
+  }
+  .desktop-carousel {
+    display: none;
+  }
+}
 </style>
