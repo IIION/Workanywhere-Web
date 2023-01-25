@@ -39,6 +39,7 @@ export default {
 .card-location{
   font-size: 1.3rem;
   color: #191919;
+  margin-top: 0;
   margin-bottom: 3px;
 }
 
