@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 .about-purpose-container {
-  padding: 95px 0px 95px 0px;
+  padding: 95px 15% 95px 15%;
 	display: flex;
 	justify-content: center;
 }
@@ -35,17 +35,23 @@ export default {
 }
 .title > p {
   font-weight: 700;
-  font-size: 3.6rem;
+  font-size: 2.5rem;
   margin: 0;
 }
 
 .description {
   text-align: left;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-top: 30px;
 }
 
 .description > p {
   margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .about-purpose-container {
+    padding: 50px 5% 50px 5%;
+  }
 }
 </style>
