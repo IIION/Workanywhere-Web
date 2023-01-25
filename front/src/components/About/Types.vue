@@ -60,45 +60,39 @@ export default {
 <style scoped>
 .type-container {
   background-color: #fffef6;
-  padding: 79px 0px 79px 0px;
+  padding: 95px 15% 95px 15%;
 }
 
 .type {
   font-family: "Montserrat";
   font-weight: 800;
-  font-size: 3rem;
+  font-size: 2.5rem;
   color: #ff4e31;
   margin: 0px 0px 77px 0px;
 }
 
 .type1 {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-bottom: 100px;
 }
 
-.type1 > .texts {
-  margin-left: 30px;
-}
+
 .type2 {
   display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.type2 > .texts {
-  margin-right: 30px;
+  justify-content: space-between;
 }
 
 .card-image {
   border-radius: 20px;
-  width: 30%;
+  width: 45%;
 }
 
 .texts {
   text-align: left;
-  width: 30%;
+  width: 45%;
 }
 .header {
   font-family: "Montserrat";
@@ -109,24 +103,24 @@ export default {
 
 .card-subtitle {
   font-weight: 400;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   margin: 0;
 }
 
 .card-title {
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 2.5rem;
   margin: 0;
 }
 
 .card-description {
   font-weight: 500;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 .card-subdescription {
   font-weight: 350;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #666666;
 }
 
@@ -146,4 +140,29 @@ button:hover {
   color: #FFFEF6;
 }
 
+@media screen and (max-width: 768px) {
+  .type-container {
+    background-color: #fffef6;
+    padding: 50px 0% 50px 0%;
+  }
+  .type1 {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+  .type2 {
+    flex-direction: column-reverse;
+    margin-bottom: 0px;
+  }
+  .card-image {
+    border-radius: 0px;
+    width: 100%;
+    height: 50vh;
+    object-fit: cover;
+  }
+  .texts {
+    padding: 5%;
+    text-align: left;
+    width: unset;
+  }
+}
 </style>
