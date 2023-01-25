@@ -48,9 +48,6 @@ export default {
   min-height: 150px;
 }
 
-.card-description3 {
-  margin-top: 50px;
-}
 @media screen and (max-width: 768px) {
   .card-description1 {
     min-height: unset;
