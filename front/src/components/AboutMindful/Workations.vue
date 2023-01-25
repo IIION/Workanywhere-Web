@@ -39,25 +39,27 @@ export default {
 
 <style scoped>
 .container {
-  padding: 30px 0px 30px 0px;
-  width: 80%;
+  padding: 95px 15% 95px 15%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 .title {
-  width: 50%;
   text-align: left;
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
 }
 .cards {
-  width: 50%;
-  align-items: left;
+  display: flex;
 }
 .card {
-  width: 300px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 5% 50px 5%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

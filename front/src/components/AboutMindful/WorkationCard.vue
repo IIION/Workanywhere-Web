@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="card-container">
     <img :src="cardInfo.imgURL" class="card-image" />
     <div class="info">
       <p class="card-location">{{ cardInfo.locationAndDate }}</p>
@@ -22,19 +22,19 @@ export default {
 </script>
 
 <style scoped>
-.container{
+.card-container{
   border-radius: 20px;
   box-shadow: 9px 21px 23px -12px rgba(0, 0, 0, 0.06);
 }
 .card-image {
   width: 100%;
   height: 200px;
-  object-fit: fill;
+  object-fit: cover;
   border-radius: 20px 20px 0px 0px;
 }
 .info {
-  width: 90%;
   text-align: left;
+  padding: 20px;
 }
 .card-location{
   font-size: 1.3rem;
