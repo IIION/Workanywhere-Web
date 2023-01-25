@@ -1,19 +1,24 @@
 <template>
   <div class="request-container">
     <p class="request-description">워크애니웨어의 워케이션을 경험해 보고 싶다면 전문가에게 물어보세요!</p>
-    <button>문의 하기</button>
+    <button @click="showConsulting">문의 하기</button>
   </div>
 </template>
 
 <script>
 export default {
-  name: "RequestVue"
+  name: "RequestVue",
+  methods: {
+    showConsulting() {
+      this.$emit('showConsulting', true)
+    }
+  }
 }
 </script>
 
 <style scoped>
 .request-container {
-  padding: 95px 0px 95px 0px;
+  padding: 95px 15% 95px 15%;
   background-color: #ff4e31;
   display: flex;
   align-items: center;
@@ -22,8 +27,8 @@ export default {
 .request-description {
   font-weight: 700;
   color: #FFFBE3;
-  font-size: 3.2rem;
-  max-width: 43%;
+  font-size: 2.5rem;
+  max-width: 50%;
 }
 
 button {
@@ -35,6 +40,16 @@ button {
   border: 1.5px solid #FF4E31;
   border-radius : 50px;
   background-color: #FFFBE3;
+  cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  .request-container {
+    padding: 50px 5% 50px 5%;
+    background-color: #ff4e31;
+  }
 
+.request-description {
+    max-width: 100%;
+  }
+}
 </style>

@@ -5,7 +5,7 @@
     <TypesVue/>
     <CustomConsultingVue v-on:showConsulting="showConsulting"/>
     <ReviewVue/>
-    <RequestVue/>
+    <RequestVue v-on:showConsulting="showConsulting"/>
     <FooterVue/>
     <div v-if="showConsultingModal == true" class="modal-background">
       <ConsultingModal class="consulting-modal" v-on:showConsulting="showConsulting"/>
