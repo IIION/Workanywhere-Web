@@ -3,8 +3,7 @@
     <div>
       <div class="talk-left">
         <p>
-          “나 지금 잘하고 있는거 맞나? 잠시 멈춰서 생각을 한 번 정리해보고
-          싶은데.."
+          “나 지금 잘하고 있는거 맞나? 잠시 멈춰서 생각을 한 번 정리해보고 싶은데.."
         </p>
       </div>
     </div>
@@ -37,14 +36,14 @@ export default {
 <style scoped>
 .talk-container {
   background-color: #f7f6f5;
-  padding: 30px 0px 30px 0px;
+  padding: 50px 15% 50px 15%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .talk-container > div {
-  width: 60%;
+  width: 100%;
   display: flex;
   margin: 15px 0px 15px 0px;
 }
@@ -78,6 +77,23 @@ p {
   font-size: 1.5rem;
   color:#666666;
 }
-
+@media screen and (max-width: 768px) {
+  .talk-container {
+    background-color: #f7f6f5;
+    padding: 30px 5% 30px 5%;
+  }
+  .talk-right {
+    width: 100%;
+    background-color: #fffbe3;
+    border-radius: 36.5px 0px 36.5px 36.5px;
+    padding: 0px 15px 0px 15px;
+  }
+  .talk-left {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 0px 36.5px 36.5px 36.5px;
+    padding: 0px 15px 0px 15px;
+  }
+}
 
 </style>

@@ -1,10 +1,8 @@
 <template>
-  <div class="container">
-    <img :src=program.imgURL class="backgroundimage">
+  <div class="card-container" :style="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(' + program.imgURL + ')'}">
     <div class="texts">
       <p class="subtitle">{{ program.subtitle }}</p>
       <p class="title">{{ program.title }}</p>
-      <div style="height:50px"></div>
       <p class="description1" v-for="description in program.description1" :key="description.idx">{{ description }}</p>
     </div>
   </div>
@@ -20,23 +18,20 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  position: relative;
-}
-.backgroundimage {
-  width: 100%;
-  height: 35vh;
-  filter: brightness(60%);
-  object-fit: cover;
+.card-container {
+  height: 25vh;
+  background-size: cover;
+  background-repeat: no-repeat;
   border-radius: 20px;
+  background-position: center;
 }
 .texts {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
+  width: 100%;
+  height: 100%;
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .subtitle {
   font-size: 1.3rem;
@@ -48,7 +43,7 @@ export default {
   font-weight: 700;
   font-size: 2rem;
   color: #FF4E31;
-  margin: 0;
+  margin: 0px 0px 50px 0px;
 }
 .description1 {
   color: #FEFEFE;

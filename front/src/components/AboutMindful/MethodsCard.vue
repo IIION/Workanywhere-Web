@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="card-container">
     <div class="inner-container">
       <p class="card-num">{{ cardInfo.num }}</p>
       <p class="card-description1">{{ cardInfo.description1 }}</p>
@@ -19,7 +19,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.card-container {
   background-color: #F7F6F5;
   border-radius: 10px;
 }
@@ -35,19 +35,28 @@ export default {
 }
 
 .card-description1 {
-  font-size: 2.5rem;
+  font-size: 2.3rem;
   font-weight: 700;
   /* 글자수에 따라 크기가 달라지는것을 방지. 다른 방법은? */
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .card-description2 {
   font-size: 1.5rem;
   line-height: 26.06px;
   color: #3D3D3D;
+  min-height: 150px;
 }
 
 .card-description3 {
   margin-top: 50px;
+}
+@media screen and (max-width: 768px) {
+  .card-description1 {
+    min-height: unset;
+  }
+  .card-description2 {
+    min-height: unset;
+  }
 }
 </style>

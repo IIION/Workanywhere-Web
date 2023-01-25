@@ -1,5 +1,5 @@
 <template>
-  <div class="banner-container">
+  <div class="banner-container" :style="{'background-image': 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(' + detail.imgURL + ')'}">
     <p class="type">{{ detail.type }}</p>
     <p class="title">{{ detail.title }}</p>
     <p class="semititle">{{ detail.semititle }}</p>
@@ -18,8 +18,6 @@ export default {
 <style scoped>
 .banner-container {
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)),
-    url("@/assets/Home/mainAboutBanner.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

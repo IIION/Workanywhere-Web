@@ -55,13 +55,13 @@ export default {
         description1: ["C-레벨이 고민하는 주제들에 대해서  주제 및 목적별에 맞는 전문가를 초빙하여", "유익한 인사이트를 얻을 수 있는 시간"]
       },
       {
-        imgURL: require("@/assets/AboutMindful/program3.jpg"),
+        imgURL: require("@/assets/AboutMindful/program4.jpg"),
         subtitle: "리더들의 네트워킹",
         title: "애니웨어 워커스 파티",
         description1: ["편안한 분위기에서 로컬 푸드와 함께 식사를 하면서", "리더로서의 고민을 나누고,  조직이 아닌 온전한 나로서 이야기를 나누는 시간"]
       },
       {
-        imgURL: require("@/assets/AboutMindful/program3.jpg"),
+        imgURL: require("@/assets/AboutMindful/program5.jpg"),
         subtitle: "온전한 나만의 휴식",
         title: "웰니스 프로그램",
         description1: ["사우나에서 피로를 씻고, 수영장에서 수영을 즐기며", "편안하고 건강한 휴식을 즐겨보세요"]
@@ -75,12 +75,12 @@ export default {
 
 <style scoped>
 .container {
-  padding: 30px 0px 30px 0px;
+  padding: 95px 15% 95px 15%;
   background-color: #FFFEF7;
 }
 .title {
   font-family: "Montserrat";
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #ff4e31;
 }
@@ -89,15 +89,16 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 15px;
 }
 .card {
-  width: 60%;
-  padding: 10px;
+  width: 100%;
+  padding: 40px;
 }
 
 .comment {
   color: #666666;
   font-size: 1.3rem;
-  margin: 30px 0px 30px 0px;
+  margin: 20px 0px 0px 0px;
 }
 </style>
