@@ -46,15 +46,15 @@ export default {
 
 <style scoped>
 .container {
-  padding: 30px 0px 50px 0px;
+  padding: 95px 15% 95px 15%;
 }
 .subtitle {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin: 0;
 }
 .title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ff4e31;
   margin: 0px 0px 60px 0px;
@@ -62,13 +62,21 @@ export default {
 
 .cards {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 .card {
-  width: 20%;
+  width: 30%;
 }
-
-.card:nth-child(2) {
-  margin: 0px 47px 0px 47px;
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 5% 50px 5%;
+  }
+  .cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .card {
+    width: 100%;
+  }
 }
 </style>

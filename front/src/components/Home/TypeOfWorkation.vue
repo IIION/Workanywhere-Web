@@ -26,7 +26,7 @@ export default {
     return {
       cardInfo: [
       { imgURL: require("@/assets/Home/mindfull.png"), semititle: '리더들을 위한', title: '마인드풀 워케이션', description: '서로에게 영감을 주는 리더들이 모여 여행지에서 새로운 라이프스타일을 즐기고 일도 하면서 서로간의 의미있는 연결을 통해 재충전하는 프로그램'},
-      { imgURL: require("@/assets/Home/retlit.png"), semititle: '2-Weeks & 4-Weeks', title: '애니웨어 리트릿', description: '서로에게 영감을 주는 리더들이 모여 여행지에서 새로운 라이프스타일을 즐기고 일도 하면서 서로간의 의미있는 연결을 통해 재충전하는 프로그램'}
+      { imgURL: require("@/assets/Home/retlit.png"), semititle: '2-Weeks & 4-Weeks', title: '애니웨어 리트릿', description: '복잡한 도심을 떠나 일을 하고 싶은 리모트 워커들을 위한 원할때 쉬고, 원할때 일하는 자유로운 워케이션 프로그램'}
       ]
     } 
   },
