@@ -1,17 +1,12 @@
 <template>
-  <div>
-    <div class="img-container">
-      <img class="banner-img" src="@/assets/AboutRetreat/aboutRetreatBanner.jpg"/>
-      <div class="inner-contents">
-        <div class="type">
-          <p @click="moveToMindful">마인드풀 워케이션</p>
-          <p>애니웨어 리트릿</p>
-        </div>
-        <div class="banner-description">
-          <p class="title">Anywhere Retreat</p>
-          <p class="semititle">애니웨어 리트릿</p>
-        </div>
-      </div>
+  <div class="banner-container">
+    <div class="type">
+      <p @click="moveToMindful">마인드풀 워케이션</p>
+      <p>애니웨어 리트릿</p>
+    </div>
+    <div class="banner-description">
+      <p class="title">Anywhere Retreat</p>
+      <p class="semititle">애니웨어 리트릿</p>
     </div>
   </div>
 </template>
@@ -28,25 +23,20 @@ export default {
 </script>
 
 <style scoped>
-.img-container {
-  position: relative;
-}
-.banner-img {
+.banner-container {
   width: 100%;
-  height: 50vh;
-  object-fit: cover;
-  filter: brightness(80%);
-}
-.inner-contents {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.26), rgba(0, 0, 0, 0.26)),
+    url("@/assets/AboutRetreat/aboutRetreatBanner.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding-top: 10vh;
+  padding-bottom: 20vh;
 }
 .type > p {
   display: inline;
   margin: 0px 10px 0px 10px;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 .type > p:nth-child(2) {
   font-weight: 700;
@@ -55,6 +45,7 @@ export default {
   text-underline-offset: 10px;
   cursor: pointer;
 }
+
 .type > p:nth-child(1) {
   color: #AFAFAF;
   cursor: pointer;
@@ -67,17 +58,26 @@ export default {
 }
 .title {
   font-family: "Montserrat";
-  font-size: 2.8rem;
+  font-size: 1.8rem;
   font-weight: 400;
   color: #fffbe3;
   margin-top: 61px;
   margin-bottom: 0;
 }
+
 .semititle {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #fffbe3;
   margin: 0;
 }
-
+@media screen and (max-width: 768px) {
+  .banner-container {
+    padding-top: 8vh;
+    padding-bottom: 10vh;
+  }
+  .banner-description {
+    margin-top: 30px;
+  }
+}
 </style>

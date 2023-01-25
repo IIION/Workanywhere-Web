@@ -57,12 +57,12 @@ export default {
   
   <style scoped>
 .container {
-  padding: 30px 0px 30px 0px;
-  background-color: #fffef7;
+  padding: 95px 15% 95px 15%;
+  background-color: #FFFEF7;
 }
 .title {
   font-family: "Montserrat";
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #ff4e31;
 }
@@ -71,9 +71,22 @@ export default {
   display: flex;
   align-items: center;
   flex-direction: column;
+  gap: 15px;
 }
 .card {
-  width: 60%;
-  padding: 10px;
+  width: calc(100% - 80px);
+  padding: 40px;
+}
+
+.comment {
+  color: #666666;
+  font-size: 1.3rem;
+  margin: 20px 0px 0px 0px;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 5% 50px 5%;
+    background-color: #FFFEF7;
+  }
 }
 </style>

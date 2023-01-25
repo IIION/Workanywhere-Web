@@ -92,7 +92,7 @@ export default {
   gap: 15px;
 }
 .card {
-  width: 100%;
+  width: calc(100% - 80px);
   padding: 40px;
 }
 
@@ -100,5 +100,11 @@ export default {
   color: #666666;
   font-size: 1.3rem;
   margin: 20px 0px 0px 0px;
+}
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 5% 50px 5%;
+    background-color: #FFFEF7;
+  }
 }
 </style>
