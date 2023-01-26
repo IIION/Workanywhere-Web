@@ -1,35 +1,37 @@
 <template>
-    <div class="segment">
-        <button v-for="(segment, idx) in segments" 
-            :key="segment" 
-            @click="updateSelection(segment)"
-            :class="{ 'active': segment === selection }"
-            :style="{
-                 fontFamily: idx === 0 ? 'Montserrat' : 'Noto Sans KR',
-                 fontWeight: idx === 0 ? 'bold' : 'normal'
-            }"
-        >
-        {{ segment }}
-        </button>
-    </div>
+  <div class="segment">
+    <button
+      v-for="(segment, idx) in segments"
+      :key="segment"
+      @click="updateSelection(segment, idx)"
+      :class="{ active: segment === selection }"
+      :style="{
+        fontWeight: idx === selectionIdx ? 700 : 400,
+      }"
+    >
+      {{ segment }}
+    </button>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "SegmentControl",
-    data: function() {
-        return {
-            segments: ['ALL', '속초', '영월'],
-            selection: 'ALL'
-        }
+  name: "SegmentControl",
+  data: function () {
+    return {
+      segments: ["ALL", "속초", "영월"],
+      selection: "ALL",
+      selectionIdx: 0,
+    };
+  },
+  methods: {
+    updateSelection(segment,idx) {
+      this.selection = segment;
+      this.selectionIdx = idx
+      this.$emit("selection-region", this.selection);
     },
-    methods: {
-        updateSelection(segment) {
-            this.selection = segment
-            this.$emit('selection-region', this.selection)
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
@@ -40,19 +42,24 @@ export default {
 }
 
 button {
-    width: 80.0px;
-    height: 43.0px;
-    margin-left: 10px;
-    margin-right: 10px;
-    font-size: 20.0px;
-    padding: 5.0px 15.0px 5.0px 15.0px;
-    border: none;
-    border-radius : 50px;
-    color: #666666;
-    background-color: #F7F6F5;
+  height: 43px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 1.3rem;
+  padding: 5px 20px 5px 20px;
+  border: none;
+  border-radius: 50px;
+  color: #666666;
+  background-color: #f7f6f5;
+  cursor: pointer;
 }
 .active {
-    color: white;
-    background-color: #FF4E31;
+  color: white;
+  background-color: #ff4e31;
+}
+@media screen and (max-width: 768px) {
+  .segment {
+    margin-top: 20px;
+  }
 }
 </style>
