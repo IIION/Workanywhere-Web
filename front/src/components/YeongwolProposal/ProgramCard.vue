@@ -64,4 +64,27 @@ export default {
   border-radius: 20px;
   margin: 0px 5px 0px 0px;
 }
+@media screen and (max-width: 768px) {
+  .card-container {
+    border-radius: 10px;
+    display: flex;
+  }
+  .card-image {
+    width: 30%;
+    height: 103px;
+    border-radius: 10px 0px 0px 10px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0px 10px 0px 10px;
+  }
+  .point {
+    display: none;
+  }
+  .card-detaildate {
+    margin-bottom: 0;
+  }
+}
 </style>

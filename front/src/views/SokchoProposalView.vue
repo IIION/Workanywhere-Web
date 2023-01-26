@@ -2,8 +2,9 @@
   <div>
     <div class="container">
       <div class="header">
-      <p @click="$router.go(-1)">＜</p>
-      <p>신청하기</p>
+        <p @click="$router.go(-1)">＜</p>
+        <p>신청하기</p>
+        <div class="white-area"></div>
     </div>
     <div class="contents">
       <!-- 카드와 안심 예약 문구가 들어갈 공간 -->
@@ -15,8 +16,8 @@
           <p>안심하고 예약하세요</p>
           <p>신청서를 제출하면 워크애니웨어에서 24시간 이내에 연락을 드릴거예요. </p>
         </div>
-        
       </div>
+      
       <!-- 신청 내역이 들어갈 공간 -->
       <div class="right-container">
         <ProposalFormCard
@@ -96,8 +97,8 @@ export default {
 
 <style scoped>
 .container {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 95px;
+  margin-bottom: 95px;
   margin-left: 15%;
   margin-right: 15%;
 }
@@ -113,6 +114,9 @@ export default {
 .header > p:nth-child(1) {
   margin-right: 30px;
   cursor: pointer;
+}
+.white-area {
+  display: none;
 }
 .contents {
   display: flex;
@@ -142,5 +146,40 @@ export default {
 }
 .foot > img {
   width: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0px 5% 50px 5%;
+  }
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .header > p:nth-child(1) {
+    margin-right: 0px;
+    cursor: pointer;
+  }
+  .white-area {
+    display: inline;
+    width: 16px;
+  }
+
+  .contents {
+    flex-direction: column;
+  }
+  .left-container {
+    width: 100%;
+  }
+  .right-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .guide {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 </style>

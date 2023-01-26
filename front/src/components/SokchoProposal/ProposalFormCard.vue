@@ -365,4 +365,11 @@ hr {
   color: #666666;
   font-weight: 700;
 }
+@media screen and (max-width: 768px) {
+  .price > p {
+    font-size: 1.6rem;
+    font-weight: 700;
+  }
+
+}
 </style>
