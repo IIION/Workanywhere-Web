@@ -10,7 +10,7 @@
       <!-- 중간 3개 카드 -->
       <div class="cards">
         <div class="card">
-          <p>신청완료</p>
+          <p>신청 완료</p>
           <p>신청 정보 입력 후 신청 완료</p>
         </div>
         <p>＞</p>
@@ -42,10 +42,8 @@
           </div>
           <div>
             <p>인원</p>
-            <div>
-              <p class="people">성인 {{ adult }}</p>
-              <p v-if="child" class="people">, 어린이 {{ child }}</p>
-            </div>
+            <p class="people">성인 {{ adult }}</p>
+            <p v-if="child" class="people">, 어린이 {{ child }}</p>
           </div>
           <div class="last-cell">
             <p>금액</p>
@@ -168,9 +166,8 @@ export default {
   width: 50px;
 }
 .middle-area {
-  margin-left: 15%;
-  margin-right: 15%;
-  padding: 30px 0px 30px 0px;
+
+  padding: 30px 15% 30px 15%;
 }
 
 .cards {
@@ -239,4 +236,40 @@ hr {
   margin: 20px 0px 20px 0px;
 }
 
+@media screen and (max-width: 768px) {
+  .middle-area {
+    padding: 30px 5% 30px 5%;
+  }
+  .cards {
+    flex-direction: column;
+  }
+  .cards > p {
+    font-size: 15px;
+    transform: rotate( 90deg );
+  }
+  .card {
+    width: 100%;
+    border-radius: 4.99842px;
+    padding: 0;
+    border: none;
+  }
+  .card > p:nth-child(1) {
+    font-weight: 500;
+  }
+  .card > p:nth-child(2) {
+    display: none;
+  }
+  .info {
+    flex-direction: column;
+  }
+  .info > div {
+    display: flex;
+    align-items: center;
+  }
+  .info > div > p:nth-child(1) {
+    min-width: 100px;
+    text-align: left;
+  }
+  
+}
 </style>
