@@ -4,6 +4,7 @@
       <div class="header">
         <p @click="$router.go(-1)">＜</p>
         <p>신청하기</p>
+        <div class="white-area"></div>
       </div>
       <div class="contents">
         <!-- 카드와 안심 예약 문구가 들어갈 공간 -->
@@ -102,8 +103,8 @@ export default {
   
 <style scoped>
 .container {
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 95px;
+  margin-bottom: 95px;
   margin-left: 15%;
   margin-right: 15%;
 }
@@ -119,6 +120,9 @@ export default {
 .header > p:nth-child(1) {
   margin-right: 30px;
   cursor: pointer;
+}
+.white-area {
+  display: none;
 }
 .contents {
   display: flex;
@@ -144,9 +148,44 @@ export default {
 }
 .foot {
   padding: 50px;
-  background-color: #f7f6f5;
+  background-color: #F7F6F5;
 }
 .foot > img {
   width: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0px 5% 50px 5%;
+  }
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .header > p:nth-child(1) {
+    margin-right: 0px;
+    cursor: pointer;
+  }
+  .white-area {
+    display: inline;
+    width: 16px;
+  }
+
+  .contents {
+    flex-direction: column;
+  }
+  .left-container {
+    width: 100%;
+  }
+  .right-container {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .guide {
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }
 </style>

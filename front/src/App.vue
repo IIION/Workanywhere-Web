@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Navbar class="navbar"/>
-    <router-view style="margin-top:70px;"/>
+    <Navbar class="navbar" v-if="showNav"/>
+    <router-view :style="{marginTop: showNav ? '70px' : '0px'}"/>
   </div>
 </template>
 
@@ -11,6 +11,23 @@ export default {
   name: "app",
   components: {
     Navbar
+  },
+  data: function() {
+    return {
+      showNav: true
+    }
+  },
+  watch: {
+    '$route': function (to, from) {
+      console.log(to)
+      if (to.name == "sokchoproposal" || to.name == "yeongwolproposal") {
+        if (window.screen.width < 768) {
+          this.showNav = false
+        }
+      } else {
+        this.showNav = true
+      }
+    }
   }
 }
 </script>
@@ -41,7 +58,7 @@ p {
   font-family: 'Noto Sans KR', sans-serif;
 }
 
-@media all and (max-width: 750px) {
+@media all and (max-width: 768px) {
   html { font-size: 50%; }
 }
 
