@@ -10,7 +10,6 @@
         <p id="2" :class="[selection === '2' ? 'selected' : 'common']" @click="changeSelect($event)">숙소</p>
         <p id="3" :class="[selection === '3' ? 'selected' : 'common']" @click="changeSelect($event)">오피스</p>
         <p id="4" :class="[selection === '4' ? 'selected' : 'common']" @click="changeSelect($event)">프로그램</p>
-        <p id="5" :class="[selection === '5' ? 'selected' : 'common']" @click="changeSelect($event)">리뷰</p>
       </div>
       <hr noshade>
     </div>
@@ -28,6 +27,7 @@
       changeSelect(event){
         const targetId = event.currentTarget.id
         this.selection = targetId
+        this.$emit('moveToChild', this.selection)
       }
     }
   }

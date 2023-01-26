@@ -1,23 +1,29 @@
 <template>
-  <div>
+  <div :class="{ noscroll: showShare }">
     <BannerVue />
     <div class="contents">
-      <div style="display: flex; justify-content: space-between">
+      <div style="display: flex; justify-content: space-between" ref="child0" class="childs">
         <div style="width: 43%">
-          <SegmentVue class="segment-container" />
-          <!-- 여기 인트로덕션 뷰 -->
+          <SegmentVue class="segment-container" v-on:moveToChild="moveToChild"/>
           <Introduction class="introduction" />
         </div>
-        <!-- 신청하기 컴포넌트가 들어갈 자리. 일단 빈 공간으로 -->
         <div style="width: 43%">
           <ConfirmCard v-on:showShareCard="showShareCard"/>
         </div>
       </div>
       <!-- 여기 쭉쭉 -->
-      <PointsVue />
-      <Lodging />
-      <Office />
-      <Programs />
+      <div ref="child1" class="childs">
+        <PointsVue />
+      </div>
+      <div ref="child2" class="childs">
+        <Lodging />
+      </div>  
+      <div ref="child3" class="childs">
+        <Office />
+      </div>
+      <div ref="child4" class="childs">
+        <Programs />
+      </div>
     </div>
     <FooterVue />
     <div class="modal-background" v-if="showShare">
@@ -65,6 +71,13 @@ export default {
       } else {
         document.body.style.overflow = "unset";
       }
+    },
+    moveToChild(id) {
+      this.$refs[`child${id}`].scrollIntoView({
+        behavior: "smooth",
+        inline: "nearest",
+        margin: 100
+      })
     }
   },
   mounted() {
@@ -75,8 +88,15 @@ export default {
   
   <style scoped>
 .contents {
-  margin-left: 15%;
-  margin-right: 15%;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+.noscroll {
+  overflow:hidden !important;
+  touch-action: none;
+}
+.childs {
+  scroll-margin: 70px;
 }
 .segment-container {
   margin-bottom: 50px;
