@@ -2,8 +2,8 @@
   <div>
     <Banner :detail="bannerdetail"/>
     <div class="total-container">
-      <side-bar ref="sideBar" :class="[isTooSmallWindow ? 'side-bar-hidden' : 'side-bar']" @selectedMonth="updateMonth" @selectedPeriod="sendPeriod" @period_range="updatePeriod" :style="{ width: computedSideBarWidth }"/>
-      <div class="collection-container" :style="{ width: computedCollectionWidth}">
+      <side-bar ref="sideBar" class="side-bar" @selectedMonth="updateMonth" @selectedPeriod="sendPeriod" @period_range="updatePeriod" :style="{ width: computedSideBarWidth }"/>
+      <div class="collection-container">
         <div class="container">
           <div class="segment-control">
             <segment-control @selection-region="updateRegion"></segment-control>
@@ -12,7 +12,7 @@
             <sorting-drop-down @selection-sort-option="updateSortOption"></sorting-drop-down>
           </div>
         </div>
-        <small-side-bar ref="smallSideBar" :class="[isTooSmallWindow ? 'small-side-bar' : 'side-bar-hidden']" @selectedMonth="updateMonth" @selectedPeriod="sendPeriod" @period_range="updatePeriod"/>
+        <small-side-bar ref="smallSideBar" class="small-side-bar" @selectedMonth="updateMonth" @selectedPeriod="sendPeriod" @period_range="updatePeriod"/>
         <div class="program-collection">
           <program-collection :selection="selection" :sortOption="sortOption" :selectedMonth="selectedMonth" :period_range="period_range" :cells="cells"></program-collection>
         </div>
@@ -68,7 +68,8 @@ export default {
           score: 10.0,
           startDate: '2022-12-14T00:00:00',
           date: '2022.12.14 - 12.16',
-          tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹']
+          tags: ['C-레벨', '자기탐색', '바다뷰', '네트워킹'],
+          moveTo: "programdetailsokcho"
         },
         {
           id: 2,
@@ -80,7 +81,8 @@ export default {
           score: 5.0,
           startDate: '2022-11-25T00:00:00',
           date: '2022.11.25 - 12.31',
-          tags: ['임직원', '패러글라이딩', '별빛야경', '산속뷰']
+          tags: ['임직원', '패러글라이딩', '별빛야경', '산속뷰'],
+          moveTo: "programdetailyeongwol"
         }
       ]
     }
@@ -124,8 +126,9 @@ export default {
       this.isSmallWindow = window.innerWidth < window.screen.width * 0.65 + 56
     }
   },
-  mounted() {
+  created() {
     window.scrollTo(0, 0);
+    this.handleResize()
     window.addEventListener("resize", this.handleResize);
   },
   beforeDestroy() {
@@ -150,6 +153,7 @@ export default {
 }
 .collection-container {
   display: grid;
+  width: 100%;
   padding-bottom: 167px;
 }
 .container {
@@ -159,5 +163,20 @@ export default {
 }
 .program-collection {
   padding-top: 40px;
+}
+.small-side-bar {
+    display: none;
+  }
+@media screen and (max-width: 768px) {
+  .total-container {
+    display: flex;
+    justify-content: left;
+  }
+  .small-side-bar {
+    display: unset;
+  }
+  .side-bar {
+    display: none;
+  }
 }
 </style>
