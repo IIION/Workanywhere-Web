@@ -5,30 +5,30 @@
         <p @click="$router.go(-1)">＜</p>
         <p>신청하기</p>
         <div class="white-area"></div>
-    </div>
-    <div class="contents">
-      <!-- 카드와 안심 예약 문구가 들어갈 공간 -->
-      <div class="left-container">
-        <ProgramCard
-          :cardInfo="cardInfo[0]"
-        />
-        <div class="guide">
-          <p>안심하고 예약하세요</p>
-          <p>신청서를 제출하면 워크애니웨어에서 24시간 이내에 연락을 드릴거예요. </p>
+      </div>
+      <div class="contents">
+        <!-- 카드와 안심 예약 문구가 들어갈 공간 -->
+        <div class="left-container">
+          <ProgramCard
+            :cardInfo="cardInfo[0]"
+          />
+          <div class="guide">
+            <p>안심하고 예약하세요</p>
+            <p>신청서를 제출하면 워크애니웨어에서 24시간 이내에 연락을 드릴거예요. </p>
+          </div>
+        </div>
+        
+        <!-- 신청 내역이 들어갈 공간 -->
+        <div class="right-container">
+          <ProposalFormCard
+            :adult="adult"
+            :child="child"
+            :detailPeriod="detailPeriod"
+            :programName="programName"
+            :region="region"
+          />
         </div>
       </div>
-      
-      <!-- 신청 내역이 들어갈 공간 -->
-      <div class="right-container">
-        <ProposalFormCard
-          :adult="adult"
-          :child="child"
-          :detailPeriod="detailPeriod"
-          :programName="programName"
-          :region="region"
-        />
-      </div>
-    </div>
     </div>
 
     <!-- 이 페이지만의 푸터 -->
@@ -133,12 +133,15 @@ export default {
   margin-top: 50px;
 }
 .guide > p:nth-child(1) {
+  color: #666666;
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 1.7rem;
+  margin-bottom: 10px;
 }
 .guide > p:nth-child(2) {
   color: #666666;
   font-size: 1.2rem;
+  margin: 0;
 }
 .foot {
   padding: 50px;
