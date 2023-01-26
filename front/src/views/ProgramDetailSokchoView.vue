@@ -2,10 +2,10 @@
   <div :class="{ noscroll: showShare }">
     <BannerVue/>
     <div class="contents">
-      <div style="display:flex; justify-content: space-between;">
+      <div style="display:flex; justify-content: space-between;" ref="child0" class="childs">
         <div style="width: 43%">
-          <SegmentVue class="segment-container"/>
-          <IntroductionVue class="introduction"/>
+          <SegmentVue class="segment-container" v-on:moveToChild="moveToChild"/>
+          <IntroductionVue class="introduction" />
         </div>
         <div style="width: 43%">
           <ConfirmVue
@@ -13,10 +13,19 @@
           />
         </div>
       </div>
-      <PointsVue/>
-      <LodgingVue/>
-      <OfficeVue/>
-      <Programs/>
+      <div ref="child1" class="childs">
+        <PointsVue />
+      </div>
+      <div ref="child2" class="childs">
+        <LodgingVue />
+      </div>  
+      <div ref="child3" class="childs">
+        <OfficeVue />
+      </div>
+      <div ref="child4" class="childs">
+        <Programs />
+      </div>
+      
     </div>
     <FooterVue/>
     <div class="modal-background" v-if="showShare">
@@ -65,6 +74,13 @@ export default {
       } else {
         document.body.style.overflow = "unset";
       }
+    },
+    moveToChild(id) {
+      this.$refs[`child${id}`].scrollIntoView({
+        behavior: "smooth",
+        inline: "nearest",
+        margin: 100
+      })
     }
   },
   mounted() {
@@ -75,12 +91,15 @@ export default {
 
 <style scoped>
 .contents {
-  margin-left: 15%;
-  margin-right: 15%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 .noscroll {
   overflow:hidden !important;
   touch-action: none;
+}
+.childs {
+  scroll-margin: 70px;
 }
 .segment-container{
   margin-bottom: 50px;
