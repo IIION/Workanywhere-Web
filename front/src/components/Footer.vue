@@ -86,25 +86,30 @@ p {
   .footer-container {
     flex-direction: column;
     align-items: center;
+    padding: 50px 5% 50px 5%;
   }
 
   .footer-left {
     min-width: 300px;
+    width: 100%;
   }
   .footer-contents {
     flex-direction: column;
+    width: 100%;
   }
 
   .footer-center {
-    margin-top: 30px;
+    margin: 30px 0px 0px 0px;
     text-align: left;
     min-width: 300px;
   }
 
   .footer-right {
     margin-top: 30px;
+    margin-left: 0;
     text-align: left;
     min-width: 300px;
+    width: 100%;
   }
 
   .footer-center > p:nth-child(2) {
