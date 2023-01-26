@@ -57,7 +57,7 @@
 
       <div v-if="selectedProgram != '옵션 선택'" class="selected-info">
         <p>{{ selectedProgram }}</p>
-        <p>인원 : {{ adults }}</p>
+        <p>인원 : {{ totalPeople }}</p>
         <hr />
         <div class="price-info">
           <p>가격</p>
