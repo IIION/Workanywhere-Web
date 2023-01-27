@@ -3,14 +3,12 @@
     <BannerVue/>
     <div class="contents">
       <div style="display:flex; justify-content: space-between;" ref="child0" class="childs">
-        <div style="width: 43%">
+        <div class="introduction-wrapper">
           <SegmentVue class="segment-container" v-on:moveToChild="moveToChild"/>
           <IntroductionVue class="introduction" />
         </div>
-        <div style="width: 43%">
-          <ConfirmVue
-            v-on:showShareCard="showShareCard"
-          />
+        <div class="confirm-wrapper">
+          <ConfirmVue v-on:showShareCard="showShareCard"/>
         </div>
       </div>
       <div ref="child1" class="childs">
@@ -104,6 +102,12 @@ export default {
 .segment-container{
   margin-bottom: 50px;
 }
+.introduction-wrapper {
+  width: 43%;
+}
+.confirm-wrapper {
+  width: 43%;
+}
 .request-container {
   width: 50%;
   background-color: red;
@@ -130,5 +134,20 @@ export default {
   transform: translate(-50%, -50%);
   box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
   
+}
+@media screen and (max-width: 768px) {
+  .contents {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .segment-container{
+    margin-bottom: 30px;
+  }
+  .confirm-wrapper {
+    display: none;
+  }
+  .introduction-wrapper {
+    width: 100%;
+  }
 }
 </style>

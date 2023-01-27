@@ -126,4 +126,19 @@ export default {
   transform: translate(-50%, -50%);
   box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
 }
+@media screen and (max-width: 768px) {
+  .contents {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .segment-container{
+    margin-bottom: 30px;
+  }
+  .confirm-wrapper {
+    display: none;
+  }
+  .introduction-wrapper {
+    width: 100%;
+  }
+}
 </style>

@@ -1,39 +1,39 @@
 <template>
-    <div class="container">
-      <div class="header">
-        <p class="location">강원도 > 영월</p>
-        <p class="title">천천히 영월</p>
-      </div>
-      <div class="segments">
-        <p id="0" :class="[selection === '0' ? 'selected' : 'common']" @click="changeSelect($event)">소개</p>
-        <p id="1" :class="[selection === '1' ? 'selected' : 'common']" @click="changeSelect($event)">포인트</p>
-        <p id="2" :class="[selection === '2' ? 'selected' : 'common']" @click="changeSelect($event)">숙소</p>
-        <p id="3" :class="[selection === '3' ? 'selected' : 'common']" @click="changeSelect($event)">오피스</p>
-        <p id="4" :class="[selection === '4' ? 'selected' : 'common']" @click="changeSelect($event)">프로그램</p>
-      </div>
-      <hr noshade>
+  <div class="container">
+    <div class="header">
+      <p class="location">강원도 > 영월</p>
+      <p class="title">천천히 영월</p>
     </div>
-  </template>
+    <div class="segments">
+      <p id="0" :class="[selection === '0' ? 'selected' : 'common']" @click="changeSelect($event)">소개</p>
+      <p id="1" :class="[selection === '1' ? 'selected' : 'common']" @click="changeSelect($event)">포인트</p>
+      <p id="2" :class="[selection === '2' ? 'selected' : 'common']" @click="changeSelect($event)">숙소</p>
+      <p id="3" :class="[selection === '3' ? 'selected' : 'common']" @click="changeSelect($event)">오피스</p>
+      <p id="4" :class="[selection === '4' ? 'selected' : 'common']" @click="changeSelect($event)">프로그램</p>
+    </div>
+    <hr noshade>
+  </div>
+</template>
   
-  <script>
-  export default {
-    name: "ProgramDetailSegmentsVue",
-    data: function () {
-      return {
-        selection: "0"
-      }
-    },
-    methods: {
-      changeSelect(event){
-        const targetId = event.currentTarget.id
-        this.selection = targetId
-        this.$emit('moveToChild', this.selection)
-      }
+<script>
+export default {
+  name: "ProgramDetailSegmentsVue",
+  data: function () {
+    return {
+      selection: "0"
+    }
+  },
+  methods: {
+    changeSelect(event){
+      const targetId = event.currentTarget.id
+      this.selection = targetId
+      this.$emit('moveToChild', this.selection)
     }
   }
-  </script>
+}
+</script>
   
-  <style scoped>
+<style scoped>
   .container {
     position: relative;
   }
@@ -81,5 +81,10 @@
     color: #666666;
     cursor: pointer;
   }
-  
-  </style>
+  @media screen and (max-width: 768px) {
+    hr {
+      width: 100%;
+      left: 0;
+    }
+  }
+</style>

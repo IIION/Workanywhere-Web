@@ -91,4 +91,20 @@ export default {
   color: #666666;
   margin: 0;
 }
+@media screen and (max-width: 768px) {
+  .title {
+    text-align: center;
+  }
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: left;
+  }
+  .checkmark {
+    margin: 0;
+  }
+  .description2 {
+    margin-top: 10px;
+  }
+}
 </style>
