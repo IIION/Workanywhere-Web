@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
+  <div class="points-container-wrapper">
     <p class="title">포인트</p>
 
-    <div class="card">
+    <div class="points-card">
       <p class="checkmark">✓</p>
       <div class="description1">
         <p>이름, 나이, 지위는</p>
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="points-card">
       <p class="checkmark">✓</p>
       <div class="description1">
         <p>각 분야 최고의</p>
@@ -28,7 +28,7 @@
       </div>
     </div>
 
-    <div class="card">
+    <div class="points-card">
       <p class="checkmark">✓</p>
       <div class="description1">
         <p>모든 일정은</p>
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.points-container-wrapper {
   padding: 30px 0px 30px 0px;
 }
 .title {
@@ -59,7 +59,7 @@ export default {
   font-weight: 700;
   font-size: 2rem;
 }
-.card {
+.points-card {
   margin: 30px 0px 30px 0px;
   background-color: #F7F6F5;
   padding: 30px;
@@ -69,7 +69,7 @@ export default {
   align-items: center
 }
 .checkmark{
-  font-size: 2rem;
+  font-size: 4rem;
   color: #FF4E31;
   margin-right: 30px;
 }
@@ -90,5 +90,17 @@ export default {
   font-size: 1.5rem;
   color: #666666;
   margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .points-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .checkmark{
+    margin: 0;
+  }
+  .description2 {
+    margin: 10px 0px 10px 0px;
+  }
 }
 </style>
