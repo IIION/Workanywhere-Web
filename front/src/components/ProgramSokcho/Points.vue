@@ -96,6 +96,9 @@ export default {
     flex-direction: column;
     align-items: flex-start;
   }
+  .title {
+    text-align: center;
+  }
   .checkmark{
     margin: 0;
   }
