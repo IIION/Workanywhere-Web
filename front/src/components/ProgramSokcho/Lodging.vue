@@ -101,7 +101,7 @@
         </div>
       </div>
       <div class="assets-carousel">
-        <carousel :paginationEnabled="false" :per-page="1" :autoplay="true">
+        <carousel :paginationEnabled="false" :per-page="1" :autoplay="true" :loop="true">
           <slide v-for="(img, index) in images" :key="index">
             <img :src="img" class="carousel-image">
           </slide>
@@ -252,7 +252,7 @@ hr {
   }
   .assets-carousel {
     display: unset;
-    margin: 10px 0px 10px 0px;
+    margin: 0px 0px 10px 0px;
   }
   .lodging-info {
     flex-direction: column-reverse;
