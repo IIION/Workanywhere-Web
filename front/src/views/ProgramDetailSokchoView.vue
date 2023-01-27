@@ -1,13 +1,13 @@
 <template>
   <div :class="{ noscroll: showShare }">
     <BannerVue/>
-    <div class="contents">
+    <div class="detail-contents-wrapper">
       <div style="display:flex; justify-content: space-between;" ref="child0" class="childs">
-        <div style="width: 43%">
+        <div class="intro-seg-wrapper">
           <SegmentVue class="segment-container" v-on:moveToChild="moveToChild"/>
           <IntroductionVue class="introduction" />
         </div>
-        <div style="width: 43%">
+        <div class="confirm-wrapper">
           <ConfirmVue
             v-on:showShareCard="showShareCard"
           />
@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style scoped>
-.contents {
+.detail-contents-wrapper {
   padding-left: 15%;
   padding-right: 15%;
 }
@@ -100,6 +100,12 @@ export default {
 }
 .childs {
   scroll-margin: 70px;
+}
+.intro-seg-wrapper {
+  width: 43%
+}
+.confirm-wrapper {
+  width: 43%
 }
 .segment-container{
   margin-bottom: 50px;
@@ -130,5 +136,21 @@ export default {
   transform: translate(-50%, -50%);
   box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
   
+}
+@media screen and (max-width: 768px) {
+  .detail-contents-wrapper {
+    padding-top: 10px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  .segment-container{
+    margin-bottom: 25px;
+  }
+  .confirm-wrapper {
+    display: none;
+  }
+  .intro-seg-wrapper {
+    width: 100%
+  }
 }
 </style>
