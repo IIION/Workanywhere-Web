@@ -87,7 +87,7 @@ export default {
 </script>
   
   <style scoped>
-.contents {
+.detail-contents-wrapper {
   padding-left: 15%;
   padding-right: 15%;
 }
@@ -97,6 +97,12 @@ export default {
 }
 .childs {
   scroll-margin: 70px;
+}
+.intro-seg-wrapper {
+  width: 43%
+}
+.confirm-wrapper {
+  width: 43%
 }
 .segment-container {
   margin-bottom: 50px;
