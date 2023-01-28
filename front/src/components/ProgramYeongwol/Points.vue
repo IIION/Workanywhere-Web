@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
+    <div class="points-container-wrapper">
       <p class="title">포인트</p>
   
-      <div class="card">
+      <div class="points-card">
         <p class="checkmark">✓</p>
         <div class="description1">
           <p>낯선 곳에서 새로운 경험,</p>
@@ -14,7 +14,7 @@
         </div>
       </div>
   
-      <div class="card">
+      <div class="points-card">
         <p class="checkmark">✓</p>
         <div class="description1">
           <p>사회적 위기를</p>
@@ -25,7 +25,7 @@
         </div>
       </div>
   
-      <div class="card">
+      <div class="points-card">
         <p class="checkmark">✓</p>
         <div class="description1">
           <p>기업 고객을 위한</p>
@@ -49,7 +49,7 @@
   </script>
   
   <style scoped>
-  .container {
+  .points-container-wrapper {
     padding: 30px 0px 30px 0px;
   }
   .title {
@@ -57,7 +57,7 @@
     font-weight: 700;
     font-size: 2rem;
   }
-  .card {
+  .points-card {
     margin: 30px 0px 30px 0px;
     background-color: #F7F6F5;
     padding: 30px;
@@ -67,7 +67,7 @@
     align-items: center
   }
   .checkmark{
-    font-size: 2rem;
+    font-size: 4rem;
     color: #FF4E31;
     margin-right: 30px;
   }
@@ -89,4 +89,19 @@
     color: #666666;
     margin: 0;
   }
+  @media screen and (max-width: 768px) {
+  .points-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .title {
+    text-align: center;
+  }
+  .checkmark{
+    margin: 0;
+  }
+  .description2 {
+    margin: 10px 0px 10px 0px;
+  }
+}
   </style>
