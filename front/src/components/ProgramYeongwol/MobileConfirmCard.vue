@@ -59,7 +59,7 @@
         <hr />
         <div class="price-info">
           <p>가격</p>
-          <p>{{ (990000 * adults) | currency }}원</p>
+          <p>{{ (standardPrice * adults) | currency }}원</p>
         </div>
       </div>
     </div>
