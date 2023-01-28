@@ -1,8 +1,8 @@
 <template>
-    <div class="container">
+    <div class="lodging-container">
       <p class="title">숙소</p>
   
-      <div class="info">
+      <div class="lodging-info">
         <!-- 왼쪽 -->
         <div class="info-text">
           <!-- 숙소 기본 정보 -->
@@ -90,18 +90,24 @@
         <div class="assets">
           <!-- 위 대표사진 -->
           <div class="represent-assets">
-            <img src="@/assets/ProgramDetail/lodgingImage1.jpg" class="represent-asset">
+            <img src="@/assets/ProgramDetail/lodging1.jpg" class="represent-asset">
           </div>
   
           <!-- 아래 3장 -->
           <div class="sub-assets">
-            <img src="@/assets/ProgramDetail/lodgingImage2.jpg" class="sub-asset">
-            <img src="@/assets/ProgramDetail/lodgingImage3.jpg" class="sub-asset">
-            <img src="@/assets/ProgramDetail/lodgingImage4.jpg" class="sub-asset">
+            <img src="@/assets/ProgramDetail/lodging2.jpg" class="sub-asset">
+            <img src="@/assets/ProgramDetail/lodging3.jpg" class="sub-asset">
+            <img src="@/assets/ProgramDetail/lodging4.jpg" class="sub-asset">
           </div>
   
         </div>
-  
+        <div class="assets-carousel">
+        <carousel :paginationEnabled="false" :per-page="1" :autoplay="true" :loop="true">
+          <slide v-for="(img, index) in images" :key="index">
+            <img :src="img" class="carousel-image">
+          </slide>
+        </carousel>
+      </div>
       </div>
       
     </div>
@@ -109,12 +115,22 @@
   
   <script>
   export default {
-    name: "ProgramDetailLodgingVue"
+    name: "ProgramDetailLodgingVue",
+    data: function() {
+    return {
+      images: [
+        require("@/assets/ProgramDetail/lodging1.jpg"),
+        require("@/assets/ProgramDetail/lodging2.jpg"),
+        require("@/assets/ProgramDetail/lodging3.jpg"),
+        require("@/assets/ProgramDetail/lodging4.jpg")
+      ]
+    }
+  }
   }
   </script>
   
   <style scoped>
-  .container {
+  .lodging-container {
     padding: 30px 0px 30px 0px;
   }
   .title {
@@ -122,7 +138,7 @@
     font-weight: 700;
     font-size: 2rem;
   }
-  .info {
+  .lodging-info {
     display: flex;
   }
   .info-text {
@@ -132,6 +148,9 @@
   .assets {
     width: 55%;
     margin-left: 3%;
+  }
+  .assets-carousel {
+    display: none;
   }
   .lodging-header {
     font-size: 1.1rem;
@@ -227,5 +246,26 @@
   .sub-asset:nth-child(3) {
     border-radius: 0px 0px 20px 0px;
   }
-  
+  @media screen and (max-width: 768px) {
+  .title {
+    text-align: center;
+  }
+  .assets {
+    display: none;
+  }
+  .assets-carousel {
+    display: unset;
+    margin: 0px 0px 10px 0px;
+  }
+  .lodging-info {
+    flex-direction: column-reverse;
+  }
+  .info-text {
+    width: 100%;
+  }
+  .carousel-image {
+    height: 300px;
+    width: 100%;
+  }
+}
   </style>

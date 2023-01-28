@@ -1,25 +1,24 @@
 <template>
-<div id="border">
-  <div>
-<!--    close    -->
-    <button id="xButton" @click="showShareCard">
-      <img src="@/assets/ShareAsset/xMark.png">
-    </button>
-  </div>
-  
-  <div id="textArea">
-    <p class="shareText">주변 동료와 가족분들에게</p>
-    <p class="shareText">공유해보세요</p>
-  </div>
+  <div id="border">
+    <div>
+      <!--    close    -->
+      <button id="xButton" @click="showShareCard">
+        <img src="@/assets/ShareAsset/xMark.png" />
+      </button>
+    </div>
 
-  <div style="margin-top: 36px">
-    <button id="linkCopyButton" @click="copyURL">
-      <img src="@/assets/ShareAsset/linkCopy.png" style="margin-right: 5px">
-      <p id="linkCopyText">링크복사</p>
-    </button>
-  </div>
+    <div id="textArea">
+      <p class="shareText">주변 동료와 가족분들에게</p>
+      <p class="shareText">공유해보세요</p>
+    </div>
 
-</div>
+    <div style="margin-top: 36px">
+      <button id="linkCopyButton" @click="copyURL">
+        <img src="@/assets/ShareAsset/linkCopy.png" style="margin-right: 5px" />
+        <p id="linkCopyText">링크복사</p>
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -27,27 +26,26 @@ export default {
   name: "ProgramSokchoShareVue",
   methods: {
     showShareCard() {
-      this.$emit('showShareCard', false)
+      this.$emit("showShareCard", false);
     },
     async copyURL() {
       try {
         const url = window.location.href;
         await navigator.clipboard.writeText(url);
-        this.$emit('showShareCard', false)
+        this.$emit("showShareCard", false);
       } catch (err) {
-        console.error('복사 에러: ', err);
+        console.error("복사 에러: ", err);
       }
-    }
-  }
-}
+    },
+  },
+};
 </script>
 
 <style scoped>
-
 #border {
   width: 30vw;
   height: 30vh;
-  border: 1px solid #D9D9D9;
+  border: 1px solid #d9d9d9;
   background-color: white;
   border-radius: 20px;
 
@@ -78,7 +76,7 @@ export default {
   font-weight: bold;
   color: black;
   text-align: center;
-  margin:0;
+  margin: 0;
 }
 
 #linkCopyButton {
@@ -86,7 +84,7 @@ export default {
   height: 47px;
   border-width: 0px;
   border-radius: 10px;
-  background-color: #F7F6F5;
+  background-color: #f7f6f5;
 
   display: flex;
   flex-direction: row;
@@ -99,5 +97,11 @@ export default {
   font-size: 14px;
   color: #191919;
 }
-
+@media screen and (max-width: 768px) {
+  #border {
+    border-radius: 20px 20px 0px 0px;
+    width: calc(100% - 60px);
+    padding: 30px;
+  }
+}
 </style>

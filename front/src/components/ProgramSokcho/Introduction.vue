@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="introduction-container-wrapper">
     <p class="description1">리더가 할 일의 99%는 자신의 마음을 다스리는 일이다 - 마크 레서</p>
     <pre class="description2">구글, 페이스북, 애플, 인텔, 등 글로벌 기업은 
 내면 탐색 프로그램을 통해 조직의 업무환경을 탈바꿈 하고 있습니다. </pre>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.introduction-container-wrapper {
   text-align: left;
 }
 .description1 {
@@ -33,4 +33,5 @@ export default {
   overflow: auto;
   white-space: pre-wrap; 
 }
+
 </style>

@@ -1,10 +1,8 @@
 <template>
-  <div class="confirmcard-container" style="background-color: white">
-    <div>
-      <p class="price">990,000원</p>
-
+  <div class="total-wrapper" v-click-outside="closeDetail">
+    <!-- 디테일 -->
+    <div class="detail-wrapper" v-if="showDetail">
       <p class="contents-header">날짜</p>
-
       <!-- 날짜 선택 셀렉터 -->
       <div class="date-select-container">
         <div
@@ -64,29 +62,27 @@
           <p>{{ (990000 * adults) | currency }}원</p>
         </div>
       </div>
-    </div>
 
-    <div class="buttons">
-      <button
-        :class="[
-          selectedProgram !== '옵션 선택'
-            ? 'proposal-button'
-            : 'proposal-button-deactive',
-        ]"
-        @click="moveToProposalPage"
-      >
-        신청하기
-      </button>
-      <button class="share-button" @click="showShareCard">공유</button>
     </div>
+    <!-- 기본 신청 스티키바 -->
+    <div class="basic-wrapper">
+      <p class="standard-price">990,000원</p>
+      <button 
+      :class="[ selectedProgram !== '옵션 선택' || !showDetail ? 'confirm-button' : 'confirm-button-deactive']"
+      @click="confirm"
+      >신청하기</button>
+    </div>
+    
   </div>
 </template>
 
 <script>
+import { directive as clickOutside } from 'v-click-outside'
 export default {
-  name: "ProgramSokchoConfirmCardVue",
-  data: function () {
+  name: "ProgramSokchoMobileConfirmCardVue",
+  data: function() {
     return {
+      showDetail: false,
       adults: 1,
       childs: 0,
       totalPeople: 1,
@@ -102,7 +98,7 @@ export default {
       selectedTime: "",
       showDateOption: false,
       showPeopleOption: false,
-    };
+    }
   },
   filters: {
     currency: function (value) {
@@ -111,6 +107,24 @@ export default {
     },
   },
   methods: {
+    confirm() {
+      if (!this.showDetail) {
+        this.showDetail = !this.showDetail
+      } else {
+        if (this.selectedProgram != "옵션 선택") {
+          this.$router.push({
+            name: "sokchoproposal",
+            params: {
+              adult: this.adults,
+              child: this.childs,
+              period: this.selectedPeriod,
+              time: this.selectedTime,
+              detailPeriod: this.selectedProgram,
+            },
+          });
+        }
+      }
+    },
     showDateOptions() {
       this.showDateOption = !this.showDateOption;
       this.showPeopleOption = false;
@@ -145,45 +159,60 @@ export default {
       this.childs += 1;
       this.totalPeople += 1;
     },
-    moveToProposalPage() {
-      if (this.selectedProgram != "옵션 선택") {
-        this.$router.push({
-          name: "sokchoproposal",
-          params: {
-            adult: this.adults,
-            child: this.childs,
-            period: this.selectedPeriod,
-            time: this.selectedTime,
-            detailPeriod: this.selectedProgram,
-          },
-        });
+    closeDetail() {
+      if (this.showDetail) {
+        this.showDetail = !this.showDetail
       }
-    },
-    showShareCard() {
-      this.$emit('showShareCard', true)
+      
     }
   },
-};
+  directives: {
+    clickOutside
+  },
+  
+}
 </script>
 
 <style scoped>
-.confirmcard-container {
-  width: 80%;
+.total-wrapper {
   background-color: white;
-  border: 1px solid #d9d9d9;
-  box-shadow: 4px 7px 14px 1px rgba(0, 0, 0, 0.12);
-  border-radius: 20px;
-  padding: 43px 21px 44px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-top: 30px;
+  border-radius: 20px 20px 0px 0px;
 }
-.price {
+.basic-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5%;
+  border-top: 1px solid #D9D9D9;;
+}
+.standard-price {
   font-weight: 700;
   font-size: 2rem;
   text-align: left;
-  margin-top: 0;
+  margin: 0;
+}
+.confirm-button {
+  width: 47%;
+  height: 40px;
+  border-radius: 10px;
+  border: 0px;
+  background-color: #ff4e31;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+.confirm-button-deactive {
+  width: 47%;
+  height: 40px;
+  border-radius: 10px;
+  border: 0px;
+  background-color: #cacaca;
+  color: #666666;
+  font-weight: 500;
+  cursor: pointer;
+}
+.detail-wrapper {
+  padding: 5%;
 }
 .contents-header {
   font-weight: 500;
@@ -227,9 +256,11 @@ export default {
   border-left: 1px solid #d9d9d9;
   position: absolute;
   background-color: white;
+  max-height: 80px;
+  overflow: scroll;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 800;
 }
 
 .date-select-container .items div {
@@ -242,7 +273,6 @@ export default {
 .selectHide {
   display: none;
 }
-
 .people-select-container {
   position: relative;
   width: 100%;
@@ -320,35 +350,7 @@ export default {
   display: flex;
   justify-content: space-between;
   font-weight: 700;
+  font-size: 2rem;
 }
-.proposal-button {
-  width: 100%;
-  height: 40px;
-  margin: 20px 0px 10px 0px;
-  border-radius: 10px;
-  border: 0px;
-  background-color: #ff4e31;
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-}
-.proposal-button-deactive {
-  width: 100%;
-  height: 40px;
-  margin: 20px 0px 10px 0px;
-  border-radius: 10px;
-  border: 0px;
-  background-color: #cacaca;
-  color: #666666;
-  font-weight: 500;
-}
-.share-button {
-  width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  border: 0px;
-  background-color: #f7f6f5;
-  color: #ff4e31;
-  cursor: pointer;
-}
+
 </style>

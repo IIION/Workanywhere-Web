@@ -36,7 +36,7 @@ export default {
 <style scoped>
 .card-container {
   height: 30vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("@/assets/AboutMindful/program3.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("@/assets/AboutMindful/program4.jpg");
   background-size:cover;
   background-repeat: no-repeat;
   border-radius: 20px;

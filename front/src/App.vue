@@ -19,7 +19,6 @@ export default {
   },
   watch: {
     '$route': function (to, from) {
-      console.log(to)
       if (to.name == "sokchoproposal" || to.name == "yeongwolproposal") {
         if (window.screen.width < 768) {
           this.showNav = false

@@ -51,6 +51,22 @@
           </p>
         </div>
       </div>
+
+      <!-- 여기부터 작업 -->
+      <div class="after-cards-carousel">
+        <carousel :paginationEnabled="false" :per-page="1" :autoplay="true" :loop="true" :autoplayTimeout="4000">
+          <slide v-for="(img, index) in images" :key="index">
+            <img :src="img" class="carousel-image">
+            <div class="after-card-details">
+              <p class="after-card-title">{{ detailDescript[index].title }}</p>
+              <p class="after-card-description">
+                {{ detailDescript[index].detail }}
+              </p>
+            </div>
+          </slide>
+        </carousel>
+      </div>
+
       <div class="toggle-container">
         <p class="toggle" @click="toggleMoreInfo">접기 ></p>
       </div>
@@ -64,6 +80,25 @@ export default {
   data: function () {
     return {
       toggleState: false,
+      images: [
+        require("@/assets/ProgramDetail/saunaImage.jpg"),
+        require("@/assets/ProgramDetail/golfImage.jpg"),
+        require("@/assets/ProgramDetail/fitnessImage.jpg")
+      ],
+      detailDescript: [
+        {
+          title: "치유인(온천 사우나)",
+          detail: "온천수로 피로를 씻고, 사우나에서 편안하고 건강한 휴식을 즐겨보세요"
+        },
+        {
+          title: "골프 연습장",
+          detail: "5타석이 있는 깔끔한 시설의 골프연습장 (개인 장비를 지참해야 합니다)"
+        },
+        {
+          title: "피트니스 센터",
+          detail: "유산소 운동과, 웨이트 트레이닝을 할 수 있는 시설을 갖추고 있어요"
+        }
+      ]
     };
   },
   methods: {
@@ -135,6 +170,9 @@ export default {
 .after-cards {
   display: flex;
 }
+.after-cards-carousel {
+  display: none;
+}
 .after-card-inner-container {
   display: flex;
   flex-direction: column;
@@ -160,5 +198,28 @@ export default {
 .toggle-container {
   text-align: center;
   height: 10%;
+}
+@media screen and (max-width: 768px) {
+  .after-card-container {
+    padding: 0;
+    overflow: hidden;
+    height: 40vh;
+  }
+  .after-cards {
+    display: none;
+  }
+  .after-cards-carousel {
+    display: unset;
+    
+  }
+  .carousel-image {
+    width: 100%;
+    max-height: 180px;
+    border-radius: 20px 20px 0px 0px;
+    object-fit: cover;
+  }
+  .after-card-details {
+    padding: 20px;
+  }
 }
 </style>

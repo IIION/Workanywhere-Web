@@ -82,4 +82,10 @@ hr {
   cursor: pointer;
 }
 
+@media screen and (max-width: 768px) {
+  hr {
+    width: 100%;
+    left: 0;
+  }
+}
 </style>

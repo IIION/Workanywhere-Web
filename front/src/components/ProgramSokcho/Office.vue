@@ -140,4 +140,9 @@ export default {
 .card {
   margin-top: 15px;
 }
+@media screen and (max-width: 768px) {
+  .title {
+    text-align: center;
+  }
+}
 </style>

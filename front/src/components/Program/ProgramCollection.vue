@@ -98,7 +98,6 @@ export default {
     checkMonth(selectedMonth, cellDate) {
       let dates = cellDate.split(" - ");
       let months = [dates[0].split(".")[1], dates[1].split(".")[0]];
-      console.log(months);
       return months.includes(selectedMonth);
     },
     checkPeriod(period_days, range) {

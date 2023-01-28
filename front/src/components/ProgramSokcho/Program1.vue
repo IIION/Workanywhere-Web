@@ -146,6 +146,18 @@ export default {
   margin-bottom: 5px;
   font-size: 1.3rem;
 }
+
+@media screen and (max-width: 768px) {
+  .more-texts-inner-container {
+    flex-direction: column;
+  }
+  .arrow {
+    display: none;
+  }
+  .more-texts-header1 {
+    margin-bottom: 5px;
+  }
+}
 </style>
 
 
