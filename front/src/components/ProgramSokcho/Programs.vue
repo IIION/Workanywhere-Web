@@ -44,4 +44,9 @@ export default {
 .sub-info {
   margin: 30px 0px 0px 0px
 }
+@media screen and (max-width: 768px) {
+  .title {
+    text-align: center;
+  }
+}
 </style>

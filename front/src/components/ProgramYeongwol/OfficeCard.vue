@@ -1,7 +1,7 @@
 <template>
     <div class="card-container">
       <img :src="cardData.officeImg" class="office-image">
-      <div class="office-info-container">
+      <div class="office-info-container" :class="showOfficeInfoClass">
         <div>
           <p class="office-name">{{ cardData.officeName }}</p>
         <p class="office-description">{{ cardData.officeDescription }}</p>
@@ -19,7 +19,7 @@
         </div>
         
       </div>
-      <div class="detail-container">
+      <div class="detail-container" :class="showDetailClass">
         <p class="detail-container-title">업무 시설</p>
         <div class="detail-inner-container">
           <div v-for="detail in cardData.details" :key="detail.idx" class="detail-inner-info">
@@ -28,17 +28,41 @@
           </div>
         </div>
       </div>
+      <div class="mobile-button">
+        <button @click="togglemenu" v-if="showOfficeInfoClass.active">+</button>
+        <button @click="togglemenu" v-if="!showOfficeInfoClass.active">-</button>
+      </div>
     </div>
   </template>
   
-  <script>
-  export default {
-    name: "ProgramYeongwolOfficeCardVue",
-    props: {
-      cardData: Object
+<script>
+export default {
+  name: "ProgramYeongwolOfficeCardVue",
+  data: function() {
+    return {
+      showOfficeInfoClass: {
+        'active': true,
+        'inactive': false
+      },
+      showDetailClass: {
+        'active': false,
+        'inactive': true
+      }
+    }
+  },
+  props: {
+    cardData: Object
+  },
+  methods: {
+    togglemenu() {
+      this.showOfficeInfoClass.active = !this.showOfficeInfoClass.active
+      this.showOfficeInfoClass.inactive = !this.showOfficeInfoClass.inactive
+      this.showDetailClass.active = !this.showDetailClass.active
+      this.showDetailClass.inactive = !this.showDetailClass.inactive
     }
   }
-  </script>
+}
+</script>
   
   <style scoped>
   .card-container {
@@ -97,7 +121,9 @@
     color: #666666;
     margin: 0;
   }
-  
+  .mobile-button {
+    display: none;
+  }
   
   
   .detail-container-title {
@@ -114,6 +140,8 @@
   .detail-inner-info {
     display: flex;
     margin-top: 15px;
+    justify-content: center;
+    align-items: center;
   }
   .detail-image {
     width: 20%;
@@ -125,4 +153,46 @@
     padding-left: 5px;
     margin: 0;
   }
+  @media screen and (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+  }
+  .office-image {
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+  }
+  .office-info-container {
+    width: unset;
+    padding: 15px 15px 15px 15px;
+  }
+  .mobile-button {
+    display: unset;
+    margin-bottom: 10px;
+  }
+  .mobile-button > button {
+    background-color: #f7f6f5;
+    border-radius: 50%;
+    font-size: 2rem;
+    border: 0;
+  }
+  .detail-container {
+    width: unset;
+    border-left: none;
+    padding: 15px 15px 15px 15px;
+    margin: 0;
+  }
+  .detail-inner-container {
+    grid-row-gap: 15px;
+  }
+  .detail-inner-info {
+    margin: 0;
+  }
+  .detail-image {
+    width: 10%;
+    object-fit: contain;
+  }
+  .inactive {
+    display: none;
+  }
+}
   </style>
