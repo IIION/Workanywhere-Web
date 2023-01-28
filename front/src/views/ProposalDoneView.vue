@@ -146,7 +146,7 @@ export default {
     }
   },
   created(){
-    console.log(this.adult)
+
   }
 }
 </script>

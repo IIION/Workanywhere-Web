@@ -13,6 +13,7 @@
           />
         </div>
       </div>
+      <button class="mobile-share" @click="showShareCard">공유</button>
       <div ref="child1" class="childs">
         <PointsVue />
       </div>
@@ -31,6 +32,7 @@
     <div class="modal-background" v-if="showShare">
       <Share class="shareCard" v-on:showShareCard="showShareCard"/>
     </div>
+    <MobileConfirmCard class="mobile-confirm-wrapper"/>
     
   </div>
 </template>
@@ -45,6 +47,7 @@ import PointsVue from '@/components/ProgramSokcho/Points.vue';
 import LodgingVue from '@/components/ProgramSokcho/Lodging.vue';
 import OfficeVue from '@/components/ProgramSokcho/Office.vue';
 import Programs from '@/components/ProgramSokcho/Programs.vue';
+import MobileConfirmCard from '@/components/ProgramSokcho/MobileConfirmCard.vue';
 import FooterVue from '@/components/Footer.vue';
 
 export default {
@@ -54,6 +57,7 @@ export default {
     SegmentVue,
     ConfirmVue,
     Share,
+    MobileConfirmCard,
     IntroductionVue,
     PointsVue,
     LodgingVue,
@@ -118,6 +122,9 @@ export default {
 .introduction {
   width: 100%;
 }
+.mobile-share {
+  display: none;
+}
 .modal-background {
   position: fixed;
   top: 0;
@@ -137,6 +144,9 @@ export default {
   box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
   
 }
+.mobile-confirm-wrapper {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .detail-contents-wrapper {
     padding-top: 10px;
@@ -151,6 +161,30 @@ export default {
   }
   .intro-seg-wrapper {
     width: 100%
+  }
+  .mobile-share {
+    display: unset;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #f7f6f5;
+    color: #ff4e31;
+    cursor: pointer;
+  }
+  .shareCard {
+    top:unset;
+    bottom: 0%;
+    transform: translate(-50%, 0%);
+    z-index: 10003;
+  }
+  .mobile-confirm-wrapper {
+    display: unset;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transform: translate(-50%, 0%);
+    z-index: 100;
   }
 }
 </style>

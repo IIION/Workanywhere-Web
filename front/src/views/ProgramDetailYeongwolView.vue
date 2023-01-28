@@ -11,6 +11,7 @@
           <ConfirmCard v-on:showShareCard="showShareCard"/>
         </div>
       </div>
+      <button class="mobile-share" @click="showShareCard">공유</button>
       <!-- 여기 쭉쭉 -->
       <div ref="child1" class="childs">
         <PointsVue />
@@ -29,6 +30,7 @@
     <div class="modal-background" v-if="showShare">
       <Share class="shareCard" v-on:showShareCard="showShareCard"/>
     </div>
+    <MobileConfirmCard class="mobile-confirm-wrapper"/>
   </div>
 </template>
   
@@ -42,6 +44,7 @@ import PointsVue from "@/components/ProgramYeongwol/Points.vue";
 import Lodging from "@/components/ProgramYeongwol/Lodging.vue";
 import Office from "@/components/ProgramYeongwol/Office.vue";
 import Programs from "@/components/ProgramYeongwol/Programs.vue";
+import MobileConfirmCard from "@/components/ProgramYeongwol/MobileConfirmCard.vue";
 import FooterVue from "@/components/Footer.vue";
 
 export default {
@@ -57,6 +60,7 @@ export default {
     Office,
     Programs,
     FooterVue,
+    MobileConfirmCard
   },
   data: function() {
     return {
@@ -115,6 +119,9 @@ export default {
 .introduction {
   width: 100%;
 }
+.mobile-share {
+  display: none;
+}
 .modal-background {
   position: fixed;
   top: 0;
@@ -132,6 +139,9 @@ export default {
   transform: translate(-50%, -50%);
   box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
 }
+.mobile-confirm-wrapper {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   .detail-contents-wrapper {
     padding-top: 10px;
@@ -141,11 +151,34 @@ export default {
   .segment-container{
     margin-bottom: 25px;
   }
+  .mobile-share {
+    display: unset;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: #f7f6f5;
+    color: #ff4e31;
+    cursor: pointer;
+  }
   .confirm-wrapper {
     display: none;
   }
   .intro-seg-wrapper {
     width: 100%
+  }
+  .shareCard {
+    top:unset;
+    bottom: 0%;
+    transform: translate(-50%, 0%);
+  }
+  .mobile-confirm-wrapper {
+    display: unset;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transform: translate(-50%, 0%);
+    z-index: 100;
   }
 }
 </style>

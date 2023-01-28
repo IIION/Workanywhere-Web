@@ -97,21 +97,17 @@ export default {
   },
   methods: {
     updateRegion(segment) {
-      console.log(segment)
       this.selection = segment;
     },
     updateSortOption(option) {
-      console.log(option)
       this.sortOption = option;
     },
     updateMonth(month) {
-      console.log(month)
       this.selectedMonth = month;
       this.$refs.sideBar.selectedMonth = month
       this.$refs.smallSideBar.selectedMonth = month
     },
     updatePeriod(period) {
-      console.log(period)
       this.period_range = period;
       this.$refs.sideBar.period_range = period;
       this.$refs.smallSideBar.period_range = period;
