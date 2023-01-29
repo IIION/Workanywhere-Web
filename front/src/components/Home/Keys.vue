@@ -69,6 +69,9 @@ p {
 }
 
 @media screen and (max-width: 768px) {
+  .keys-container {
+    padding: 50px 0px 50px 0px;
+  }
   .cards {
     display: block;
     white-space: nowrap;

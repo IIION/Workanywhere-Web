@@ -92,7 +92,7 @@
           <input type="checkbox" id="select2">
           <label for="select2" :class="[checked1 === true ? 'checked' : 'non-checked']" @click="select1"></label>
           <div class="clause-texts">
-            <a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e">개인 정보 수집 및 이용</a>
+            <a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e" target="_blank">개인 정보 수집 및 이용</a>
             <p>에 동의합니다 (필수)</p>
           </div>
         </div>
@@ -102,7 +102,7 @@
           <input type="checkbox" id="select3">
           <label for="select3" :class="[checked2 === true ? 'checked' : 'non-checked']" @click="select2"></label>
           <div class="clause-texts">
-            <a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e">워크애니웨어의 워케이션 소식 및 마케팅</a>
+            <a href="https://workanywherekr.notion.site/65f892d8b3164c8fa0c0858de043699e" target="_blank">워크애니웨어의 워케이션 소식 및 마케팅</a>
             <p>에 대한 정보수신을 동의합니다. (선택)</p>
           </div>
         </div>

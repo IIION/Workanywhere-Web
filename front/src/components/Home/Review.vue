@@ -11,7 +11,7 @@
         <ReviewDetailVue :review="review"/>
       </div>
     </carousel>
-    <p class="go-review">더 많은 후기 보기 ></p>
+    <p class="go-review" @click="moveToBlog">더 많은 후기 보기 ></p>
   </div>
 </template>
 
@@ -72,6 +72,11 @@ export default {
       ],
     };
   },
+  methods: {
+    moveToBlog() {
+      window.open('https://blog.naver.com/PostList.naver?blogId=workanywhere&from=postList&categoryNo=9','_blank')
+    }
+  },
   created() {
     if (window.innerWidth > 768) {
         this.wideMode = true
@@ -115,6 +120,10 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 0px 50px 0px;
+    background-color: #f7f6f5;
+  }
   .mobile-carousel {
     display: block;
   }

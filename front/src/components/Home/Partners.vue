@@ -46,6 +46,9 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .partners-wrapper {
+    padding: 50px 0px 50px 0px;
+  }
   .logos {
     padding: 0;
   }
