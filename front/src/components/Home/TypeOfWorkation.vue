@@ -98,7 +98,7 @@ button:hover {
 @media screen and (max-width: 768px) {
   .total-container {
     background-color: #F7F6F5;
-    padding: 97px 0px 97px 0px;
+    padding: 50px 0px 50px 0px;
   }
   .card-container {
     display: block;

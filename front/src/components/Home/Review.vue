@@ -120,6 +120,10 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
+  .container {
+    padding: 50px 0px 50px 0px;
+    background-color: #f7f6f5;
+  }
   .mobile-carousel {
     display: block;
   }

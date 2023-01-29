@@ -139,7 +139,7 @@ export default {
 }
 @media screen and (max-width: 768px) {
   .info-container {
-    padding: 100px 0px 100px 0px;
+    padding: 50px 0px 50px 0px;
   }
   .segment button {
     padding: 10px 20px 10px 20px;
